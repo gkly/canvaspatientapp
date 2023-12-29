@@ -1,0 +1,25 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":2,
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Schedule","id":"Location.1-Staff.e766816672f34a5b866771c773e38f3c","text":{"status":"generated","div":"<div>Schedule for Youta Priti MD at Demo Clinic</div>"},"actor":[{"reference":"Practitioner/e766816672f34a5b866771c773e38f3c","type":"Practitioner"}],"comment":"Schedule for Youta Priti MD at Demo Clinic"}},
+    {
+      "resource":{
+        "resourceType":"Schedule",
+        "id":"Location.1-Staff.abb6bc714d35412dbbc4f5e80dcb30e6",
+        "text":{
+          "status":"generated","div":"<div>Schedule for Gloria Kim MD at Demo Clinic</div>"},
+        "actor":[
+          {
+            "reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6",
+            "type":"Practitioner"
+          }
+        ],
+        "comment":"Schedule for Gloria Kim MD at Demo Clinic"
+      }
+    }
+  ]
+}

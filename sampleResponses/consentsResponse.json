@@ -1,0 +1,41 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":1,
+  "link":[
+    {
+      "relation":"self",
+      "url":"/Consent?_count=10&_offset=0"
+    },
+    {
+      "relation":"first","url":"/Consent?_count=10&_offset=0"},{"relation":"last","url":"/Consent?_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Consent",
+        "id":"31b77fb9-000a-4824-881f-1f716ba12e32",
+        "status":"active",
+        "scope":{"text":"Unknown"},
+        "category":[
+          {
+            "coding":[
+              {
+                "system":"LOINC",
+                "code":"A",
+                "display":"Diabetes Management Program"
+              }
+            ]
+          }
+        ],
+        "patient":{
+          "reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89",
+          "type":"Patient"
+        },
+        "dateTime":"2023-11-24T19:01:55.963394+00:00",
+        "provision":{
+          "period":{"start":"2023-11-24"}
+        }
+      }
+    }
+  ]
+}

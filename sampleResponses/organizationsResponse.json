@@ -1,0 +1,37 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":3098,
+  "link":[
+    {"relation":"self","url":"/Organization?_count=10&_offset=0"},{"relation":"first","url":"/Organization?_count=10&_offset=0"},{"relation":"next","url":"/Organization?_count=10&_offset=10"},{"relation":"last","url":"/Organization?_count=10&_offset=3090"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Organization",
+        "id":"00000000-0000-0000-0002-000000000000",
+        "active":true,
+        "name":"Canvas Medical",
+        "telecom":[
+          {"system":"phone","value":"8003701416","use":"work"},{"system":"email","value":"engineering@canvasmedical.com","use":"work"}],
+        "address":[
+          {"use":"work","type":"both","line":["2037 Irving Street","Suite 228"],"city":"San Francisco","state":"CA","postalCode":"94122"}]
+      }
+    },
+    {
+      "resource":{
+        "resourceType":"Organization",
+        "id":"2940d21c-6a1d-43fe-a2d7-ed69859c2964",
+        "active":true,
+        "name":" Adventist Health Plan"
+      }
+    },
+    {
+      "resource":{
+        "resourceType":"Organization",
+        "id":"a6c5bd7a-3eff-4fa0-b58b-68197278200f",
+        "active":true,
+        "name":" Custody Medical Services Program"
+      }
+    },
+    {
+      "resource":{"resourceType":"Organization","id":"abfda0f4-ff67-4313-b404-3d9d22d3952a","active":true,"name":"1199 National Benefit Fund"}},{"resource":{"resourceType":"Organization","id":"9fe685ad-12cb-4596-97e1-f412f45c6b0b","active":true,"name":"1st Auto & Casualty - MN Only"}},{"resource":{"resourceType":"Organization","id":"3521525d-91bd-43d6-a894-10b4b0d78129","active":true,"name":"6 Degrees Health Incorporated"}},{"resource":{"resourceType":"Organization","id":"5fddbdd3-c274-4185-b0b1-d838fa71c5f9","active":true,"name":"A I Benefit Plan Administrators"}},{"resource":{"resourceType":"Organization","id":"166d0d4b-c852-4872-8f85-2578eeb0aca8","active":true,"name":"A-G Administrators LLC"}},{"resource":{"resourceType":"Organization","id":"ab5f1ac8-e0ea-4afa-8b55-536460e417cc","active":true,"name":"A.W. Holdings LLC Dba Benchmark - CT, FL, GA, IN, MD, MI, MO, NJ, NM, TN, VA - CORVEL"}},{"resource":{"resourceType":"Organization","id":"07324c52-2535-4b37-9db1-68a3d0002b71","active":true,"name":"AAA - Minnesota/Iowa"}}]}

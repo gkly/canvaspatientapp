@@ -1,0 +1,339 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":35,
+  "link":[
+    {
+      "relation":"self",
+      "url":"/Questionnaire?_count=10&_offset=0"},
+    {"relation":"first","url":"/Questionnaire?_count=10&_offset=0"},
+    {"relation":"next","url":"/Questionnaire?_count=10&_offset=10"},{"relation":"last","url":"/Questionnaire?_count=10&_offset=30"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Questionnaire",
+        "id":"98e6a95a-5873-4255-8f8a-d7d54b22cd3e",
+        "name":"AUDIT-C",
+        "status":"active",
+        "description":"The Alcohol Use Disorders Identification Test-Consumption (AUDIT-C) is a brief validated screen for risky drinking and alcohol abuse and dependence (alcohol misuse).",
+        "code":[
+          {
+            "system":"http://loinc.org","code":"72109-2"
+          }
+        ],
+        "item":[
+          {
+            "linkId":"e40bda8f-a334-42fb-82fc-c059208ca310",
+            "code":[
+              {"system":"http://loinc.org","code":"68518-0"}
+            ],
+            "text":"How often do you have a drink containing alcohol?",
+            "type":"choice",
+            "repeats":false,
+            "answerOption":[
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA6270-8",
+                  "display":"Never"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18926-8",
+                  "display":"Monthly or less"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18927-6",
+                  "display":"2-4 times a month"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18928-4",
+                  "display":"2-3 times a week"}
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18929-2",
+                  "display":"5 or more times a week"
+                }
+              }
+            ]
+          },
+          {
+            "linkId":"668ca199-e651-40a8-b6cd-0872fde2f92d",
+            "code":[
+              {
+                "system":"http://loinc.org","code":"68519-8"
+              }
+            ],
+            "text":"How many drinks did you have on a typical day when you were drinking in the past year?",
+            "type":"choice",
+            "repeats":false,
+            "answerOption":[
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA15694-5",
+                  "display": "2 or fewer"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA15695-2",
+                  "display":"3 or 4"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18930-0",
+                  "display":"5 or 6"}
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18931-8","display":"7 to 9"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18932-6","display":"10 or more"
+                }
+              }
+            ]
+          },
+          {
+            "linkId":"0d9f748a-de6d-4dce-bc81-a8b174267026",
+            "code":[{"system":"http://loinc.org","code":"68520-6"}],
+            "text":"How often do you have 6 or more drinks on 1 occasion?",
+            "type":"choice",
+            "repeats":false,
+            "answerOption":[
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA6270-8",
+                  "display":"Never"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18933-4",
+                  "display":"Less than monthly"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18876-5",
+                  "display":"Monthly"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18891-4",
+                  "display":"Weekly"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA18934-2",
+                  "display":"Daily or almost daily"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource":{
+        "resourceType":"Questionnaire",
+        "id":"23eeb827-b9c4-4833-8171-06c8d9b38516",
+        "name":"GAD-7","status":"active","description":"Over the last 2 weeks, how often have you been bothered by the following problems?","code":[{"system":"http://loinc.org","code":"69737-5"}],"item":[{"linkId":"afe7ec62-2b3a-437b-b580-89515ff90dd0","code":[{"system":"http://loinc.org","code":"69725-0"}],"text":"Feeling nervous, anxious or on edge?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"4615d9ab-464d-4e3a-8fa7-f9959c36fd09","code":[{"system":"http://loinc.org","code":"68509-9"}],"text":"Have you not been able to stop or control worrying?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"d1b5dff6-4047-4b5f-925d-ed2de12e38c1","code":[{"system":"http://loinc.org","code":"69733-4"}],"text":"Worrying too much about different things?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"af5eef28-0f98-406b-931d-bbefa617036e","code":[{"system":"http://loinc.org","code":"69734-2"}],"text":"Trouble relaxing?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"9be50cd2-f1f5-4595-8791-dcd40fb65f21","code":[{"system":"http://loinc.org","code":"69735-9"}],"text":"Being so restless that it is hard to sit still?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"f840fe87-a3ea-499f-bb0c-2b82cd28ecdd","code":[{"system":"http://loinc.org","code":"69689-8"}],"text":"Becoming easily annoyed or irritable?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"f1fd6b40-aff9-42b8-b913-d2956fe83da5","code":[{"system":"http://loinc.org","code":"69736-7"}],"text":"Being afraid as if something awful might happen?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]}]}},
+    {
+      "resource":{
+        "resourceType":"Questionnaire",
+        "id":"c2037ee7-9362-4f38-abff-07c045af4e13","name":"GAD-2","status":"active","description":"Over the last 2 weeks, how often have you been bothered by the following problems?","code":[{"system":"http://snomed.info/sct","code":"836551000000102"}],"item":[{"linkId":"57758f52-1027-40ca-874e-5acfab3266c3","code":[{"system":"http://loinc.org","code":"69725-0"}],"text":"Feeling nervous, anxious or on edge?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"a53b5a2a-3e1b-4cc2-833e-8a2517218fa0","code":[{"system":"http://loinc.org","code":"68509-9"}],"text":"Not being able to control or stop worrying?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]}]}},
+    {
+      "resource":{
+        "resourceType":"Questionnaire",
+        "id":"ae6b6266-5be9-455f-8f4b-b3671bff1f00",
+        "name":"PHQ-9",
+        "status":"active",
+        "description":"Over the last 2 weeks, how often have you been bothered by any of the following problems?","code":[{"system":"http://loinc.org","code":"44249-1"}],"item":[{"linkId":"eae2fcae-24ab-43ef-bc49-3d0db78400bd","code":[{"system":"http://loinc.org","code":"44250-9"}],"text":"Little interest or pleasure in doing things?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"f088631d-fab4-4228-94cc-d91914231109","code":[{"system":"http://loinc.org","code":"44255-8"}],"text":"Feeling down, depressed, or hopeless?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"7ea7135a-6581-41ca-8e70-bef4a89af8c6","code":[{"system":"http://loinc.org","code":"44259-0"}],"text":"Trouble falling or staying asleep, or sleeping too much?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"e3a826df-63b1-4566-b5e8-05a7010e2d06","code":[{"system":"http://loinc.org","code":"44254-1"}],"text":"Feeling tired or having little energy?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"0835c73d-3d05-4809-9acd-5274d6b08e0f","code":[{"system":"http://loinc.org","code":"44251-7"}],"text":"Poor appetite or overeating?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"d595d1c7-58df-4b8b-ad6a-4f287ab87eb7","code":[{"system":"http://loinc.org","code":"44258-2"}],"text":"Feeling bad about yourself - or that you are a failure or have let yourself or your family down?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"eca3fb00-70ce-4bc5-9a39-3c7439e95475","code":[{"system":"http://loinc.org","code":"44252-5"}],"text":"Trouble concentrating on things, such as reading the newspaper or watching television?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"892364c5-2953-446f-8cb6-03a6fd9353ce","code":[{"system":"http://loinc.org","code":"44253-3"}],"text":"Moving or speaking so slowly that other people could have noticed. Or the opposite-being so fidgety or restless that you have been moving around a lot more than usual?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"6ab7b838-046e-4756-95a6-5de474aab337","code":[{"system":"http://loinc.org","code":"44260-8"}],"text":"Thoughts that you would be better off dead, or of hurting yourself in some way?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"ae5f5aaa-ac78-46f8-9417-a21c780ae9e7","code":[{"system":"http://loinc.org","code":"69722-7"}],"text":"How difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6572-7","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6573-5","display":"Somewhat difficult"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6575-0","display":"Very difficult"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6574-3","display":"Extremely difficult"}}]}]}},
+    {
+      "resource":{"resourceType":"Questionnaire","id":"b56eb192-c43b-48a0-bb25-a854dde0426c","name":"PHQ-2","status":"active","description":"Over the last 2 weeks, how often have you been bothered by any of the following problems?","code":[{"system":"http://loinc.org","code":"58120-7"}],"item":[{"linkId":"ec1b9b3f-bfcc-4d0e-911e-cb397fbd73d5","code":[{"system":"http://loinc.org","code":"44250-9"}],"text":"Little interest or pleasure in doing things?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]},{"linkId":"97856ca5-f953-4759-be97-c9d9b860d743","code":[{"system":"http://loinc.org","code":"44255-8"}],"text":"Feeling down, depressed, or hopeless?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6569-3","display":"Several days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6570-1","display":"More than half the days"}},{"valueCoding":{"system":"http://loinc.org","code":"LA6571-9","display":"Nearly every day"}}]}]}},
+    {
+      "resource":{"resourceType":"Questionnaire","id":"b7d36d9f-887b-4c02-8b99-d30f72b70f05","name":"Diabetes","status":"active","description":"No Description Provided","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_01"}],"item":[{"linkId":"4389013e-cf90-4879-88dd-e519cdfc7769","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_02"}],"text":"Type","type":"choice","repeats":true,"answerOption":[{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"R7303","display":"Prediabetes"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E109","display":"DM Type 1 without complications"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E119","display":"DM Type 2 without complications"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"Z794","display":"Long term insulin use"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E118","display":"DM Type 2 with unspecified complications ★"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E1159","display":"DM Type 2 with circulatory complications ★"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E1165","display":"DM Type 2 with hyperglycemia ★"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E11649","display":"DM Type 2 with hypoglycemia ★"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E1129","display":"DM Type 2 with kidney complications ★"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E1142","display":"DM Type 2 with polyneuropathy ★"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E11630","display":"DM Type 2 with periodontal disease ★"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"E11621","display":"DM Type 2 with foot ulcer ★"}},{"valueCoding":{"system":"http://hl7.org/fhir/sid/icd-10","code":"B351","display":"DM Type 2 with onychomycosis ★"}}]},{"linkId":"762c96a9-76cd-414a-8dd5-9114fbceba30","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_03"}],"text":"Status","type":"choice","repeats":true,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_04","display":"suboptimal"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_05","display":"stable"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_06","display":"improved"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_07","display":"new"}}]},{"linkId":"131ff5d8-370b-422b-af97-ea4624e5c592","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_08"}],"text":"Lab Values: A1c","type":"choice","repeats":true,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_09","display":"A1c<7%"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_10","display":"A1c 7-9%"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_11","display":"A1c >9%"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_12","display":"Results not available"}}]},{"linkId":"dd27ae38-5595-4437-b13e-f33cf4fc94ae","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_13"}],"text":"Data Review","type":"text","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_14","display":"data"}}]},{"linkId":"12ad059e-0f40-4922-9807-93548ee8b3c7","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_15"}],"text":"Assessment - HbA1c goal","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_16","display":"<7.0% (healthy, uncomplicated, low risk of hypoglycemia, or metformin monotherapy)"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_17","display":"<7.5%(generally healthy)"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_18","display":"7.5 - 8.0% (complex or poor health - 3+ chronic co-morbid conditions, 2+ IADL impairments, or mild to moderate cognitive impairment)"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_19","display":"8.0 - 9.0% (complex or frail health - LTC, end-stage chronic illness, mod to severe cognitive impairment, or 2+ ADL dependencies)"}}]},{"linkId":"8958307a-f99f-4de5-a282-f786ae747fcc","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_20"}],"text":"Assessment - Ophthalmology","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_21","display":"needs referral to ophthalmology for routine annual examinations"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_22","display":"followed by ophthalmology regularly"}}]},{"linkId":"1d9d10df-8dc3-4d39-8dc9-e2b3c54f353d","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_23"}],"text":"Assessment - Foot Exam","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_24","display":"annual diabetic foot exam up to date"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_25","display":"patient declined diabetic foot exam today"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_26","display":"unable to perform diabetic foot exam today"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_27","display":"per patient report followed by podiatry"}}]},{"linkId":"3e9b03ad-5c47-4ced-85a7-96cabb4f9983","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_28"}],"text":"Assessment - Physical Activity","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_29","display":"I rarely or never do any physical activities"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_30","display":"I do some light or moderate physical activities, but not every week"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_31","display":"I do some light physical activity every week"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_32","display":"I do moderate physical activities every week, but less than 30 minutes a day or less than 5 days a week"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_33","display":"I do at least 30 minutes or more a day of moderate physical activities, 5 or more days"}}]},{"linkId":"4ef8a9a5-c166-4dd1-b339-3139626743c4","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_34"}],"text":"Assessment - Eating Habits","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_35","display":"poor: patient is not attempting to reduce carbohydrates"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_36","display":"suboptimal: patient indicates awareness of but has difficulty complying with a carb-controlled diet"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_37","display":"adequate: patient is aware of and is attempting to comply with a carb-controlled diet"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_38","display":"good: patient endorses daily compliance with a carb-controlled diet"}}]},{"linkId":"97dd6f8c-c9eb-4aa2-98c9-0221fc04c795","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_39"}],"text":"Assessment - Statin therapy","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_40","display":"on low-intensity statin"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_41","display":"on moderate-intensity statin"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_42","display":"on high-intensity statin"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_43","display":"not on statin"}}]},{"linkId":"3e26e631-e50f-498a-b7d2-3e2d87d3ec44","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_44"}],"text":"Assessment - Medication Regimen","type":"text","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_45","display":"meds"}}]},{"linkId":"873d80f6-7fab-4f18-89f4-7647e30900b1","code":[{"system":"http://snomed.info/sct","code":"STRUCTURED_ASSESSMENT_DIABETES_46"}],"text":"Additional Information","type":"text","repeats":false,"answerOption":[{"valueCoding":{"system":"http://snomed.info/sct","code":"STRUCTURED_ASSESSMENT_DIABETES_47","display":"_txt_"}}]},{"linkId":"452b03f8-d186-47da-a26b-ebe340614b11","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_48"}],"text":"Recommendation","type":"choice","repeats":true,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_49","display":"continue with carb-controlled diet and exercise"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_50","display":"continue current management"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_51","display":"consider referral to endocrinology"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_52","display":"consider referral to podiatry"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_53","display":"consider referral to ophthalmology"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_54","display":"placed referral for diabetes education"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_55","display":"consider up titration to a high intensity statin due to ASCVD risk"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_56","display":"consider initiating statin therapy due to ASCVD risk"}}]},{"linkId":"eb596bd0-a84c-4f00-a7eb-8190f5579115","code":[{"system":"http://snomed.info/sct","code":"STRUCTURED_ASSESSMENT_DIABETES_57"}],"text":"Other Recommendations","type":"text","repeats":false,"answerOption":[{"valueCoding":{"system":"http://snomed.info/sct","code":"STRUCTURED_ASSESSMENT_DIABETES_58","display":"_txt_"}}]},{"linkId":"64386938-e90f-490c-8bb6-a6352007043e","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_59"}],"text":"Patient Instructions","type":"choice","repeats":true,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_60","display":"discussed the importance of carbohydrate portion control"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_61","display":"counseled diabetic meal plan basics and blood sugar diary"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_62","display":"encouraged 30 minutes of exercise, 5 days a week"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_63","display":"encouraged eating fewer simple carbohydrates, more dietary fiber (green leafy vegetables) and whole grains"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_64","display":"counseled on diabetic foot care"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_65","display":"Counseled patient on podiatry insurance benefits available"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_66","display":"Counseled patient on proper DM foot care"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"STRUCTURED_ASSESSMENT_DIABETES_67","display":"Advised patient to call EyeMed Vision Providers at 1-844-226-2850 to schedule appt for vision check"}}]}]}},
+    {
+      "resource":{
+        "resourceType":"Questionnaire",
+        "id":"06f4c9ac-c25e-497a-a09f-d934ec94cc1d",
+        "name":"Tobacco",
+        "status":"active",
+        "description":"No Description Provided",
+        "code":[{"system":"http://loinc.org","code":"72166-2"}],
+        "item":[
+          {
+            "linkId":"b6229a2a-9bea-4af2-823b-2aac83529123",
+            "code":[{"system":"http://loinc.org","code":"39240-7"}],
+            "text":"Tobacco status",
+            "type":"choice",
+            "repeats":false,
+            "answerOption":[
+              {
+                "valueCoding":{
+                  "system":"http://snomed.info/sct",
+                  "code":"266919005",
+                  "display":"Never user"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://snomed.info/sct",
+                  "code":"8517006",
+                  "display":"Former user"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://snomed.info/sct",
+                  "code":"449868002",
+                  "display":"Current every day user"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://snomed.info/sct",
+                  "code":"428041000124106",
+                  "display":"Current some day user"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://snomed.info/sct",
+                  "code":"428071000124103",
+                  "display":"Current Heavy tobacco user"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://snomed.info/sct",
+                  "code":"428061000124105",
+                  "display":"Current Light tobacco user"
+                }
+              },
+              {
+                "valueCoding":{
+                  "system":"http://snomed.info/sct",
+                  "code":"77176002",
+                  "display":"Tobacco user, current status unknown"
+                }
+              },
+              {
+                "valueCoding":{"system":"http://snomed.info/sct","code":"266927001","display":"Unknown if ever used tobacco"}}
+            ]
+          },
+          {
+            "linkId":"3cf92248-9f82-4deb-8c44-bae99370472b",
+            "code":[{"system":"http://snomed.info/sct","code":"711013002"}],
+            "text":"Tobacco type",
+            "type":"choice",
+            "repeats":true,
+            "answerOption":[
+              {"valueCoding":{"system":"http://snomed.info/sct","code":"722496004","display":"Cigarettes"}},
+              {"valueCoding":{"system":"http://snomed.info/sct","code":"722498003","display":"eCigarette"}},
+              {"valueCoding":{"system":"http://snomed.info/sct","code":"713914004","display":"Smokeless"}},
+              {"valueCoding":{"system":"http://snomed.info/sct","code":"72249700","display":"Cigar/Pipe"}}
+            ]
+          },
+          {
+            "linkId":"cdfe7281-212d-4e98-8024-43d68e98ee1c",
+            "code":[
+              {
+                "system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal",
+                "code":"QUES_TOBACCO_Q3"
+              }
+            ],
+            "text":"Tobacco comment",
+            "type":"text",
+            "repeats":false,
+            "answerOption":[
+              {
+                "valueCoding":{
+                  "system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal",
+                  "code":"QUES_TOBACCO_A1",
+                  "display":"Tobacco comment"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource":{
+        "resourceType":"Questionnaire",
+        "id":"76c1f72f-2725-45e8-937a-0035706e33d0",
+        "name":"Alcohol, Tobacco, and Other Substances",
+        "status":"active",
+        "description":"No Description Provided",
+        "code":[{"system":"http://loinc.org","code":"62541-8"}],
+        "item":[
+          {
+            "linkId":"77b0bb36-2b95-41fc-82ce-bbe24dc6f745",
+            "code":[{"system":"http://loinc.org","code":"68518-0"}],
+            "text":"How often do you have a drink containing alcohol?",
+            "type":"choice",
+            "repeats":false,
+            "answerOption":[
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA6270-8",
+                  "display":"Never"
+                }
+              },
+              {
+                "valueCoding":{"system":"http://loinc.org","code":"LA18926-8","display":"Monthly or less"}},
+              {
+                "valueCoding":{"system":"http://loinc.org","code":"LA18927-6","display":"2-4 times a month"}},
+              {
+                "valueCoding":{"system":"http://loinc.org","code":"LA18928-4","display":"2-3 times a week"}},
+              {
+                "valueCoding":{"system":"http://loinc.org","code":"LA18929-2","display":"5 or more times a week"}}
+            ]
+          },
+          {
+            "linkId":"574501d3-444f-41f4-ad2e-7f186a949ec1","code":[{"system":"http://loinc.org","code":"68519-8"}],"text":"How many drinks did you have on a typical day when you were drinking in the past year?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA15694-5","display":"2 or fewer"}},{"valueCoding":{"system":"http://loinc.org","code":"LA15695-2","display":"3 or 4"}},{"valueCoding":{"system":"http://loinc.org","code":"LA18930-0","display":"5 or 6"}},{"valueCoding":{"system":"http://loinc.org","code":"LA18931-8","display":"7 to 9"}},{"valueCoding":{"system":"http://loinc.org","code":"LA18932-6","display":"10 or more"}}]},
+          {
+            "linkId":"272b7fd6-13ec-42a5-aa5b-2a8cd30dd690","code":[{"system":"http://loinc.org","code":"68520-6"}],"text":"How often do you have 6 or more drinks on 1 occasion?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6270-8","display":"Never"}},{"valueCoding":{"system":"http://loinc.org","code":"LA18933-4","display":"Less than monthly"}},{"valueCoding":{"system":"http://loinc.org","code":"LA18876-5","display":"Monthly"}},{"valueCoding":{"system":"http://loinc.org","code":"LA18891-4","display":"Weekly"}},{"valueCoding":{"system":"http://loinc.org","code":"LA18934-2","display":"Daily or almost daily"}}]},
+          {
+            "linkId":"4da60518-61f3-4459-b0a1-3b278793ef2a","code":[{"system":"http://loinc.org","code":"39240-7"}],"text":"Tobacco status","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://snomed.info/sct","code":"266919005","display":"Never smoker"}},{"valueCoding":{"system":"http://snomed.info/sct","code":"8517006","display":"Former smoker"}},{"valueCoding":{"system":"http://snomed.info/sct","code":"449868002","display":"Current everyday smoker"}},{"valueCoding":{"system":"http://snomed.info/sct","code":"428041000124106","display":"Current some day smoker"}},{"valueCoding":{"system":"http://snomed.info/sct","code":"428071000124103","display":"Current Heavy tobacco smoker"}},{"valueCoding":{"system":"http://snomed.info/sct","code":"428061000124105","display":"Current Light tobacco smoker"}},{"valueCoding":{"system":"http://snomed.info/sct","code":"77176002","display":"Smoker, current status unknown"}},{"valueCoding":{"system":"http://snomed.info/sct","code":"266927001","display":"Unknown if ever smoked"}}]},
+          {
+            "linkId":"77daf3b1-7619-4a84-b4e7-08b81021dbd8","code":[{"system":"http://snomed.info/sct","code":"711013002"}],"text":"Tobacco comment","type":"text","repeats":false,"answerOption":[{"valueCoding":{"system":"http://snomed.info/sct","code":"711013002","display":"Tobacco comment"}}]},
+          {
+            "linkId":"53c36659-cf97-42e1-bd96-99a8ea897019","code":[{"system":"http://loinc.org","code":"63689-4"}],"text":"Other substances","type":"text","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LL1446-5","display":"Other substances"}}]}
+        ]
+      }
+    },
+    {
+      "resource":{"resourceType":"Questionnaire","id":"212f3bd8-49b2-4bf8-8cdd-143c06925aa2","name":"Stress","status":"active","description":"No Description Provided","code":[{"system":"http://loinc.org","code":"76542-0"}],"item":[{"linkId":"9f03654f-495d-4f58-a3f0-13a9e5d71cdf","code":[{"system":"http://loinc.org","code":"76542-0"}],"text":"Do you feel stress - tense, restless, nervous, or anxious, or unable to sleep at night because your mind is troubled all the time - these days?","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://loinc.org","code":"LA6568-5","display":"Not at all"}},{"valueCoding":{"system":"http://loinc.org","code":"LA22687-0","display":"Only a little"}},{"valueCoding":{"system":"http://loinc.org","code":"LA22686-2","display":"To some extent"}},{"valueCoding":{"system":"http://loinc.org","code":"LA22685-4","display":"Rather much"}},{"valueCoding":{"system":"http://loinc.org","code":"LA13914-9","display":"Very much"}}]}]}},
+    {
+      "resource":{"resourceType":"Questionnaire","id":"71f2ee4e-41b3-4d89-b126-a51edd63dffd","name":"Pain Assessment","status":"active","description":"No Description Provided","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_01"}],"item":[{"linkId":"701e1d68-8b18-4832-a07c-147c2c8cb866","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_02"}],"text":"Pain Score","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_03","display":"0/10 - No Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_04","display":"1/10 - Mild Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_05","display":"2/10 - Mild Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_06","display":"3/10 - Mild Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_07","display":"4/10 - Moderate Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_08","display":"5/10 - Moderate Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_09","display":"6/10 - Moderate Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_10","display":"7/10 - Severe Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_11","display":"8/10 - Severe Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_12","display":"9/10 - Severe Pain"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_13","display":"10/10 - Severe Pain"}}]},{"linkId":"7263bd5c-9308-48a0-8b14-f8c2f7b35ef2","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_14"}],"text":"Pain Scale Used","type":"choice","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_15","display":"Numeric Pain Rating Scale"}},{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_16","display":"Faces Pain Scale"}}]},{"linkId":"9b3f24a4-61f8-4009-985b-16fb6628cff8","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_17"}],"text":"Location of Pain","type":"text","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_18","display":"_location_"}}]},{"linkId":"3337cbda-8e97-46a8-b921-97714f3636f6","code":[{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_19"}],"text":"Pain Characteristics","type":"text","repeats":false,"answerOption":[{"valueCoding":{"system":"http://schemas.kim-apiprize.canvasmedical.com/fhir/systems/internal","code":"QUES_PAIN_ASSESSMENT_CODE_20","display":"_characteristics_"}}]}]}}
+  ]
+}

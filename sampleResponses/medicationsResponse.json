@@ -1,0 +1,69 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":3,
+  "link":[
+    {
+      "relation":"self",
+      "url":"/MedicationStatement?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},{"relation":"first","url":"/MedicationStatement?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},{"relation":"last","url":"/MedicationStatement?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"MedicationStatement",
+        "id":"028ba21c-3d65-41a7-9008-ad93c4d18fc0",
+        "status":"active",
+        "medicationCodeableConcept":{
+          "coding":[
+            {
+              "system":"http://www.fdbhealth.com/",
+              "code":"155744",
+              "display":"metformin 500 mg tablet"
+            },
+            {
+              "system":"http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code":"861007",
+              "display":"metformin 500 mg tablet"
+            }
+          ]
+        },
+        "subject":{
+          "reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89",
+          "type":"Patient"
+        },
+        "effectivePeriod":{
+          "start":"2023-11-24T05:40:33.020661+00:00"
+        },
+        "dateAsserted":"2023-11-24T06:55:00.636850+00:00"
+      }
+    },
+    {
+      "resource":{
+        "resourceType":"MedicationStatement",
+        "id":"eefe72f1-5ecf-4f46-8841-35568508c027",
+        "status":"active",
+        "medicationCodeableConcept":{
+          "coding":[
+            {
+              "system":"http://www.fdbhealth.com/",
+              "code":"297946",
+              "display":"Tylenol Extra Strength 500 mg tablet"
+            },
+            {
+              "system":"http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code":"198440",
+              "display":"Tylenol Extra Strength 500 mg tablet"
+            }
+          ]
+        },
+        "subject":{
+          "reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89",
+          "type":"Patient"
+        },
+        "effectivePeriod":{
+          "start":"2023-11-24T05:40:33.020661+00:00"
+        },
+        "dateAsserted":"2023-11-24T06:55:20.203498+00:00"
+      }
+    },
+    {
+      "resource":{"resourceType":"MedicationStatement","id":"0b263a8a-24d4-4ff1-a4a7-9edf8c1141ec","status":"active","medicationCodeableConcept":{"coding":[{"system":"http://www.fdbhealth.com/","code":"150529","display":"multivitamin tablet"}]},"subject":{"reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},"effectivePeriod":{"start":"2023-11-24T05:40:33.020661+00:00"},"dateAsserted":"2023-11-24T06:55:29.853253+00:00"}}]}

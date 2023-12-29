@@ -1,0 +1,28 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":1,
+  "link":[
+    {"relation":"self","url":"/Communication?recipient=Patient%2F9d4a7cfceab24991a81de57384989755&_count=10&_offset=0"},{"relation":"first","url":"/Communication?recipient=Patient%2F9d4a7cfceab24991a81de57384989755&_count=10&_offset=0"},{"relation":"last","url":"/Communication?recipient=Patient%2F9d4a7cfceab24991a81de57384989755&_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Communication",
+        "id":"b49d1282-bd0b-4374-8805-1eb1524bc569",
+        "status":"unknown",
+        "subject":{
+          "reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},
+        "sent":"2022-04-29T13:30:00+00:00",
+        "received":"2022-04-29T13:30:00+00:00",
+        "recipient":[
+          {"reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"}
+        ],
+        "sender":{
+          "reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6",
+          "type":"Practitioner"
+        },
+        "payload":[{"contentString":"Test message"}]
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":1,
+  "link":[
+    {
+      "relation":"self","url":"/CareTeam?patient=9d4a7cfceab24991a81de57384989755&_count=10&_offset=0"},{"relation":"first","url":"/CareTeam?patient=9d4a7cfceab24991a81de57384989755&_count=10&_offset=0"},{"relation":"last","url":"/CareTeam?patient=9d4a7cfceab24991a81de57384989755&_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"CareTeam",
+        "id":"9d4a7cfceab24991a81de57384989755",
+        "status":"active",
+        "name":"Care Team for Scott, Alice",
+        "subject":{
+          "reference":"Patient/9d4a7cfceab24991a81de57384989755",
+          "type":"Patient",
+          "display":"Scott, Alice"
+        },
+        "participant":[
+          {
+            "role":[
+              {
+                "coding":[
+                  {
+                    "system":"http://snomed.info/sct",
+                    "code":"446050000",
+                    "display":"Primary care physician"
+                  }
+                ]
+              }
+            ],
+            "member":{
+              "reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6",
+              "type":"Practitioner",
+              "display":"Gloria Kim MD"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

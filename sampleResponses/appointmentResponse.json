@@ -1,0 +1,106 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":3,
+  "link":[
+    {"relation":"self","url":"/Appointment?patient=782b61a50b18419d8033f2e090fb1c0a&_count=10&_offset=0"},{"relation":"first","url":"/Appointment?patient=782b61a50b18419d8033f2e090fb1c0a&_count=10&_offset=0"},{"relation":"last","url":"/Appointment?patient=782b61a50b18419d8033f2e090fb1c0a&_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Appointment",
+        "id":"607c7f36-af90-4225-9b73-51c1982ed6d1",
+        "status":"proposed",
+        "appointmentType":{
+          "coding":[
+            {
+              "system":"http://snomed.info/sct",
+              "code":"308335008",
+              "display":"Office Visit"
+            }
+          ]
+        },
+        "reasonCode":[{"text":"Follow up"}],
+        "description":"Follow up",
+        "supportingInformation":[
+          {"reference":"Location/1","type":"Location"},
+          {"reference":"Encounter/88611316-6d19-45f2-968e-8941456ff41a","type":"Encounter"}
+        ],
+        "start":"2023-12-05T19:00:00+00:00",
+        "end":"2023-12-05T20:00:00+00:00",
+        "participant":[
+          {"actor":{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"},"status":"accepted"},
+          {"actor":{"reference":"Patient/782b61a50b18419d8033f2e090fb1c0a","type":"Patient"},"status":"accepted"}
+        ]
+      }
+    },
+    {
+      "resource":{
+        "resourceType":"Appointment",
+        "id":"1c4b76de-82a0-4e99-b154-afe5cbf011ff",
+        "status":"proposed",
+        "appointmentType":{
+          "coding":[
+            {"system":"http://snomed.info/sct","code":"308335008","display":"Office Visit"}
+          ]
+        },
+        "reasonCode":[{"text":"Call pharmacy"}],
+        "description":"Call pharmacy",
+        "supportingInformation":[
+          {"reference":"Location/1","type":"Location"},
+          {"reference":"Encounter/b6eee8f7-2f9e-4afc-8a1c-fc2d59203772","type":"Encounter"}
+        ],
+        "start":"2023-12-06T00:00:00+00:00",
+        "end":"2023-12-06T00:30:00+00:00",
+        "participant":[
+          {
+            "actor":{
+              "reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6",
+              "type":"Practitioner"
+            },
+            "status":"accepted"
+          },
+          {
+            "actor":{
+              "reference":"Patient/782b61a50b18419d8033f2e090fb1c0a",
+              "type":"Patient"
+            },
+            "status":"accepted"
+          }
+        ]
+      }
+    },
+    {
+      "resource":{
+        "resourceType":"Appointment",
+        "id":"e6dad8cb-e854-42c5-91ce-3696d87a49da",
+        "contained":[
+          {
+            "resourceType":"Endpoint",
+            "id":"appointment-meeting-endpoint-0",
+            "status":"active",
+            "connectionType":{"code":"https"},
+            "payloadType":[{"coding":[{"code":"video-call"}]}],
+            "address":"https://meet.google.com/tky-cpww-eiw"
+          }
+        ],
+        "status":"proposed",
+        "appointmentType":{
+          "coding":[
+            {
+              "system":"http://snomed.info/sct",
+              "code":"448337001",
+              "display":"Telemedicine"
+            }
+          ]
+        },
+        "reasonCode":[{"text":"Review lab results"}],
+        "description":"Review lab results",
+        "supportingInformation":[
+          {"reference":"Location/1","type":"Location"},
+          {"reference":"#appointment-meeting-endpoint-0","type":"Endpoint"},
+          {"reference":"Appointment/191f378f-b5d1-41dd-b9d9-fdb300ef3487","type":"Appointment","display":"Previously Rescheduled Appointment"},
+          {"reference":"Encounter/2f40c6e5-51b5-43a2-b397-852e6b68e3b4","type":"Encounter"}
+        ],
+        "start":"2023-12-05T20:30:00+00:00",
+        "end":"2023-12-05T21:00:00+00:00",
+        "participant":[{"actor":{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"},"status":"accepted"},{"actor":{"reference":"Patient/782b61a50b18419d8033f2e090fb1c0a","type":"Patient"},"status":"accepted"}]}}]}

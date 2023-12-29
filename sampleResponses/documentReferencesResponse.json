@@ -1,0 +1,68 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":6,
+  "link":[
+    {"relation":"self","url":"/DocumentReference?_count=10&_offset=0"},{"relation":"first","url":"/DocumentReference?_count=10&_offset=0"},{"relation":"last","url":"/DocumentReference?_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"DocumentReference","id":"0c62feaf-8d8f-46f1-accd-f9f81e7c4c4a","status":"current","type":{"coding":[{"system":"http://loinc.org","code":"18748-4","display":"Diagnostic imaging study"}],"text":"Diagnostic imaging study"},"category":[{"coding":[{"system":"http://schemas.canvasmedical.com/fhir/document-reference-category","code":"imagingreport"}]}],"subject":{"reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},"date":"2023-11-22T00:00:00+00:00","custodian":{"reference":"Organization/00000000-0000-0000-0002-000000000000","type":"Organization"},"content":[{"attachment":{"contentType":"application/pdf"},"format":{"system":"http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem","code":"urn:ihe:iti:xds:2017:mimeTypeSufficient","display":"mimeType Sufficient"}}]}
+    },
+    {
+      "resource":{"resourceType":"DocumentReference","id":"2139de8f-bcc1-489c-8e92-0a7943c2802d","status":"current","type":{"coding":[{"system":"http://loinc.org","code":"11502-2","display":"Laboratory report"}],"text":"Laboratory report"},"category":[{"coding":[{"system":"http://schemas.canvasmedical.com/fhir/document-reference-category","code":"labreport"}]}],"subject":{"reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},"date":"2023-11-22T00:00:00+00:00","author":[{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}],"custodian":{"reference":"Organization/00000000-0000-0000-0002-000000000000","type":"Organization"},"content":[{"attachment":{"contentType":"application/pdf","url":"https://canvas-client-media.s3.amazonaws.com/kim-apiprize/generic_documents/O_Differential_Metabolic_Panel_14_Comprehensive.pdf?AWSAccessKeyId=AKIAQB7SIDR7CRWADFES&Signature=huh%2B%2Flu22g3dQayetj1jyRmnovc%3D&Expires=1702422259"},"format":{"system":"http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem","code":"urn:ihe:iti:xds:2017:mimeTypeSufficient","display":"mimeType Sufficient"}}]}},
+    {
+      "resource":{"resourceType":"DocumentReference","id":"0c0dee0c-d03f-4a33-a575-e8db6e11f085","status":"current","type":{"coding":[{"system":"http://loinc.org","code":"11502-2","display":"Laboratory report"}],"text":"Laboratory report"},"category":[{"coding":[{"system":"http://schemas.canvasmedical.com/fhir/document-reference-category","code":"labreport"}]}],"subject":{"reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},"date":"2023-11-22T00:00:00+00:00","author":[{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}],"custodian":{"reference":"Organization/00000000-0000-0000-0002-000000000000","type":"Organization"},"content":[{"attachment":{"contentType":"application/pdf","url":"https://canvas-client-media.s3.amazonaws.com/kim-apiprize/generic_documents/Thyroid_Profile_With_Tsh_Metabolic_Panel_14_Comprehensive.pdf?AWSAccessKeyId=AKIAQB7SIDR7CRWADFES&Signature=DIz%2BQ5EdRJ14LJvfPe550smLUao%3D&Expires=1702422259"},"format":{"system":"http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem","code":"urn:ihe:iti:xds:2017:mimeTypeSufficient","display":"mimeType Sufficient"}}]}},
+    {
+      "resource":{"resourceType":"DocumentReference","id":"b555c827-daf6-49a2-8434-0767f0cc6936","status":"current","type":{"coding":[{"system":"http://loinc.org","code":"11502-2","display":"Laboratory report"}],"text":"Laboratory report"},"category":[{"coding":[{"system":"http://schemas.canvasmedical.com/fhir/document-reference-category","code":"labreport"}]}],"subject":{"reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},"date":"2023-11-22T00:00:00+00:00","author":[{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}],"custodian":{"reference":"Organization/00000000-0000-0000-0002-000000000000","type":"Organization"},"content":[{"attachment":{"contentType":"application/pdf","url":"https://canvas-client-media.s3.amazonaws.com/kim-apiprize/generic_documents/Lipid_Panel_CrK6oGm.pdf?AWSAccessKeyId=AKIAQB7SIDR7CRWADFES&Signature=hwHieNCWIPG2eiElHR%2FPOmLwgD0%3D&Expires=1702422259"},"format":{"system":"http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem","code":"urn:ihe:iti:xds:2017:mimeTypeSufficient","display":"mimeType Sufficient"}}],"context":{"encounter":[{"reference":"Encounter/bb8d100d-aff0-4017-9f2b-bed1e8389bc4","type":"Encounter"}],"period":{"start":"2023-11-14T08:00:00+00:00"}}}},
+    {
+      "resource":{"resourceType":"DocumentReference","id":"750ee700-2df4-4a42-b5ec-549a166dfeae","status":"current","category":[{"coding":[{"system":"http://schemas.canvasmedical.com/fhir/document-reference-category","code":"clinical-note"}]}],"subject":{"reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},"date":"2023-12-12T00:00:00+00:00","custodian":{"reference":"Organization/00000000-0000-0000-0002-000000000000","type":"Organization"},"content":[{"attachment":{"contentType":"application/pdf","url":"https://canvas-client-media.s3.amazonaws.com/kim-apiprize/note_history/kim-apiprize_note_state_document_35_1702419231?AWSAccessKeyId=AKIAQB7SIDR7CRWADFES&Signature=WzJs7iZR6aUbmLZi5feAkvkFP9M%3D&Expires=1702422259"},"format":{"system":"http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem","code":"urn:ihe:iti:xds:2017:mimeTypeSufficient","display":"mimeType Sufficient"}}],"context":{"encounter":[{"reference":"Encounter/7c3b928e-119d-43e9-81fd-d8300854865d","type":"Encounter"}],"period":{"start":"2023-11-29T01:01:22.116596+00:00","end":"2023-12-12T22:13:51.105204+00:00"}}}},
+    {
+      "resource":{
+        "resourceType":"DocumentReference",
+        "id":"ae04cd4b-5ce3-4fd2-b480-9a4d0cfdeda7",
+        "status":"current",
+        "type":{
+          "coding":[
+            {
+              "system":"http://loinc.org",
+              "code":"94093-2",
+              "display":"Itemized bill"
+            }
+          ],
+          "text":"Itemized bill"
+        },
+        "category":[
+          {
+            "coding":[
+              {
+                "system":"http://schemas.canvasmedical.com/fhir/document-reference-category",
+                "code":"invoicefull"
+              }
+            ]
+          }
+        ],
+        "subject":{
+          "reference":"Patient/782b61a50b18419d8033f2e090fb1c0a","type":"Patient"},
+        "date":"2023-12-12T00:00:00+00:00",
+        "author":[
+          {"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}],
+        "custodian":{
+          "reference":"Organization/00000000-0000-0000-0002-000000000000","type":"Organization"},
+        "content":[
+          {
+            "attachment":{
+              "contentType":"application/pdf",
+              "url":"https://canvas-client-media.s3.amazonaws.com/kim-apiprize/invoices/782b61a50b18419d8033f2e090fb1c0a_20231212_225358.pdf?AWSAccessKeyId=AKIAQB7SIDR7CRWADFES&Signature=wWnYLqPlZJohZeEOD15yXYr3%2F5s%3D&Expires=1702422259"
+            },
+            "format":{
+              "system":"http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+              "code":"urn:ihe:iti:xds:2017:mimeTypeSufficient",
+              "display":"mimeType Sufficient"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

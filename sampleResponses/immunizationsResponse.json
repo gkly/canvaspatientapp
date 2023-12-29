@@ -1,0 +1,31 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":1,
+  "link":[
+    {
+      "relation":"self",
+      "url":"/Immunization?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},{"relation":"first","url":"/Immunization?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},{"relation":"last","url":"/Immunization?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Immunization",
+        "id":"5ec87b56-36a8-4aca-9918-1f013a905995",
+        "status":"completed",
+        "vaccineCode":{
+          "coding":[
+            {
+              "system":"http://hl7.org/fhir/sid/cvx",
+              "code":"110",
+              "display":"DTaP-Hep B-IPV"
+            }
+          ]
+        },
+        "patient":{
+          "reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},
+        "occurrenceDateTime":"1990-01-01",
+        "primarySource":false
+      }
+    }
+  ]
+}

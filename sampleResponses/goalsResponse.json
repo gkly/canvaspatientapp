@@ -1,0 +1,97 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":2,
+  "link":[
+    {
+      "relation":"self","url":"/Goal?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},{"relation":"first","url":"/Goal?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},{"relation":"last","url":"/Goal?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Goal",
+        "id":"c2113386-d880-4971-814b-69cf75b32cfb",
+        "lifecycleStatus":"active",
+        "achievementStatus":{
+          "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/goal-achievement",
+              "code":"in-progress",
+              "display":"In Progress"
+            }
+          ]
+        },
+        "priority":{
+          "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/goal-priority",
+              "code":"medium-priority",
+              "display":"Medium Priority"
+            }
+          ]
+        },
+        "description":{
+          "text":"Exercise for 30min 3x/week"
+        },
+        "subject":{
+          "reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},
+        "startDate":"2023-11-23",
+        "expressedBy":{
+          "reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6",
+          "type":"Practitioner"
+        }
+      }
+    },
+    {"resource":{"resourceType":"Goal","id":"06495157-71b0-40a7-9c3c-3455c5364e40","lifecycleStatus":"active","achievementStatus":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-achievement","code":"in-progress","display":"In Progress"}]},"priority":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-priority","code":"medium-priority","display":"Medium Priority"}]},"description":{"text":" Eat 2 servings of vegetables daily"},"subject":{"reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},"startDate":"2023-11-23","target":[{"dueDate":"2023-12-23"}],"expressedBy":{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}}}]
+}
+
+
+
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":6,
+  "link":[
+    {
+      "relation":"self","url":"/Goal?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},{"relation":"first","url":"/Goal?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},{"relation":"last","url":"/Goal?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Goal",
+        "id":"c2113386-d880-4971-814b-69cf75b32cfb",
+        "lifecycleStatus":"active",
+        "achievementStatus":{
+          "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/goal-achievement",
+              "code":"in-progress",
+              "display":"In Progress"
+            }
+          ]
+        },
+        "priority":{
+          "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/goal-priority",
+              "code":"medium-priority",
+              "display":"Medium Priority"
+            }
+          ]
+        },
+        "description":{"text":"Exercise for 30min 3x/week"},
+        "subject":{"reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},
+        "startDate":"2023-11-23",
+        "expressedBy":{
+          "reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"
+        },
+        "note":[
+          {
+            "id":"b9b0c7ad-8926-411c-a91f-f34bcf7b5dbf",
+            "authorReference":{
+              "reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"
+            },
+            "time":"2023-11-29T06:27:43.101357+00:00",
+            "text":"patient engaged in yoga"
+          }
+        ]
+      }
+    },{"resource":{"resourceType":"Goal","id":"06495157-71b0-40a7-9c3c-3455c5364e40","lifecycleStatus":"active","achievementStatus":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-achievement","code":"in-progress","display":"In Progress"}]},"priority":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-priority","code":"medium-priority","display":"Medium Priority"}]},"description":{"text":" Eat 2 servings of vegetables daily"},"subject":{"reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},"startDate":"2023-11-23","target":[{"dueDate":"2023-12-23"}],"expressedBy":{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}}},{"resource":{"resourceType":"Goal","id":"cce848f8-6dc5-45af-8a7a-4d110320f32c","lifecycleStatus":"active","achievementStatus":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-achievement","code":"achieved","display":"Achieved"}]},"priority":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-priority","code":"high-priority","display":"High Priority"}]},"description":{"text":"Enroll in diabetes management program"},"subject":{"reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},"startDate":"2023-11-25","expressedBy":{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}}},{"resource":{"resourceType":"Goal","id":"37f34525-6f41-4b4e-ba87-b5fa1bf8162a","lifecycleStatus":"active","achievementStatus":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-achievement","code":"no-change","display":"No Change"}]},"priority":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-priority","code":"high-priority","display":"High Priority"}]},"description":{"text":"Reduce smoking to 1 pack/day"},"subject":{"reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},"startDate":"2023-11-25","expressedBy":{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}}},{"resource":{"resourceType":"Goal","id":"6b26c983-ea5e-4e81-8e1f-ce3117745bad","lifecycleStatus":"active","achievementStatus":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-achievement","code":"sustaining","display":"Sustaining"}]},"priority":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/goal-priority","code":"medium-priority","display":"Medium Priority"}]},"description":{"text":"Visit clinic 1/month"},"subject":{"reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},"startDate":"2023-11-25","expressedBy":{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}}},{"resource":{"resourceType":"Goal","id":"aff41ba3-47c5-4e00-bad7-afccac733759","lifecycleStatus":"active","description":{"text":"Sleep 8 hrs/day"},"subject":{"reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient"},"startDate":"2023-11-25","expressedBy":{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}}}]}

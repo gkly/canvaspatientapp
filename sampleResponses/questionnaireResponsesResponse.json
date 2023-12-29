@@ -1,0 +1,74 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":4,
+  "link":[
+    {"relation":"self","url":"/QuestionnaireResponse?patient=9d4a7cfceab24991a81de57384989755&questionnaire=98e6a95a-5873-4255-8f8a-d7d54b22cd3e&_count=10&_offset=0"},{"relation":"first","url":"/QuestionnaireResponse?patient=9d4a7cfceab24991a81de57384989755&questionnaire=98e6a95a-5873-4255-8f8a-d7d54b22cd3e&_count=10&_offset=0"},{"relation":"last","url":"/QuestionnaireResponse?patient=9d4a7cfceab24991a81de57384989755&questionnaire=98e6a95a-5873-4255-8f8a-d7d54b22cd3e&_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"QuestionnaireResponse",
+        "id":"545dc9e5-c388-47f8-9ab6-2eff2ce83ab2",
+        "extension":[
+          {"url":"http://schemas.canvasmedical.com/fhir/extensions/questionnaire-permalink","valueString":"https://kim-apiprize.canvasmedical.com/permalinks/v1/SW50ZXJ2aWV3OjI3MToxOA=="}],
+        "questionnaire":"Questionnaire/98e6a95a-5873-4255-8f8a-d7d54b22cd3e",
+        "status":"completed",
+        "subject":{
+          "reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},
+        "authored":"2023-12-03T01:43:49.969077+00:00",
+        "author":{
+          "reference":"Practitioner/5eede137ecfe4124b8b773040e33be14",
+          "type":"Practitioner"
+        },
+        "item":[{"linkId":"e40bda8f-a334-42fb-82fc-c059208ca310","text":"How often do you have a drink containing alcohol?","answer":[{"valueCoding":{"system":"http://loinc.org","code":"LA18926-8","display":"Monthly or less"}}]},{"linkId":"668ca199-e651-40a8-b6cd-0872fde2f92d","text":"How many drinks did you have on a typical day when you were drinking in the past year?","answer":[{"valueCoding":{"system":"http://loinc.org","code":"LA15694-5","display":"2 or fewer"}}]},{"linkId":"0d9f748a-de6d-4dce-bc81-a8b174267026","text":"How often do you have 6 or more drinks on 1 occasion?","answer":[{"valueCoding":{"system":"http://loinc.org","code":"LA6270-8","display":"Never"}}]}]}
+    },
+    {
+      "resource":{"resourceType":"QuestionnaireResponse","id":"2a8cf951-dc5d-4027-89ef-b035cde28c34","extension":[{"url":"http://schemas.canvasmedical.com/fhir/extensions/questionnaire-permalink","valueString":"https://kim-apiprize.canvasmedical.com/permalinks/v1/SW50ZXJ2aWV3OjI3MToxOQ=="}],"questionnaire":"Questionnaire/98e6a95a-5873-4255-8f8a-d7d54b22cd3e","status":"completed","subject":{"reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},"authored":"2023-12-10T00:25:41.190802+00:00","author":{"reference":"Practitioner/5eede137ecfe4124b8b773040e33be14","type":"Practitioner"},"item":[{"linkId":"e40bda8f-a334-42fb-82fc-c059208ca310","text":"How often do you have a drink containing alcohol?","answer":[{"valueCoding":{"system":"http://loinc.org","code":"LA6270-8","display":"Never"}}]},{"linkId":"668ca199-e651-40a8-b6cd-0872fde2f92d","text":"How many drinks did you have on a typical day when you were drinking in the past year?","answer":[{"valueCoding":{"system":"http://loinc.org","code":"LA15694-5","display":"2 or fewer"}}]},{"linkId":"0d9f748a-de6d-4dce-bc81-a8b174267026","text":"How often do you have 6 or more drinks on 1 occasion?","answer":[{"valueCoding":{"system":"http://loinc.org","code":"LA6270-8","display":"Never"}}]}]}},
+    {
+      "resource":{"resourceType":"QuestionnaireResponse","id":"a597ca3a-8cda-4b60-8f63-fdb72de75f2e","extension":[{"url":"http://schemas.canvasmedical.com/fhir/extensions/questionnaire-permalink","valueString":"https://kim-apiprize.canvasmedical.com/permalinks/v1/SW50ZXJ2aWV3OjI3MToyMA=="}],"questionnaire":"Questionnaire/98e6a95a-5873-4255-8f8a-d7d54b22cd3e","status":"completed","subject":{"reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},"authored":"2023-12-10T00:51:34.939212+00:00","author":{"reference":"Practitioner/5eede137ecfe4124b8b773040e33be14","type":"Practitioner"},"item":[{"linkId":"e40bda8f-a334-42fb-82fc-c059208ca310","text":"How often do you have a drink containing alcohol?","answer":[{"valueCoding":{"system":"http://loinc.org","code":"LA6270-8","display":"Never"}}]},{"linkId":"668ca199-e651-40a8-b6cd-0872fde2f92d","text":"How many drinks did you have on a typical day when you were drinking in the past year?","answer":[{"valueCoding":{"system":"http://loinc.org","code":"LA15694-5","display":"2 or fewer"}}]},{"linkId":"0d9f748a-de6d-4dce-bc81-a8b174267026","text":"How often do you have 6 or more drinks on 1 occasion?","answer":[{"valueCoding":{"system":"http://loinc.org","code":"LA6270-8","display":"Never"}}]}]}},
+    {
+      "resource":{
+        "resourceType":"QuestionnaireResponse",
+        "id":"405bbc3c-5e0e-4204-9861-29f288614ccb",
+        "extension":[
+          {"url":"http://schemas.canvasmedical.com/fhir/extensions/questionnaire-permalink","valueString":"https://kim-apiprize.canvasmedical.com/permalinks/v1/SW50ZXJ2aWV3OjI3MToyMQ=="}],
+        "questionnaire":"Questionnaire/98e6a95a-5873-4255-8f8a-d7d54b22cd3e",
+        "status":"completed",
+        "subject":{
+          "reference":"Patient/9d4a7cfceab24991a81de57384989755","type":"Patient"},
+        "authored":"2023-12-18T00:24:44.277656+00:00",
+        "author":{
+          "reference":"Practitioner/5eede137ecfe4124b8b773040e33be14","type":"Practitioner"},
+        "item":[
+          {
+            "linkId":"e40bda8f-a334-42fb-82fc-c059208ca310",
+            "text":"How often do you have a drink containing alcohol?",
+            "answer":[
+              {
+                "valueCoding":{
+                  "system":"http://loinc.org",
+                  "code":"LA6270-8",
+                  "display":"Never"
+                }
+              }
+            ]
+          },
+          {
+            "linkId":"668ca199-e651-40a8-b6cd-0872fde2f92d",
+            "text":"How many drinks did you have on a typical day when you were drinking in the past year?",
+            "answer":[
+              {"valueCoding":{"system":"http://loinc.org","code":"LA15694-5","display":"2 or fewer"}}
+            ]
+          },
+          {
+            "linkId":"0d9f748a-de6d-4dce-bc81-a8b174267026",
+            "text":"How often do you have 6 or more drinks on 1 occasion?",
+            "answer":[
+              {"valueCoding":{"system":"http://loinc.org","code":"LA6270-8","display":"Never"}}
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

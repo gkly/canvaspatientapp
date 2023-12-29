@@ -1,0 +1,67 @@
+{
+  "resourceType":"Bundle",
+  "type":"searchset",
+  "total":2,
+  "link":[
+    {
+      "relation":"self",
+      "url":"/Condition?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},
+    {"relation":"first","url":"/Condition?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"},{"relation":"last","url":"/Condition?patient=eb3ec0ec2a744d31a2c7b0db04461c89&_count=10&_offset=0"}],
+  "entry":[
+    {
+      "resource":{
+        "resourceType":"Condition",
+        "id":"41c89940-d115-4c90-963e-a9905b4871a8",
+        "text":{
+          "status":"generated",
+          "div":"<div xmlns=\"http://www.w3.org/1999/xhtml\">Type 2 diabetes mellitus without complications</div>"
+        },
+        "clinicalStatus":{
+          "coding":[
+            {"system":"http://terminology.hl7.org/CodeSystem/condition-clinical","code":"active","display":"Active"}],
+          "text":"Active"
+        },
+        "verificationStatus":{
+          "coding":[
+            {"system":"http://terminology.hl7.org/CodeSystem/condition-ver-status","code":"confirmed","display":"Confirmed"}],
+          "text":"Confirmed"
+        },
+        "category":[
+          {
+            "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/condition-category","code":"encounter-diagnosis","display":"Encounter Diagnosis"}],
+            "text":"Encounter Diagnosis"
+          }
+        ],
+        "code":{
+          "coding":[
+            {
+              "system":"http://snomed.info/sct",
+              "code":"270445003",
+              "display":"Type 2 diabetes mellitus without complications"
+            },
+            {
+              "system":"http://hl7.org/fhir/sid/icd-10-cm",
+              "code":"E119",
+              "display":"Type 2 diabetes mellitus without complications"
+            }
+          ],
+          "text":"Type 2 diabetes mellitus without complications"
+        },
+        "subject":{
+          "reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89",
+          "type":"Patient",
+          "display":"Mitko, Salina II (Lina)"
+        },
+        "recordedDate":"2023-11-23T23:58:03.582831+00:00",
+        "recorder":{
+          "reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6",
+          "type":"Practitioner"
+        }
+      }
+    },
+    {
+      "resource":{
+        "resourceType":"Condition","id":"f3f3e93b-524a-4d72-bbc6-f643f3c7dd47",
+        "text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\">Broken internal right knee prosthesis, initial encounter</div>"},"clinicalStatus":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/condition-clinical","code":"active","display":"Active"}],"text":"Active"},"verificationStatus":{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/condition-ver-status","code":"confirmed","display":"Confirmed"}],"text":"Confirmed"},"category":[{"coding":[{"system":"http://terminology.hl7.org/CodeSystem/condition-category","code":"encounter-diagnosis","display":"Encounter Diagnosis"}],"text":"Encounter Diagnosis"}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"404684003","display":"Broken internal right knee prosthesis, initial encounter"},{"system":"http://hl7.org/fhir/sid/icd-10-cm","code":"T84012A","display":"Broken internal right knee prosthesis, initial encounter"}],"text":"Broken internal right knee prosthesis, initial encounter"},"subject":{"reference":"Patient/eb3ec0ec2a744d31a2c7b0db04461c89","type":"Patient","display":"Mitko, Salina II (Lina)"},"encounter":{"reference":"Encounter/b5c4ab57-3c44-4059-b55d-373f9803a364","type":"Encounter"},"onsetDateTime":"2023-11-23","recordedDate":"2023-11-24T05:40:41.852193+00:00","recorder":{"reference":"Practitioner/abb6bc714d35412dbbc4f5e80dcb30e6","type":"Practitioner"}}}]}
