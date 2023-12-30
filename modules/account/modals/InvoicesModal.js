@@ -1,11 +1,11 @@
 import {View} from 'react-native';
-import {Button} from "@ui-kitten/components";
 import {TextList} from "../../../componentLibrary/TextList";
 import EmptyText from "../../../componentLibrary/EmptyText";
 import {loadInBrowser} from "../../../utils/network_request_helpers";
 import {PATIENT_ID, RESOURCES} from "../../../utils/constants";
 import {useGetInfiniteQuery} from "../../../hooks/basic/useGetInfiniteQuery";
 import Modal from "../../../componentLibrary/Modal";
+import LoadMoreButton from "../../../componentLibrary/LoadMoreButton";
 
 
 const InvoicesModal = ({ onClose }) => {
@@ -28,8 +28,6 @@ const InvoicesModal = ({ onClose }) => {
     return { title: invoice.date, isDisabled: false, onPress: () => loadInBrowser(invoice.url)}
   })
 
-  const buttonText = isFetchingNextPage ? "Loading..." : "Load More";
-
   return (
     <Modal
       isLoading={isLoading}
@@ -42,13 +40,7 @@ const InvoicesModal = ({ onClose }) => {
         {invoiceItems.length === 0 && <EmptyText name='invoices' plural={true} />}
         <TextList items={invoiceItems} resource={RESOURCES.DOCUMENT_REFERENCE} />
         {hasNextPage && (
-          <Button
-            onPress={fetchNextPage}
-            appearance='outline'
-            disabled={isFetchingNextPage}
-          >
-            {buttonText}
-          </Button>
+          <LoadMoreButton isLoading={isFetchingNextPage} onPress={fetchNextPage} />
         )}
       </View>
     </Modal>

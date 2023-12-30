@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
-import {Button, Icon} from "@ui-kitten/components";
 import ErrorText from "./ErrorText";
+import Button from "./Button";
 
 type Props = {
   placeholder?: string,
@@ -24,9 +24,10 @@ const InputButton = ({placeholder, value, onChange, onPress, disabled, errorMess
           onChangeText={onChange}
         />
         <Button
-          style={disabled ? styles.disabledButton : styles.activeButton}
-          appearance='ghost'
-          accessoryRight={<Icon name='paper-plane-outline' />} // TODO generalize
+          style={styles.button}
+          iconName='paper-plane-outline'
+          type='outline'
+          isSecondary={true}
           onPress={onPress}
           disabled={disabled}
         />
@@ -46,25 +47,16 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 2,
-    minHeight: 30,
+    // minHeight: 20,
     paddingHorizontal: 10,
     borderWidth: 1,
     borderRadius: 20,
     borderColor: 'rgb(106,150,192)',
+    marginRight: 5,
   },
-  activeButton: {
+  button: {
     borderRadius: 100,
-    borderColor: 'rgb(106,150,192)',
-    width: 50,
-    height: 50,
-    marginLeft: 5,
   },
-  disabledButton: {
-    borderRadius: 100,
-    width: 50,
-    height: 50,
-    marginLeft: 5,
-  }
 });
 
 export default InputButton;

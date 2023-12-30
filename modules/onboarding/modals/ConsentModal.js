@@ -1,6 +1,4 @@
-// TODO: reconcile react-native vs ui kitten components
-import { StyleSheet, Text } from 'react-native';
-import { Button } from '@ui-kitten/components';
+import { Text } from 'react-native';
 import ErrorText from "../../../componentLibrary/ErrorText";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {
@@ -11,6 +9,8 @@ import {
 import {CONSENT_CODE, CONSENT_STATUS_TYPES, PATIENT_ID, RESOURCES} from "../../../utils/constants"
 import {formatDate, formatReferenceResource} from "../../../utils/formatters";
 import Modal from "../../../componentLibrary/Modal";
+import React from "react";
+import Button from "../../../componentLibrary/Button";
 
 
 type Props = {
@@ -78,41 +78,33 @@ const ConsentModal = ({ onClose, status }: Props) => {
       isLoading={false}
       onClose={onClose}
       title='Consent'
+      scrollView={true}
     >
-      <Button appearance='ghost' onPress={() => loadInBrowser(privacyNoticeUrl)}>
-        View Notice of Privacy Practices
-      </Button>
+      <Button
+        text='View Notice of Privacy Practices'
+        type='ghost'
+        onPress={() => loadInBrowser(privacyNoticeUrl)}
+      />
       {(status === CONSENT_STATUS_TYPES.REJECTED) && <Text>You declined to give consent. You can still provide consent now.</Text>}
       {(status === CONSENT_STATUS_TYPES.INACTIVE) && <Text>Your consent expired. Please provide again.</Text>}
 
       <Button
-        style={styles.submitButton}
+        text='Consent'
+        type='filled'
         onPress={() => onSubmit(true)}
-        disabled={submitConsent.isPending || status === CONSENT_STATUS_TYPES.ACTIVE}>
-        Consent
-      </Button>
+        disabled={submitConsent.isPending || status === CONSENT_STATUS_TYPES.ACTIVE}
+      />
       <Button
-        style={styles.submitButton}
-        appearance='outline'
+        text='Reject'
+        type='outline'
         onPress={() => onSubmit(false)}
-        disabled={submitConsent.isPending || status === CONSENT_STATUS_TYPES.ACTIVE}>
-        Reject
-      </Button>
+        disabled={submitConsent.isPending || status === CONSENT_STATUS_TYPES.ACTIVE}
+      />
 
       {submitConsent.error && <ErrorText message="error!"/>}
     </Modal>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  submitButton: {
-    marginTop: 10,
-    padding: 50, // Increased button size
-  },
-});
 
 export default ConsentModal;

@@ -5,6 +5,7 @@ import {parseIdFromResourcePath} from "../../utils/helpers";
 import {useEffect, useState} from "react";
 
 export const useGetObservationValues = (observationsCoding, observationIds) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [observationResultsMapping, setObservationResultsMapping] = useState({});
 
   const observationsCodingMapping = (observationsCoding || [])
@@ -18,7 +19,10 @@ export const useGetObservationValues = (observationsCoding, observationIds) => {
     const getObservationValues = async () => {
       const allRequestUrls = observationIds
         .map(id => getUrlForResource(RESOURCES.OBSERVATION, id));
+      setIsLoading(true);
+      // TODO cache!
       const allObservations = await getRequestBatch(allRequestUrls);
+      setIsLoading(false);
       allObservations.forEach(obs => {
         const code = obs?.code?.coding[0]?.code;
         const valueQuantity = obs?.valueQuantity;
@@ -39,6 +43,6 @@ export const useGetObservationValues = (observationsCoding, observationIds) => {
     observationResultsMapping,
     // TODO
     // error,
-    // isLoading,
+    isLoading,
   }
 }

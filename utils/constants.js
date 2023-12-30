@@ -58,3 +58,77 @@ export const CONSENT_STATUS_TYPES = {
   INACTIVE: 'inactive',
   REJECTED: 'rejected',
 }
+
+export const GOAL_STATUS_TYPES = {
+  IN_PROGRESS: 'In Progress',
+  IMPROVING: 'Improving',
+  WORSENING: 'Worsening',
+  NO_CHANGE: 'No Change',
+  ACHIEVED: 'Achieved',
+  SUSTAINING: 'Sustaining',
+}
+
+export const GOAL_STATUS_POSITIVE_TREND = [
+  GOAL_STATUS_TYPES.IN_PROGRESS,
+  GOAL_STATUS_TYPES.IMPROVING,
+  GOAL_STATUS_TYPES.ACHIEVED
+]
+
+export const GOAL_STATUS_NEUTRAL_TREND = [
+  GOAL_STATUS_TYPES.NO_CHANGE,
+  GOAL_STATUS_TYPES.SUSTAINING,
+]
+
+export const GOAL_STATUS_NEGATIVE_TREND = [
+  GOAL_STATUS_TYPES.WORSENING,
+]
+
+export const GOAL_PRIORITY_TYPES = {
+  HIGH: 'High Priority',
+  MEDIUM: 'Medium Priority',
+  LOW: 'Low Priority',
+}
+
+export const PRIMARY_COLOR = 'rgb(106,150,192)';
+export const SECONDARY_COLOR = 'rgb(255,255,255)';
+export const TERTIARY_COLOR = 'rgb(171,168,168)';
+
+export const PRIMARY_COLORS = {
+  BLUE: 'rgb(106,150,192)',
+  WHITE: 'rgb(255,255,255)',
+}
+
+export const SECONDARY_COLORS = {
+  NAVY: 'rgb(3,46,86)',
+  GREY: 'rgb(171,168,168)',
+}
+
+export const COLORS = {
+  BLUE: PRIMARY_COLORS.BLUE,
+  NAVY: SECONDARY_COLORS.NAVY,
+  GREEN: 'rgb(75,140,130)',
+  GREY: SECONDARY_COLORS.GREY,
+  ORANGE: 'rgb(210,153,69)',
+  RED: 'rgb(161,86,99)',
+  YELLOW: 'rgb(215,193,121)',
+  WHITE: PRIMARY_COLORS.WHITE,
+}
+
+export const LANGUAGES_SUPPORTED = {
+  ENGLISH: {
+    DISPLAY: 'English',
+    CODE: 'en',
+  },
+  SPANISH: {
+    DISPLAY: 'Español',
+    CODE: 'sp',
+  },
+  KOREAN: {
+    DISPLAY: '한글',
+    CODE: 'kr',
+  },
+  CHINESE: {
+    DISPLAY: '中文',
+    CODE: 'cn',
+  },
+}

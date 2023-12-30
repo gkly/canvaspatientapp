@@ -1,7 +1,6 @@
 import {CardField, useStripe} from "@stripe/stripe-react-native";
 import {useEffect, useState} from "react";
-import {Screen} from "react-native-screens";
-import {Alert, Button, View} from "react-native"
+import {Alert, View} from "react-native"
 
 export default function CheckoutScreen() {
   const { initPaymentSheet, presentPaymentSheet } = useStripe();

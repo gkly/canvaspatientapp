@@ -1,11 +1,14 @@
 import {TextList} from "../../../componentLibrary/TextList";
-import {Button} from "@ui-kitten/components";
 import {RESOURCES} from "../../../utils/constants";
 import {useGetInfiniteQuery} from "../../../hooks/basic/useGetInfiniteQuery";
 import EmptyText from "../../../componentLibrary/EmptyText";
 import Modal from "../../../componentLibrary/Modal";
+import LoadMoreButton from "../../../componentLibrary/LoadMoreButton";
+import {useTranslation} from "react-i18next";
+
 
 const MedicationsModal = ({ onClose }) => {
+  const { t } = useTranslation();
   const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.MEDICATION);
 
   const medications = (data?.pages || [])
@@ -20,26 +23,18 @@ const MedicationsModal = ({ onClose }) => {
     return { title: medication, isDisabled: true }
   })
 
-  const buttonText = isFetchingNextPage ? "Loading..." : "Load More";
-
   return (
     <Modal
       isLoading={isLoading}
       errorMessage={error?.message}
       onClose={onClose}
-      title='Medications'
+      title={t('medhistory-overview-medications')}
       scrollView={false} // since textlist is already supporting vertical scroll
     >
       {medicationItems.length === 0 && <EmptyText name='medications' plural={true} />}
       <TextList items={medicationItems} resource={RESOURCES.MEDICATION} />
       {hasNextPage && (
-        <Button
-          onPress={fetchNextPage}
-          appearance='outline'
-          disabled={isFetchingNextPage}
-        >
-          {buttonText}
-        </Button>
+        <LoadMoreButton isLoading={isFetchingNextPage} onPress={fetchNextPage} />
       )}
     </Modal>
   )

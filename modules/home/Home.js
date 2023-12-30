@@ -1,22 +1,21 @@
-import {Image, ScrollView, StyleSheet, Text, View} from "react-native";
+import {Pressable, ScrollView, StyleSheet, Text, View} from "react-native";
 import Appointments from "../appointments/Appointments";
 import Onboarding from "../onboarding/Onboarding";
 import {useCallback, useEffect, useState} from "react";
 import { RefreshControl } from 'react-native';
-import Welcome from "./Welcome";
 import {useQueryClient} from "@tanstack/react-query";
 import {useIsOnboardingComplete} from "../../hooks/composite/useIsOnboardingComplete";
-import {Button} from "@ui-kitten/components";
-import Card from "../../componentLibrary/Card";
-import HeaderText from "../../componentLibrary/HeaderText";
-import {useGetPatient} from "../../hooks/resourceBased/useGetPatient";
+import { useTranslation} from 'react-i18next';
+import WelcomeCard from "./WelcomeCard";
+import CareTeamCard from "./CareTeamCard";
+import {SECONDARY_COLORS} from "../../utils/constants";
+import {Icon} from "@ui-kitten/components";
 
 const Home = () => {
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
   const {isOnboardingComplete, isOnboardingCompleteLoading, onboardingCompleteError} = useIsOnboardingComplete();
-  const { name } = useGetPatient();
-  const nameToDisplay = name?.firstNamePreferred || name?.firstNameLegal;
-  const welcomeMessage = nameToDisplay ? `Hello ${nameToDisplay}!` : 'Hello!';
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     if(!isOnboardingCompleteLoading && !onboardingCompleteError && !isOnboardingComplete) {
@@ -34,34 +33,25 @@ const Home = () => {
 
   return (
     <>
-      {/*<View style={styles.header}>*/}
-      {/*  <Image source={require('../../assets/canvaslogo.png')} style={styles.image} />*/}
-      {/*  <Text style={styles.tagline}>Rooted in Empathy, Aided by Technology.</Text>*/}
-      {/*</View>*/}
-      {/*<View style={styles.personalized}>*/}
-      {/*  <View style={styles.row}>*/}
-      {/*    <Image source={{uri: photo}} style={styles.profileImage}/>*/}
-      {/*    <HeaderText title={welcomeMessage} showLine={false} secondaryColor={false} />*/}
-      {/*  </View>*/}
-      {/*</View>*/}
+      <WelcomeCard />
+      <CareTeamCard />
+
+      {!isOnboardingComplete && (
+        <Pressable style={styles.onboarding} onPress={() => setShowOnboardingModal(true)}>
+          <Text style={styles.onboardingText}>{t('home-finishonboarding')}</Text>
+          <View style={styles.rightIconContainer}>
+            <Icon name='arrow-ios-forward' style={styles.icon} fill={SECONDARY_COLORS.NAVY}/>
+          </View>
+        </Pressable>
+      )}
+      {showOnboardingModal && <Onboarding onClose={() => setShowOnboardingModal(false)} />}
+
       <ScrollView
         style={styles.content}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       >
-        {/*<Image source={require('../../assets/canvaslogo.png')} style={styles.image} />*/}
-        {/*<Text>Rooted in Empathy, Aided by Technology.</Text>*/}
-        <HeaderText title={welcomeMessage} showLine={false} secondaryColor={false} />
-        {!isOnboardingComplete && (
-          <Card title='Finish onboarding' iconName='edit-2-outline' onPress={() => setShowOnboardingModal(true)} />
-          // <Button
-          //   style={styles.onboardingButton}
-          //   onPress={() => setShowOnboardingModal(true)}>
-          //   Finish onboarding
-          // </Button>
-        )}
-        {showOnboardingModal && <Onboarding onClose={() => setShowOnboardingModal(false)} />}
         <Appointments />
       </ScrollView>
     </>
@@ -76,38 +66,41 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 10,
     paddingHorizontal: 15,
-    // marginVertical: 10,
-    marginBottom: 20,
+    marginBottom: 10,
   },
-  logo: {
+  onboarding: {
+    paddingHorizontal: 20,
+    backgroundColor: SECONDARY_COLORS.GREY,
     height: 50,
-    width: '80%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 5,
+    flexDirection: 'row',
   },
-  onboardingButton: {
-    marginTop: 10,
-    padding: 50
+  onboardingText: {
+    color: SECONDARY_COLORS.NAVY,
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
+  icon: {
+    width: 25,
+    height: 25,
   },
   header: {
     backgroundColor: 'rgba(106,150,192, 1)',
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 50,
-    height: 250,
+    height: 220,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
   },
-  // image: {
-  //   width: 150,
-  //   height: 30,
-  //   marginVertical: 10,
-  // },
   image: {
     width: 100,
     height: 20,
     marginVertical: 10,
   },
   personalized: {
-    // flex: 1,
     padding: 10,
   },
   row: {

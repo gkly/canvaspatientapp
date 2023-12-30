@@ -3,13 +3,13 @@ import InputButton from "../../componentLibrary/InputButton";
 import {useCallback, useEffect, useState} from "react";
 import Message from "./Message";
 import {useGetMessages} from "../../hooks/resourceBased/useGetMessages";
-import {Button} from "@ui-kitten/components";
 import {PATIENT_ID, PROVIDER_ID, RESOURCES} from "../../utils/constants";
 import {getUrlForResource, postRequest} from "../../utils/network_request_helpers";
 import ErrorText from "../../componentLibrary/ErrorText";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {isTextEmpty} from "../../utils/helpers";
 import {formatReferenceResource} from "../../utils/formatters";
+import LoadMoreButton from "../../componentLibrary/LoadMoreButton";
 
 
 const Messaging = () => {
@@ -69,8 +69,6 @@ const Messaging = () => {
     }
   }, [data]);
 
-  const buttonText = isFetchingNextPage ? "Loading..." : "Load More";
-
   return (
     <View style={styles.container}>
       <ScrollView
@@ -80,22 +78,21 @@ const Messaging = () => {
         }
       >
         {hasNextPage && (
-          <Button
-            onPress={fetchNextPage}
-            appearance='outline'
-            disabled={isFetchingNextPage}
-          >
-            {buttonText}
-          </Button>
+          <LoadMoreButton isLoading={isFetchingNextPage} onPress={fetchNextPage} />
         )}
         {
-          allMessages.map(m => (
-            <Message
-              text={m.text}
-              date={m.date.toLocaleString()}
-              wasReceived={m.wasReceived}
-            />
-          ))
+          allMessages.map(m => {
+            const datetime = m.date.toLocaleString();
+            return (
+              <View key={datetime}>
+                <Message
+                  text={m.text}
+                  datetime={datetime}
+                  wasReceived={m.wasReceived}
+                />
+              </View>
+            )
+          })
         }
       </ScrollView>
       {/*TODO fix for iOS (keyboard bllocks view)*/}

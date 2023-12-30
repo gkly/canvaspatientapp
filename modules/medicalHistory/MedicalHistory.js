@@ -1,15 +1,18 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import MyRecordsScreen from "./MyRecordsScreen";
 import MyReportsScreen from "./MyReportsScreen";
+import {useTranslation} from "react-i18next";
 
 const Tab = createMaterialTopTabNavigator();
 
 
 const MedicalHistory = () => {
+  const { t } = useTranslation();
+
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Overview"
+        name={t('medhistory-overview')}
         component={MyRecordsScreen}
         options={{
           tabBarIndicatorStyle: {
@@ -18,7 +21,7 @@ const MedicalHistory = () => {
         }}
       />
       <Tab.Screen
-        name="Reports"
+        name={t('medhistory-reports')}
         component={MyReportsScreen}
         options={{
           tabBarIndicatorStyle: {

@@ -1,7 +1,5 @@
-import { useState } from 'react';
-// TODO: reconcile react-native vs ui kitten components
-import { StyleSheet } from 'react-native';
-import { Button, IndexPath } from '@ui-kitten/components';
+import React, { useState } from 'react';
+import { IndexPath } from '@ui-kitten/components';
 import InputDropdown from '../../../componentLibrary/InputDropdown';
 import ErrorText from "../../../componentLibrary/ErrorText";
 import {useMutation} from "@tanstack/react-query";
@@ -11,6 +9,7 @@ import {TextList} from "../../../componentLibrary/TextList";
 import {useQueryClient} from "@tanstack/react-query";
 import {formatReferenceResource} from "../../../utils/formatters";
 import Modal from "../../../componentLibrary/Modal";
+import Button from "../../../componentLibrary/Button";
 
 
 const TITLE = 'AUDIT-C';
@@ -218,6 +217,7 @@ const AuditCQuestionnaireModal = ({ onClose, questionResponses }: Props) => {
       onClose={onClose}
       title={TITLE}
       description={DESCRIPTION}
+      scrollView={true}
     >
       <InputDropdown
         label={QUESTIONS.FREQUENCY.TEXT}
@@ -241,18 +241,15 @@ const AuditCQuestionnaireModal = ({ onClose, questionResponses }: Props) => {
         optionNames={Object.keys(QUESTIONS.BINGE.OPTIONS)}
       />
 
-      <Button style={styles.submitButton} onPress={onSubmit} disabled={submitIsLoading}>
-        Submit
-      </Button>
+      <Button
+        text='Submit'
+        type='filled'
+        onPress={onSubmit}
+        disabled={submitIsLoading}
+      />
       {submitErrorMsg && <ErrorText message={submitErrorMsg}/>}
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  submitButton: {
-    padding: 50, // Increased button size
-  },
-});
 
 export default AuditCQuestionnaireModal;

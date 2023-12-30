@@ -2,11 +2,11 @@ import { StyleSheet, Text, View } from "react-native";
 
 type Props = {
   text: string,
-  date: string,
+  datetime: string,
   wasReceived: boolean,
 }
 
-const Message = ({ text, date, wasReceived }: Props) => {
+const Message = ({ text, datetime, wasReceived }: Props) => {
   // TODO fix iOS not rounding message bubbles
   return (
     <View style={wasReceived ? styles.receivedContainer : styles.sentContainer}>
@@ -14,7 +14,7 @@ const Message = ({ text, date, wasReceived }: Props) => {
         {text}
       </Text>
       <Text style={wasReceived ? styles.receivedDate : styles.sentDate}>
-        {date}
+        {datetime}
       </Text>
     </View>
   )

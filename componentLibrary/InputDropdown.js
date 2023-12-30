@@ -11,7 +11,6 @@ type Props = {
 }
 
 const InputDropdown = ({label, selectedIndex, value, onChange, optionNames}: Props) => {
-  // TODO fix keys warning
   return (
     <LabelWrapper label={label}>
       <Select
@@ -19,7 +18,7 @@ const InputDropdown = ({label, selectedIndex, value, onChange, optionNames}: Pro
         onSelect={onChange}
         value={value}
       >
-        {optionNames.map(option => <SelectItem title={option} />)}
+        {optionNames.map(option => <SelectItem title={option} key={option} />)}
       </Select>
     </LabelWrapper>
   )

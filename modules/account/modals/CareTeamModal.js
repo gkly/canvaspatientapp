@@ -2,18 +2,12 @@ import {View} from 'react-native';
 import {TextList} from "../../../componentLibrary/TextList";
 import EmptyText from "../../../componentLibrary/EmptyText";
 import {RESOURCES} from "../../../utils/constants";
-import {useGetQuery} from "../../../hooks/basic/useGetQuery";
 import Modal from "../../../componentLibrary/Modal";
+import {useGetCareTeam} from "../../../hooks/resourceBased/useGetCareTeam";
 
 
 const CareTeamModal = ({ onClose }) => {
-  const { data, error, isLoading }  = useGetQuery(RESOURCES.CARE_TEAM, true);
-
-  const careTeam = (data?.entry || [])
-    .map(({ resource: entry }) => ({
-      name: entry.participant[0].member.display,
-      role: entry.participant[0].role[0].coding[0].display,
-    }));
+  const { careTeam, isCareTeamLoading, careTeamError } = useGetCareTeam();
 
   const careTeamItems = careTeam.map((provider) => {
     return { title: provider.name, description: provider.role, isDisabled: true}
@@ -21,10 +15,10 @@ const CareTeamModal = ({ onClose }) => {
 
   return (
     <Modal
-      isLoading={isLoading}
-      errorMessage={error?.message}
+      isLoading={isCareTeamLoading}
+      errorMessage={careTeamError?.message}
       onClose={onClose}
-      title='CareTeam'
+      title='Care Team'
       scrollView={false} // since textlist is already supporting vertical scroll
     >
       <View>

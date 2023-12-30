@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useGetAvailableSlots } from "../../hooks/resourceBased/useGetAvailableSlots";
 import InputDropdown from "../../componentLibrary/InputDropdown";
-import {Button, IndexPath} from "@ui-kitten/components";
-import {StyleSheet} from "react-native";
+import {IndexPath} from "@ui-kitten/components";
 import {getUrlForResource, postRequest} from "../../utils/network_request_helpers";
 import {APPOINTMENT_TYPES, PATIENT_ID, PROVIDER_ID, RESOURCES, TELEMEDICINE_URL} from "../../utils/constants";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
@@ -10,6 +9,7 @@ import InputText from "../../componentLibrary/InputText";
 import {formatReferenceResource} from "../../utils/formatters";
 import {isTextEmpty} from "../../utils/helpers";
 import Modal from "../../componentLibrary/Modal";
+import Button from "../../componentLibrary/Button";
 
 const NewAppointmentModal = ({onClose}) => {
   const [reason, setReason] = useState();
@@ -20,7 +20,7 @@ const NewAppointmentModal = ({onClose}) => {
   const slotTimes = slotDate ? slots[slotDate].map(slot => slot.timeRangeForDisplay) : [];
   const [slotTimeSelectedIndex, setSlotTimeSelectedIndex] = useState(new IndexPath(0));
   const slotTime = slotTimes[slotTimeSelectedIndex.row];
-  const appointmentTypes = [APPOINTMENT_TYPES.TELEMEDICINE, APPOINTMENT_TYPES.OFFICE];
+  const appointmentTypes = Object.values(APPOINTMENT_TYPES);
   const [appointmentTypeSelectedIndex, setAppointmentTypeSelectedIndex] = useState(new IndexPath(0));
   const appointmentType = appointmentTypes[appointmentTypeSelectedIndex.row];
 
@@ -115,6 +115,7 @@ const NewAppointmentModal = ({onClose}) => {
       errorMessage={error}
       title='Book an appointment'
       description='Find an available time with your provider and book an appointment. All fields are required.'
+      scrollView={true}
     >
       <InputText
         label='Reason for visit'
@@ -143,20 +144,12 @@ const NewAppointmentModal = ({onClose}) => {
         optionNames={appointmentTypes}
       />
       <Button
-        style={styles.submitButton}
+        text='Book Appointment'
         onPress={onSubmit}
-        disabled={bookAppointment.isPending || isTextEmpty(reason)}>
-        Book Appointment
-      </Button>
+        disabled={bookAppointment.isPending || isTextEmpty(reason)}
+      />
     </Modal>
   )
 }
 
 export default NewAppointmentModal;
-
-const styles = StyleSheet.create({
-  submitButton: {
-    marginTop: 10,
-    padding: 50, // Increased button size
-  },
-});

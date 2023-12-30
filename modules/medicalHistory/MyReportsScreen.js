@@ -1,15 +1,11 @@
 import React, {useState} from "react";
 import SpinnerWrapper from "../../componentLibrary/SpinnerWrapper";
-import {Text} from "react-native";
 import {TextList} from "../../componentLibrary/TextList";
-import {useGetInfiniteQuery} from "../../hooks/basic/useGetInfiniteQuery";
-import {RESOURCES} from "../../utils/constants";
-import {Button} from "@ui-kitten/components";
 import ErrorText from "../../componentLibrary/ErrorText";
 import EmptyText from "../../componentLibrary/EmptyText";
 import ReportModal from "./modals/ReportModal";
-import {useGetQuery} from "../../hooks/basic/useGetQuery";
 import {useGetReports} from "../../hooks/resourceBased/useGetReports";
+import LoadMoreButton from "../../componentLibrary/LoadMoreButton";
 
 const MyReportsScreen = () => {
   const [selectedReport, setSelectedReport] = useState();
@@ -24,42 +20,10 @@ const MyReportsScreen = () => {
     isFetchingNextPage,
   } = useGetReports();
 
-  // console.log('reports (screen) =', reports);
-  // console.log('allObservationsMapping (screen) =', allObservationsMapping);
-
-  // const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.REPORT);
-  // const {data: parentObservation} = useGetQuery(RESOURCES.OBSERVATION, false, selectedReport?.parentObservationReferenceId);
-  // console.log('parentObservation=', parentObservation);
-
   const onPress = (report) => {
     setSelectedReport(report);
     setShowReportDetailsModal(true);
   }
-
-  // const reports = (data?.pages || [])
-  //   .map((page) => {
-  //     const reportsRawData = page.entry || [];
-  //     return reportsRawData
-  //       .map(({ resource: entry }) => {
-  //         // TODO make util function
-  //         const parentObservationReference = entry["result"]?.[0]?.["reference"];
-  //         return {
-  //           id: entry.id,
-  //           name: entry?.code?.text,
-  //           type: entry["category"]?.[0]?.["coding"]?.[0]?.["display"],
-  //           // TODO format date
-  //           date: entry["effectiveDateTime"],
-  //           parentObservationReferenceId: parentObservationReference?.split('/')[1],
-  //           observations: entry.code.coding,
-  //         }
-  //       })
-  //       .reduce((acc, reportData) => {
-  //         acc[reportData.id] = reportData;
-  //         return acc
-  //       }, {});
-  //   })
-  //   .reduce((acc, pageData) => ({...acc, ...pageData}), {});
-
 
   const reportItems = (Object.values(reports || {}) || []).map((report) => {
     return {
@@ -70,11 +34,6 @@ const MyReportsScreen = () => {
     }
   })
 
-  const buttonText = isFetchingNextPage ? "Loading..." : "Load More";
-
-  // TODO hook up observation report to click handler to make GET request for Observation
-
-  // TODO make empty state nice
   return (
     <>
       {isLoading && <SpinnerWrapper />}
@@ -82,13 +41,7 @@ const MyReportsScreen = () => {
       {reportItems.length === 0 && <EmptyText name='labs/imaging reports' plural={true} />}
       <TextList items={reportItems} />
       {hasNextPage && (
-        <Button
-          onPress={fetchNextPage}
-          appearance='outline'
-          disabled={isFetchingNextPage}
-        >
-          {buttonText}
-        </Button>
+        <LoadMoreButton isLoading={isFetchingNextPage} onPress={fetchNextPage} />
       )}
       {showReportDetailsModal && (
         <ReportModal

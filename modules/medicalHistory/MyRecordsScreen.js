@@ -6,9 +6,11 @@ import MedicationsModal from "./modals/MedicationsModal";
 import AllergiesModal from "./modals/AllergiesModal";
 import ConditionsModal from "./modals/ConditionsModal";
 import GoalsModal from "./modals/GoalsModal";
+import {useTranslation} from "react-i18next";
 
 
 const RecordsScreen = () => {
+  const { t } = useTranslation();
   const [showAllergies, setShowAllergies] = useState(false);
   const [showConditions, setShowConditions] = useState(false);
   const [showGoals, setShowGoals] = useState(false);
@@ -17,45 +19,35 @@ const RecordsScreen = () => {
 
   const contentItems = [
     {
-      title: 'Goals',
+      title: t('medhistory-overview-goals'),
       leftIcon: <Icon name='flag-outline' />,
       isDisabled: false,
       onPress: () => setShowGoals(true),
     },
     {
-      title: 'Allergies',
+      title: t('medhistory-overview-allergies'),
       leftIcon: <Icon name='close-square-outline' />,
       isDisabled: false,
       onPress: () => setShowAllergies(true),
     },
     {
-      title: 'Conditions',
+      title: t('medhistory-overview-conditions'),
       leftIcon: <Icon name='thermometer-outline' />,
       isDisabled: false,
       onPress: () => setShowConditions(true),
     },
     {
-      title: 'Medications',
+      title: t('medhistory-overview-medications'),
       leftIcon: <Icon name='archive-outline' />,
       isDisabled: false,
       onPress: () => setShowMedications(true),
     },
     {
-      title: 'Immunizations',
+      title: t('medhistory-overview-immunizations'),
       leftIcon: <Icon name='activity-outline' />,
       isDisabled: false,
       onPress: () => setShowImmunizations(true),
     },
-    // {
-    //   title: 'Active Consents',
-    //   leftIcon: <Icon name='folder-outline' />,
-    //   isDisabled: false,
-    // },
-    // {
-    //   title: 'Questionnaires',
-    //   leftIcon: <Icon name='question-mark' />,
-    //   isDisabled: false,
-    // },
   ]
 
   return (

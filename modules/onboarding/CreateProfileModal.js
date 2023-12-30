@@ -1,13 +1,13 @@
 import moment from 'moment';
-import { useState } from 'react';
+import React, { useState } from 'react';
 // TODO: reconcile react-native vs ui kitten components
-import { StyleSheet } from 'react-native';
-import { Button, Datepicker, IndexPath } from '@ui-kitten/components';
+import { Datepicker, IndexPath } from '@ui-kitten/components';
 import { MomentDateService } from '@ui-kitten/moment';
 import InputText from '../../componentLibrary/InputText';
 import LabelWrapper from '../../componentLibrary/LabelWrapper';
 import InputDropdown from "../../componentLibrary/InputDropdown";
 import Modal from "../../componentLibrary/Modal";
+import Button from "../../componentLibrary/Button";
 
 const sexDropdownOptions = [
   'Female',
@@ -48,6 +48,7 @@ const CreateProfileModal = ({onClose}: Props) => {
       isLoading={false}
       onClose={onClose}
       title='Create Profile'
+      scrollView={true}
     >
       <InputText
         label="First name"
@@ -87,52 +88,14 @@ const CreateProfileModal = ({onClose}: Props) => {
         isSecureText={false}
         inputMode='tel'
       />
-      {/*<Button title="Submit" onPress={onSubmit} style={styles.submitButton} />*/}
-      <Button onPress={onSubmit} disabled={!isFormComplete}>
-        Submit
-      </Button>
+      <Button
+        text='Submit'
+        type='filled'
+        onPress={onSubmit}
+        disabled={!isFormComplete}
+      />
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    // backgroundColor: 'rgba(255, 255, 255, 1)',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 20,
-    marginBottom: 15,
-  },
-  label: {
-    fontSize: 15,
-    fontWeight: 'bold',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    // marginBottom: 10,
-    minWidth: 150,
-    maxWidth: 250
-  },
-  datepickerContainer: {
-    // minHeight: 376,
-  },
-  dropdownContainer: {
-    // minHeight: 128,
-  },
-  submitButton: {
-    padding: 50, // Increased button size
-  },
-  successText: {
-    color: 'green',
-    marginTop: 10,
-    fontSize: 17,
-  },
-});
 
 export default CreateProfileModal;

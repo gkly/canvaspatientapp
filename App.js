@@ -14,6 +14,8 @@ import Messaging from "./modules/messaging/Messaging";
 import {Image, StyleSheet} from "react-native";
 import { StripeProvider } from '@stripe/stripe-react-native';
 import {useEffect} from "react";
+import {useTranslation} from "react-i18next";
+import "./i18n";
 
 // TODO nice to have theme https://akveo.github.io/react-native-ui-kitten/docs/guides/branding#primary-color
 
@@ -22,9 +24,11 @@ const queryClient = new QueryClient()
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  useEffect(() => {
-    console.log('App useEffect')
-  }, []);
+  const { t, i18n } = useTranslation();
+  // useEffect(() => {
+  //   console.log('App useEffect')
+  // }, []);
+
 
   const screenOptions = {
     // TODO fix onpress
@@ -40,7 +44,6 @@ export default function App() {
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
-      {/*<ApplicationProvider {...eva} theme={{ light, ...theme }}>*/}
       <ApplicationProvider {...eva} theme={eva.light}>
         <QueryClientProvider client={queryClient}>
           <StripeProvider
@@ -56,7 +59,7 @@ export default function App() {
               })}>
                 <Tab.Group>
                   <Tab.Screen
-                    name="Home"
+                    name={t('nav-home')}
                     component={Home}
                     options={{
                       headerShown: false,
@@ -72,7 +75,7 @@ export default function App() {
 
                   />
                   <Tab.Screen
-                    name="Messaging"
+                    name={t('nav-messaging')}
                     component={Messaging}
                     options={{
                       tabBarIcon: ({color}) => <Icon style={styles.icon} name='message-circle' fill={color} />,
@@ -80,7 +83,7 @@ export default function App() {
                     }}
                   />
                   <Tab.Screen
-                    name="Medical History"
+                    name={t('nav-medhistory')}
                     component={MedicalHistory}
                     options={{
                       tabBarIcon: ({color}) => <Icon style={styles.icon} name='activity-outline' fill={color} />,
@@ -88,7 +91,7 @@ export default function App() {
                     }}
                   />
                   <Tab.Screen
-                    name="Account"
+                    name={t('nav-account')}
                     component={Account}
                     options={{
                       tabBarIcon: ({color}) => <Icon style={styles.icon} name='person-outline' fill={color} />,

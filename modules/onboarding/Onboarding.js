@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Button, Icon } from '@ui-kitten/components';
 import AuditCQuestionnaireModal from "./modals/AuditCQuestionnaireModal";
 import ConsentModal from "./modals/ConsentModal";
 import {useIsOnboardingComplete} from "../../hooks/composite/useIsOnboardingComplete";
 import CoverageModal from "./modals/CoverageModal";
 import CreateProfileModal from "./CreateProfileModal";
 import Modal from "../../componentLibrary/Modal";
+import Button from "../../componentLibrary/Button";
 
 
 const Onboarding = ({onClose}) => {
@@ -22,7 +22,7 @@ const Onboarding = ({onClose}) => {
   const [isAuditCQuestionnaireModalVisible, setIsAuditCQuestionnaireModalVisible] = useState(false);
   const [isConsentModalVisible, setIsConsentModalVisible] = useState(false);
 
-  const CheckmarkIcon = <Icon name='checkmark-circle-2-outline' />;
+  const checkmarkIconName = 'checkmark-circle-2-outline';
 
   return (
     <Modal
@@ -31,42 +31,39 @@ const Onboarding = ({onClose}) => {
       onClose={onClose}
       title='Onboarding'
       description='...a few more steps to get started!'
+      scrollView={true}
     >
       {
         !isOnboardingCompleteLoading && !onboardingCompleteError && (
           <>
             <Button
-              appearance='ghost'
-              accessoryRight={isProfileComplete ? CheckmarkIcon : null}
+              type='ghost'
+              text='Basic Personal Information'
+              iconName={isProfileComplete ? checkmarkIconName : null}
               onPress={() => setIsCreateProfileModalVisible(true)}
               disabled={isProfileComplete}
-            >
-              Basic Personal Information
-            </Button>
+            />
             <Button
-              appearance='ghost'
-              accessoryRight={isCoverageComplete ? CheckmarkIcon : null}
+              type='ghost'
+              text='Insurance Information'
+              iconName={isCoverageComplete ? checkmarkIconName : null}
               onPress={() => setIsCoverageModalVisible(true)}
               disabled={isCoverageComplete}
-            >
-              Insurance Information
-            </Button>
+            />
             <Button
-              appearance='ghost'
-              accessoryRight={isQuestionnaireComplete ? CheckmarkIcon : null}
+              type='ghost'
+              text='AUDIT-C Questionnaire'
+              iconName={isQuestionnaireComplete ? checkmarkIconName : null}
               onPress={() => setIsAuditCQuestionnaireModalVisible(true)}
               disabled={isQuestionnaireComplete}
-            >
-              AUDIT-C Questionnaire
-            </Button>
+            />
             <Button
-              appearance='ghost'
-              accessoryRight={isConsentComplete ? CheckmarkIcon : null}
+              type='ghost'
+              text='Consent'
+              iconName={isConsentComplete ? checkmarkIconName : null}
               onPress={() => setIsConsentModalVisible(true)}
               disabled={isConsentComplete}
-            >
-              Consent
-            </Button>
+            />
           </>
         )
       }

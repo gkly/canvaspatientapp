@@ -1,12 +1,14 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Spinner} from "@ui-kitten/components";
+import {PRIMARY_COLORS} from "../utils/constants";
 
 
 const SpinnerWrapper = () => {
+  // TODO (low) change spinner color
   return (
     <View style={styles.container}>
-      <Spinner />
+      <Spinner style={styles.spinner} />
     </View>
   )
 }
@@ -19,4 +21,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: '50%',
   },
+  spinner: {
+    // not working
+    color: PRIMARY_COLORS.BLUE,
+    fill: PRIMARY_COLORS.BLUE,
+  }
 });

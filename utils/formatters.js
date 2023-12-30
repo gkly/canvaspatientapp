@@ -26,6 +26,7 @@ export const formatGoalsData = (rawGoalsDataAsPages= []) => {
           name: entry.description?.text,
           status: entry.achievementStatus?.coding[0]?.display,
           priority: entry.priority?.coding[0]?.display,
+          dueDate: entry.target?.[0]?.dueDate,
         }
       ))
     })

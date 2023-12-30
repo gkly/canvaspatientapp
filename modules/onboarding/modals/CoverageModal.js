@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import { Button, Icon } from '@ui-kitten/components';
 import {useMutation} from "@tanstack/react-query";
 import {PATIENT_ID, RESOURCES} from "../../../utils/constants";
 import {getUrlForResource, postRequest} from "../../../utils/network_request_helpers";
@@ -13,6 +12,7 @@ import LabelWrapper from "../../../componentLibrary/LabelWrapper";
 import {isTextEmpty} from "../../../utils/helpers";
 import {useGetCoverage} from "../../../hooks/resourceBased/useGetCoverage";
 import Modal from "../../../componentLibrary/Modal";
+import Button from "../../../componentLibrary/Button";
 
 
 type Props = {
@@ -61,7 +61,11 @@ const CoverageModal = ({ onClose }: Props) => {
         isDisabled: true,
       },
     ]
-    return <TextList items={items} resource={RESOURCES.PATIENT} />;
+    return (
+      <View style={styles.card} key={items.map(i=>i.title).toString()}>
+        <TextList items={items} resource={RESOURCES.PATIENT} />
+      </View>
+    );
   })
 
   const submitCoverage = useMutation({
@@ -151,6 +155,7 @@ const CoverageModal = ({ onClose }: Props) => {
     <Modal
       onClose={onClose}
       title='Insurance information'
+      scrollView={false}
     >
        <ScrollView horizontal>
         {renderInsuranceInformationCards()}
@@ -160,18 +165,17 @@ const CoverageModal = ({ onClose }: Props) => {
     <Modal
       onClose={onClose}
       title='Insurance information'
+      scrollView={false}
     >
       {(payerId && payerName) ? (
         <>
           <LabelWrapper label='Health insurance carrier' >
             <Button
-              status='basic'
-              appearance='ghost'
-              accessoryRight={<Icon name='close-outline' style={styles.icon} />}
+              text={payerName}
+              type='ghost'
+              iconName='close-outline'
               onPress={resetPayer}
-            >
-              {payerName}
-            </Button>
+            />
           </LabelWrapper>
           <InputText
             label='ID'
@@ -192,9 +196,12 @@ const CoverageModal = ({ onClose }: Props) => {
             value={coveragePlan}
             onChange={input => setCoveragePlan(input)}
           />
-          <Button style={styles.submitButton} onPress={onSubmit} disabled={isFormIncomplete}>
-            Submit
-          </Button>
+          <Button
+            text='Submit'
+            type='filled'
+            onPress={onSubmit}
+            disabled={isFormIncomplete}
+          />
         </>
       ) : (
         <PayerNameSearch setPayer={setPayer} resetPayer={resetPayer} payerName={payerName} />
@@ -204,13 +211,13 @@ const CoverageModal = ({ onClose }: Props) => {
 };
 
 const styles = StyleSheet.create({
-  icon: {
-    height: 15,
-    width: 15,
-  },
-  submitButton: {
-    padding: 50, // Increased button size
-  },
+  card: {
+    borderWidth: 2,
+    borderRadius: 20,
+    borderColor: 'rgb(171,168,168)',
+    padding: 5,
+    marginRight: 5,
+  }
 });
 
 export default CoverageModal;
