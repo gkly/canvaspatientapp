@@ -1,3 +1,5 @@
+import {useTranslation} from "react-i18next";
+
 import {View} from 'react-native';
 import {TextList} from "../../../componentLibrary/TextList";
 import EmptyText from "../../../componentLibrary/EmptyText";
@@ -9,6 +11,7 @@ import LoadMoreButton from "../../../componentLibrary/LoadMoreButton";
 
 
 const InvoicesModal = ({ onClose }) => {
+  const { t } = useTranslation();
   const queryParams = `subject=Patient/${PATIENT_ID}&category=invoicefull`;
   const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.DOCUMENT_REFERENCE, false, queryParams);
 
@@ -33,7 +36,7 @@ const InvoicesModal = ({ onClose }) => {
       isLoading={isLoading}
       errorMessage={error?.message}
       onClose={onClose}
-      title='Invoices'
+      title={t('account-billing-invoices')}
       scrollView={false} // since textlist is already supporting vertical scroll
     >
       <View>

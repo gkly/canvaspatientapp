@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {StyleSheet, View} from "react-native";
 import SpinnerWrapper from "../../componentLibrary/SpinnerWrapper";
 import {TextList} from "../../componentLibrary/TextList";
 import ErrorText from "../../componentLibrary/ErrorText";
@@ -6,6 +7,8 @@ import EmptyText from "../../componentLibrary/EmptyText";
 import ReportModal from "./modals/ReportModal";
 import {useGetReports} from "../../hooks/resourceBased/useGetReports";
 import LoadMoreButton from "../../componentLibrary/LoadMoreButton";
+import Tag from "../../componentLibrary/Tag";
+import {COLORS, PRIMARY_COLORS, REPORT_TYPES, RESOURCES} from "../../utils/constants";
 
 const MyReportsScreen = () => {
   const [selectedReport, setSelectedReport] = useState();
@@ -26,20 +29,22 @@ const MyReportsScreen = () => {
   }
 
   const reportItems = (Object.values(reports || {}) || []).map((report) => {
+    const color = (report.type === REPORT_TYPES.LABORATORY) ? COLORS.GREEN : COLORS.ORANGE;
     return {
       title: report.name,
-      description: `Type: ${report.type} | Date: ${report.date}`,
+      description: report.date,
       isDisabled: false,
+      tags: [<Tag text={report.type} color={color} circular={true} />],
       onPress: () => onPress(report),
     }
   })
 
   return (
-    <>
+    <View style={styles.container}>
       {isLoading && <SpinnerWrapper />}
       {error && <ErrorText>Error: {error.message}</ErrorText>}
       {reportItems.length === 0 && <EmptyText name='labs/imaging reports' plural={true} />}
-      <TextList items={reportItems} />
+      <TextList items={reportItems} showTags={true} resource={RESOURCES.DOCUMENT_REFERENCE} />
       {hasNextPage && (
         <LoadMoreButton isLoading={isFetchingNextPage} onPress={fetchNextPage} />
       )}
@@ -50,8 +55,16 @@ const MyReportsScreen = () => {
           onClose={() => setShowReportDetailsModal(false)}
         />
       )}
-    </>
+    </View>
   )
 }
 
 export default MyReportsScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: PRIMARY_COLORS.WHITE,
+    paddingLeft: 15,
+    height: '100%',
+  }
+})

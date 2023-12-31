@@ -43,6 +43,8 @@ export const RESOURCES = {
 
 export const TELEMEDICINE_URL = 'https://meet.google.com/tky-cpww-eiw';
 
+export const STRIPE_PAYMENT_URL = 'https://buy.stripe.com/test_dR69EbbVub21bRK000';
+
 export const APPOINTMENT_TYPES = {
   TELEMEDICINE: 'Telemedicine',
   OFFICE: 'Office Visit',
@@ -89,6 +91,11 @@ export const GOAL_PRIORITY_TYPES = {
   LOW: 'Low Priority',
 }
 
+export const REPORT_TYPES = {
+  LABORATORY: 'Laboratory',
+  RADIOLOGY: 'Radiology',
+}
+
 export const PRIMARY_COLOR = 'rgb(106,150,192)';
 export const SECONDARY_COLOR = 'rgb(255,255,255)';
 export const TERTIARY_COLOR = 'rgb(171,168,168)';
@@ -121,7 +128,7 @@ export const LANGUAGES_SUPPORTED = {
   },
   SPANISH: {
     DISPLAY: 'Español',
-    CODE: 'sp',
+    CODE: 'es',
   },
   KOREAN: {
     DISPLAY: '한글',
@@ -132,3 +139,5 @@ export const LANGUAGES_SUPPORTED = {
     CODE: 'cn',
   },
 }
+
+export const LANGUAGE_CODES_SUPPORTED = Object.values(LANGUAGES_SUPPORTED).map(lg => lg.CODE);

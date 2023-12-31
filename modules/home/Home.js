@@ -8,14 +8,22 @@ import {useIsOnboardingComplete} from "../../hooks/composite/useIsOnboardingComp
 import { useTranslation} from 'react-i18next';
 import WelcomeCard from "./WelcomeCard";
 import CareTeamCard from "./CareTeamCard";
-import {SECONDARY_COLORS} from "../../utils/constants";
+import {LANGUAGE_CODES_SUPPORTED, SECONDARY_COLORS} from "../../utils/constants";
 import {Icon} from "@ui-kitten/components";
+import {useGetPatient} from "../../hooks/resourceBased/useGetPatient";
 
 const Home = () => {
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
   const {isOnboardingComplete, isOnboardingCompleteLoading, onboardingCompleteError} = useIsOnboardingComplete();
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const { language } = useGetPatient();
+  const languageCode = language?.code;
 
+  useEffect(() => {
+    if(LANGUAGE_CODES_SUPPORTED.includes(languageCode)) {
+      i18n.changeLanguage(languageCode);
+    }
+  }, [languageCode]);
 
   useEffect(() => {
     if(!isOnboardingCompleteLoading && !onboardingCompleteError && !isOnboardingComplete) {

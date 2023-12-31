@@ -1,10 +1,10 @@
-import {Icon} from "@ui-kitten/components";
-import {StyleSheet} from "react-native";
+import {useTranslation} from "react-i18next";
 import Button from "./Button";
 
 
 const LoadMoreButton = ({isLoading, onPress}) => {
-  const buttonText = isLoading ? "Loading..." : "Load More";
+  const { t } = useTranslation();
+  const buttonText = isLoading ? `${t('button-loading')}...` : t('button-loadmore');
 
   return (
     <Button
@@ -19,13 +19,3 @@ const LoadMoreButton = ({isLoading, onPress}) => {
 
 export default LoadMoreButton;
 
-const styles = StyleSheet.create({
-  button: {
-    // color: 'rgb(106,150,192)',
-    // fill: 'rgb(106,150,192)',
-  },
-  icon: {
-    height: 15,
-    width: 15,
-  },
-});

@@ -1,12 +1,15 @@
+import {useTranslation} from "react-i18next";
+
 import {TextList} from "../../../componentLibrary/TextList";
 import {RESOURCES} from "../../../utils/constants";
 import {useGetPatient} from "../../../hooks/resourceBased/useGetPatient";
 import {ScrollView, StyleSheet, View} from "react-native";
-import Carousel from "../../../componentLibrary/Carousel";
 import Modal from "../../../componentLibrary/Modal";
 
 const AddressesModal = ({ onClose }) => {
+  const { t } = useTranslation();
   const { addresses, isPatientLoading, patientError } = useGetPatient();
+
   const renderAddressCards = () => addresses.map(a => {
     const items = [
       {
@@ -47,7 +50,7 @@ const AddressesModal = ({ onClose }) => {
       isLoading={isPatientLoading}
       errorMessage={patientError?.message}
       onClose={onClose}
-      title='Addresses'
+      title={t('account-profile-addresses')}
       scrollView={false} // since textlist is already supporting vertical scroll
     >
       <ScrollView horizontal>

@@ -22,18 +22,15 @@ const LanguagePickerModal = ({onClose}) => {
       scrollView={true}
       onClose={onClose}
     >
-      <Button
-        type='outline'
-        isSecondary={true}
-        text='English'
-        onPress={() => changeLanguage('en')}
-      />
-      <Button
-        type='outline'
-        isSecondary={true}
-        text='Español'
-        onPress={() => changeLanguage('sp')}
-      />
+      {Object.values(LANGUAGES_SUPPORTED).map(lg => (
+        <Button
+          key={lg.CODE}
+          type='outline'
+          isSecondary={true}
+          text={lg.DISPLAY}
+          onPress={() => changeLanguage(lg.CODE)}
+        />
+      ))}
     </Modal>
   )
 }

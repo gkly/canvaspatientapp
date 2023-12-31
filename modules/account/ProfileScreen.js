@@ -1,5 +1,6 @@
 import {TextList} from "../../componentLibrary/TextList";
 import { Icon } from '@ui-kitten/components';
+import {useTranslation} from "react-i18next";
 import {useState} from "react";
 import {StyleSheet} from "react-native";
 import {RESOURCES} from "../../utils/constants";
@@ -13,6 +14,7 @@ import CareTeamModal from "./modals/CareTeamModal";
 
 
 const ProfileScreen = () => {
+  const { t } = useTranslation();
   const [showPersonalInformation, setShowPersonalInformation] = useState(false);
   const [showAddresses, setShowAddresses] = useState(false);
   const [showConsentModal, setShowConsentModal] = useState(false);
@@ -23,31 +25,31 @@ const ProfileScreen = () => {
 
   const contentItems = [
     {
-      title: 'Personal Information',
+      title: t('account-profile-personalinfo'),
       leftIcon: <Icon style={styles.icon} name='person-outline' />,
       isDisabled: false,
       onPress: () => setShowPersonalInformation(true),
     },
     {
-      title: 'Addresses',
+      title: t('account-profile-addresses'),
       leftIcon: <Icon style={styles.icon} name='inbox-outline' />,
       isDisabled: false,
       onPress: () => setShowAddresses(true),
     },
     {
-      title: 'Consent',
+      title: t('account-profile-consent'),
       leftIcon: <Icon name='folder-outline' />,
       isDisabled: false,
       onPress: () => setShowConsentModal(true),
     },
     {
-      title: 'Questionnaire',
+      title: t('account-profile-questionnaire'),
       leftIcon: <Icon name='question-mark' />,
       isDisabled: false,
       onPress: () => setShowQuestionnaireModal(true),
     },
     {
-      title: 'My Care Team',
+      title: t('account-profile-careteam'),
       leftIcon: <Icon name='heart' />,
       isDisabled: false,
       onPress: () => setShowCareTeamModal(true),

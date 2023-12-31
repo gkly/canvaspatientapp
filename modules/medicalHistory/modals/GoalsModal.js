@@ -33,7 +33,7 @@ const GoalsModal = ({ onClose }) => {
       } else {
         tagColor = COLORS.YELLOW;
       }
-      Tags.push(<Tag text={goal.status} color={tagColor} />);
+      Tags.push(<Tag text={goal.status} color={tagColor} circular={true} />);
     }
     if (goal.priority) {
       // if (goal.priority === GOAL_PRIORITY_TYPES.HIGH) {
@@ -44,7 +44,7 @@ const GoalsModal = ({ onClose }) => {
       //   tagColor = COLORS.GREY;
       // }
       tagColor = COLORS.GREY;
-      Tags.push(<Tag text={goal.priority} color={tagColor} />);
+      Tags.push(<Tag text={goal.priority} color={tagColor} circular={true} />);
     }
 
     return { title: goal.name, isDisabled: true, description, tags: Tags }

@@ -55,10 +55,13 @@
   "photo":[
     {"url":"https://d3hn0m4rbsz438.cloudfront.net/avatar1.png"}],
   "communication":[
-    {"language":{
-      "coding":[
-        {"system":"urn:ietf:bcp:47","code":"en","display":"English"}],
-      "text":"English"}
+    {
+      "language":{
+        "coding":[
+          {"system":"urn:ietf:bcp:47","code":"en","display":"English"}
+        ],
+        "text":"English"
+      }
     }
   ]
 }

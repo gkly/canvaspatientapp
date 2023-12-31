@@ -33,11 +33,10 @@ const AppointmentsCarousel = ({ filter }) => {
   const noAppointments = !isLoading && !error && appointments.length === 0;
   const appointmentCards = appointments.map(a => {
     const isTelemedicine = a.type === APPOINTMENT_TYPES.TELEMEDICINE;
-    const appointmentType = isTelemedicine ? t('telemedicine') : t('inperson');
+    const appointmentType = isTelemedicine ? t('appointment-telemedicine') : t('appointment-inperson');
     const isPressable = isTelemedicine && (filter === APPOINTMENT_TEMPORAL_FILTERS.UPCOMING);
     const color = isPressable ? 'rgb(106,150,192)' : 'rgb(171,168,168)';
 
-    // TODO make text wraparound when too long
     return (
       <Pressable
         style={{...styles.cardContainer, borderColor: color}}

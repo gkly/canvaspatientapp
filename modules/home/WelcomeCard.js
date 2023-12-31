@@ -5,7 +5,10 @@ import {useTranslation} from "react-i18next";
 import LanguagePickerModal from "./LanguagePickerModal";
 import {useState} from "react";
 
+
 const WelcomeCard = () => {
+  // TODO support caregiver accounts
+  const [showPatientPickerModal, setShowPatientPickerModal] = useState(false);
   const [showLanguagePickerModal, setShowLanguagePickerModal] = useState(false);
   const { name } = useGetPatient();
   const { t } = useTranslation();
@@ -14,18 +17,26 @@ const WelcomeCard = () => {
   const greeting = t('home-greeting');
   const welcomeMessage = nameToDisplay ? `${greeting} ${nameToDisplay}!` : `${greeting}!`;
 
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.row}>
           <Image source={require('../../assets/canvaslogo.png')} style={styles.image} />
-          <Button
-            iconName='globe-outline'
-            type='ghost'
-            isSecondary={true}
-            onPress={() => setShowLanguagePickerModal(true)}
-          />
+          <View style={styles.row}>
+            <Button
+              iconName='people-outline'
+              type='ghost'
+              isSecondary={true}
+              onPress={() => setShowLanguagePickerModal(true)}
+            />
+            <Button
+              iconName='globe-outline'
+              type='ghost'
+              isSecondary={true}
+              onPress={() => setShowLanguagePickerModal(true)}
+            />
+          </View>
+
         </View>
       </View>
       {showLanguagePickerModal && <LanguagePickerModal onClose={() => setShowLanguagePickerModal(false)} />}

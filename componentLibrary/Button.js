@@ -2,8 +2,18 @@ import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {Icon} from "@ui-kitten/components";
 import {PRIMARY_COLORS, SECONDARY_COLORS, TERTIARY_COLOR} from "../utils/constants";
 
+type Props = {
+  key?: string,
+  text?: string,
+  type?: string,
+  iconName?: string,
+  disabled?: boolean,
+  isSecondary?: boolean,
+  isMini?: boolean,
+  onPress: () => void
+};
 
-const Button = ({text, onPress, type='filled', iconName, disabled, isMini=false, isSecondary=false}) => {
+const Button = ({key, text, onPress, type='filled', iconName, disabled, isMini=false, isSecondary=false}: Props) => {
   let color = isSecondary ? SECONDARY_COLORS.NAVY : PRIMARY_COLORS.BLUE;
   color = disabled ? SECONDARY_COLORS.GREY : color;
   const backgroundColorStyling = (type === 'filled') ? ({backgroundColor: color}) : {};
@@ -25,7 +35,7 @@ const Button = ({text, onPress, type='filled', iconName, disabled, isMini=false,
   }) : {};
 
   return (
-    <Pressable onPress={onPress} style={{...styles.container, marginVertical, ...borderStyling, ...backgroundColorStyling}} disabled={disabled}>
+    <Pressable key={key} onPress={onPress} style={{...styles.container, marginVertical, ...borderStyling, ...backgroundColorStyling}} disabled={disabled}>
       <View style={styles.content}>
         {text && <Text style={{...styles.text, color: textColor, ...textStyling}}>{text}</Text>}
         {iconName && <Icon name={iconName} style={{height: iconSize, width: iconSize}} fill={textColor} />}

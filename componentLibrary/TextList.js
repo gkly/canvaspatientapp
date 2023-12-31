@@ -3,6 +3,7 @@ import { Divider, Icon, List, ListItem, Text } from '@ui-kitten/components';
 import {RefreshControl, StyleSheet, View} from "react-native";
 import {useQueryClient} from "@tanstack/react-query";
 import Tag from "./Tag";
+import {RESOURCES} from "../utils/constants";
 
 export type TextListItem = {
   title: string;
@@ -27,18 +28,19 @@ export const TextList = ({ items=[], resource, showTags=false }: TextListProps) 
       .then(setRefreshing(false))
   }, []);
 
-  // TODO consider supporting badges
+  const isDocument = (resource === RESOURCES.DOCUMENT_REFERENCE);
+
   const renderItem = ({ item }) => {
     const rightArrowIcon = item.isDisabled ? null : <Icon name='arrow-ios-forward' />;
+    const downloadIcon = item.isDisabled ? null : <Icon name='cloud-download-outline' />;
+
     return (
       <View style={styles.rowContainer}>
         <View style={styles.row}>
           {showTags && (
-            <View style={styles.tagContainer}>
+            <View style={{flex: isDocument ? 1 : 2}}>
               <View style={styles.stacked}>
                 {item.tags}
-                {/*{<Tag text={'In Progress'} />}*/}
-                {/*{<Tag text={'High Priority'} />}*/}
               </View>
             </View>
           )}
@@ -47,7 +49,7 @@ export const TextList = ({ items=[], resource, showTags=false }: TextListProps) 
               title={item.title}
               description={item.description}
               accessoryLeft={item.leftIcon}
-              accessoryRight={rightArrowIcon}
+              accessoryRight={isDocument ? downloadIcon : rightArrowIcon}
               onPress={item.onPress}
               disabled={item.isDisabled}
             />
@@ -78,8 +80,7 @@ const styles = StyleSheet.create({
   },
   tagContainer: {
     flex: 1,
-    // padding: 10,
-    // width: 100,
+    // paddingLeft: 15,
   },
   stacked:{
     // flex: 1,
@@ -91,12 +92,12 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'space-between',
   },
   rowContainer: {
     flex: 1,
   },
   listItemContainer: {
-    flex: 2,
+    flex: 3,
   }
 });

@@ -16,6 +16,8 @@ import { StripeProvider } from '@stripe/stripe-react-native';
 import {useEffect} from "react";
 import {useTranslation} from "react-i18next";
 import "./i18n";
+import {useGetPatient} from "./hooks/resourceBased/useGetPatient";
+import {LANGUAGE_CODES_SUPPORTED} from "./utils/constants";
 
 // TODO nice to have theme https://akveo.github.io/react-native-ui-kitten/docs/guides/branding#primary-color
 
@@ -25,10 +27,6 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   const { t, i18n } = useTranslation();
-  // useEffect(() => {
-  //   console.log('App useEffect')
-  // }, []);
-
 
   const screenOptions = {
     // TODO fix onpress

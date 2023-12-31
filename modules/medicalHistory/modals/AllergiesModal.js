@@ -1,3 +1,5 @@
+import {useTranslation} from "react-i18next";
+
 import {TextList} from "../../../componentLibrary/TextList";
 import {RESOURCES} from "../../../utils/constants";
 import {useGetInfiniteQuery} from "../../../hooks/basic/useGetInfiniteQuery";
@@ -5,7 +7,6 @@ import EmptyText from "../../../componentLibrary/EmptyText";
 import {formatAllergiesData} from "../../../utils/formatters";
 import Modal from "../../../componentLibrary/Modal";
 import LoadMoreButton from "../../../componentLibrary/LoadMoreButton";
-import {useTranslation} from "react-i18next";
 
 const AllergiesModal = ({ onClose }) => {
   const { t } = useTranslation();

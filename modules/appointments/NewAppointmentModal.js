@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {useTranslation} from "react-i18next";
 import { useGetAvailableSlots } from "../../hooks/resourceBased/useGetAvailableSlots";
 import InputDropdown from "../../componentLibrary/InputDropdown";
 import {IndexPath} from "@ui-kitten/components";
@@ -12,6 +13,7 @@ import Modal from "../../componentLibrary/Modal";
 import Button from "../../componentLibrary/Button";
 
 const NewAppointmentModal = ({onClose}) => {
+  const { t } = useTranslation();
   const [reason, setReason] = useState();
   const {slots, error, isLoading} = useGetAvailableSlots();
   const slotDates = Object.keys(slots);
@@ -113,38 +115,38 @@ const NewAppointmentModal = ({onClose}) => {
       onClose={onClose}
       isLoading={isLoading}
       errorMessage={error}
-      title='Book an appointment'
-      description='Find an available time with your provider and book an appointment. All fields are required.'
+      title={t('home-scheduleappointment')}
+      description={t('appointment-instructions')}
       scrollView={true}
     >
       <InputText
-        label='Reason for visit'
+        label={t('appointment-reason')}
         value={reason}
         onChange={input => setReason(input)}
       />
       <InputDropdown
-        label='Dates'
+        label={t('appointment-date')}
         selectedIndex={slotDateSelectedIndex}
         value={slotDate}
         onChange={index => setSlotDateSelectedIndex(index)}
         optionNames={slotDates}
       />
       <InputDropdown
-        label='Times'
+        label={t('appointment-time')}
         selectedIndex={slotTimeSelectedIndex}
         value={slotTime}
         onChange={index => setSlotTimeSelectedIndex(index)}
         optionNames={slotTimes}
       />
       <InputDropdown
-        label='Type'
+        label={t('appointment-type')}
         selectedIndex={appointmentTypeSelectedIndex}
         value={appointmentType}
         onChange={index => setAppointmentTypeSelectedIndex(index)}
         optionNames={appointmentTypes}
       />
       <Button
-        text='Book Appointment'
+        text={t('home-scheduleappointment')}
         onPress={onSubmit}
         disabled={bookAppointment.isPending || isTextEmpty(reason)}
       />

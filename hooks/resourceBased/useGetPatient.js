@@ -4,7 +4,7 @@ import {useGetQuery} from "../basic/useGetQuery";
 
 export const useGetPatient = () => {
   const {data, isLoading, error} = useGetQuery(RESOURCES.PATIENT, true, PATIENT_ID)
-  let name, addresses, demographics, photo;  // TODO phone number?
+  let name, addresses, language, demographics, photo;  // TODO phone number?
 
   if (!isLoading && !error && data) {
     let firstNamePreferred, firstNameLegal, lastNameLegal;
@@ -21,13 +21,17 @@ export const useGetPatient = () => {
 
     name = {firstNamePreferred, firstNameLegal, lastNameLegal};
     addresses = data.address || [];
+    const languageRawData = data?.["communication"]?.[0]?.["language"].coding[0];
+    language = {
+      display: languageRawData.display,
+      code: languageRawData.code,
+    }
     demographics = {
       gender: data.gender,
       birthDate: data.birthDate,
-      language: data?.["communication"]?.[0]?.["language"]?.["text"]
     };
     photo = data?.["photo"]?.[0]?.["url"];
   }
 
-  return { name, addresses, demographics, photo, isPatientLoading: isLoading, patientError: error }
+  return { name, addresses, language, demographics, photo, isPatientLoading: isLoading, patientError: error }
 }

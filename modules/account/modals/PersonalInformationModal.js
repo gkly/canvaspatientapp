@@ -1,10 +1,14 @@
+import {useTranslation} from "react-i18next";
+
 import {TextList} from "../../../componentLibrary/TextList";
 import {RESOURCES} from "../../../utils/constants";
 import {useGetPatient} from "../../../hooks/resourceBased/useGetPatient";
 import Modal from "../../../componentLibrary/Modal";
 
 const PersonalInformationModal = ({ onClose }) => {
-  const { name, demographics, isPatientLoading, patientError } = useGetPatient();
+  const { t } = useTranslation();
+  const { name, demographics, language, isPatientLoading, patientError } = useGetPatient();
+
   const personalInformationItems = [
     {
       title: name.firstNameLegal,
@@ -32,7 +36,7 @@ const PersonalInformationModal = ({ onClose }) => {
       isDisabled: true,
     },
     {
-      title: demographics.language,
+      title: language.display,
       description: 'Preferred language',
       isDisabled: true,
     },
@@ -43,7 +47,7 @@ const PersonalInformationModal = ({ onClose }) => {
       isLoading={isPatientLoading}
       errorMessage={patientError?.message}
       onClose={onClose}
-      title='Personal Information'
+      title={t('account-profile-personalinfo')}
       scrollView={false} // since textlist is already supporting vertical scroll
     >
       <TextList items={personalInformationItems} resource={RESOURCES.PATIENT} />

@@ -1,3 +1,5 @@
+import {useTranslation} from "react-i18next";
+
 import {View} from 'react-native';
 import {TextList} from "../../../componentLibrary/TextList";
 import EmptyText from "../../../componentLibrary/EmptyText";
@@ -7,6 +9,7 @@ import {useGetCareTeam} from "../../../hooks/resourceBased/useGetCareTeam";
 
 
 const CareTeamModal = ({ onClose }) => {
+  const { t } = useTranslation();
   const { careTeam, isCareTeamLoading, careTeamError } = useGetCareTeam();
 
   const careTeamItems = careTeam.map((provider) => {
@@ -18,7 +21,7 @@ const CareTeamModal = ({ onClose }) => {
       isLoading={isCareTeamLoading}
       errorMessage={careTeamError?.message}
       onClose={onClose}
-      title='Care Team'
+      title={t('account-profile-careteam')}
       scrollView={false} // since textlist is already supporting vertical scroll
     >
       <View>
