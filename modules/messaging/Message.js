@@ -23,21 +23,21 @@ const Message = ({ text, datetime, wasReceived }: Props) => {
 
 export default Message;
 
+// TODO low simplify styling
 const styles = StyleSheet.create({
   receivedContainer: {
     transform: [{ scaleY: -1 }],
-    // maxWidth: '75%',
     marginVertical: 5,
   },
   sentContainer: {
     transform: [{ scaleY: -1 }],
-    // maxWidth: '75%',
     marginVertical: 5,
     alignSelf: 'flex-end',
   },
   receivedBubble: {
     maxWidth: '75%',
     borderRadius: 20,
+    overflow: 'hidden',
     backgroundColor: 'rgb(133,147,161)',
     color: 'white',
     padding: 10,
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     maxWidth: '75%',
     textAlign: 'right',
     borderRadius: 20,
+    overflow: 'hidden',
     backgroundColor: PRIMARY_COLORS.BLUE,
     color: 'white',
     padding: 10,

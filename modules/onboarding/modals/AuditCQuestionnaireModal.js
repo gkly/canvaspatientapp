@@ -9,7 +9,7 @@ import {useQueryClient} from "@tanstack/react-query";
 import {formatReferenceResource} from "../../../utils/formatters";
 import Modal from "../../../componentLibrary/Modal";
 import Button from "../../../componentLibrary/Button";
-import Toast from "react-native-simple-toast";
+import Toast from "react-native-toast-message";
 
 
 // TODO move to separate file
@@ -194,7 +194,10 @@ const AuditCQuestionnaireModal = ({ onClose, questionResponses }: Props) => {
         queryClient.invalidateQueries({queryKey: [RESOURCES.QUESTIONNAIRE_RESPONSE]});
         onClose();
       },
-      onError: () => Toast.show(ERROR_MESSAGES.CREATE_QUESTIONNAIRE)
+      onError: () => Toast.show({
+        type: 'error',
+        text1: ERROR_MESSAGES.CREATE_QUESTIONNAIRE,
+      })
     })
   }
 

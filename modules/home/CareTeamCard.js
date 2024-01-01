@@ -13,7 +13,6 @@ const CareTeamCard = () => {
   const leadProvider = careTeam[0];
   const display = `${leadProvider?.name} | ${t(leadProvider?.role)}`;
 
-  // TODO (low) adjust size based on screensize
   return (
     <>
       <View style={styles.personalized}>
@@ -29,7 +28,9 @@ const CareTeamCard = () => {
       </View>
 
       {isMakeAppointmentModalVisible &&
-        <NewAppointmentModal onClose={() => setIsMakeAppointmentModalVisible(false)} />
+        <NewAppointmentModal onClose={() => {
+          setIsMakeAppointmentModalVisible(false);
+        }} />
       }
     </>
   );

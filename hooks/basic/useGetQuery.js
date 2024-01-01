@@ -1,7 +1,8 @@
 import {useQuery} from "@tanstack/react-query";
 import {getRequest, getUrlForResource, getUrlForSearch} from "../../utils/network_request_helpers";
-import Toast from "react-native-simple-toast";
+import Toast from 'react-native-toast-message';
 import {useEffect} from "react";
+import {ERROR_MESSAGES} from "../../utils/constants";
 
 export const useGetQuery = (resource, isPatientSpecific=true, resourceId, additionalQueryParams) => {
   // Don't fire query if no resource provided.
@@ -19,7 +20,10 @@ export const useGetQuery = (resource, isPatientSpecific=true, resourceId, additi
 
   useEffect(() => {
     if (!isLoading && error?.message) {
-      Toast.show('There was an error retrieving data.')
+      Toast.show({
+        type: 'error',
+        text1: ERROR_MESSAGES.FETCH,
+      })
     }
   }, [isLoading, error?.message]);
 

@@ -1,7 +1,7 @@
 import {useInfiniteQuery} from "@tanstack/react-query";
 import {getRequest, getUrlForSearch} from "../../utils/network_request_helpers";
-import {BASE_URL} from "../../utils/constants";
-import Toast from "react-native-simple-toast";
+import {BASE_URL, ERROR_MESSAGES} from "../../utils/constants";
+import Toast from 'react-native-toast-message';
 import {useEffect} from "react";
 
 export const useGetInfiniteQuery = (resource, isPatientSpecific=true, additionalQueryParams) => {
@@ -23,7 +23,10 @@ export const useGetInfiniteQuery = (resource, isPatientSpecific=true, additional
 
   useEffect(() => {
     if (!isLoading && error?.message) {
-      Toast.show('There was an error retrieving data.')
+      Toast.show({
+        type: 'error',
+        text1: ERROR_MESSAGES.FETCH,
+      })
     }
   }, [isLoading, error?.message]);
 

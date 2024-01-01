@@ -1,4 +1,4 @@
-import {KeyboardAvoidingView, RefreshControl, ScrollView, StyleSheet, View} from "react-native";
+import {KeyboardAvoidingView, Platform, RefreshControl, ScrollView, StyleSheet, View} from "react-native";
 import InputButton from "../../componentLibrary/InputButton";
 import {useCallback, useEffect, useState} from "react";
 import Message from "./Message";
@@ -9,14 +9,16 @@ import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {isTextEmpty} from "../../utils/helpers";
 import {formatReferenceResource} from "../../utils/formatters";
 import LoadMoreButton from "../../componentLibrary/LoadMoreButton";
-import Toast from "react-native-simple-toast";
+import Toast from "react-native-toast-message";
 import SpinnerWrapper from "../../componentLibrary/SpinnerWrapper";
+import {useKeyboard} from "../../hooks/basic/useGetKeyboardHeight";
 
 
 const Messaging = () => {
   const { messages, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetMessages();
   const [messageDraft, setMessageDraft] = useState();
   const [allMessages, setAllMessages] = useState([]);
+  const keyboardHeight = useKeyboard();
 
   //TODO inverse scrolling makes refresh weird
   const queryClient = useQueryClient();
@@ -61,7 +63,10 @@ const Messaging = () => {
           ...allMessages,
         ])
       }, // Canvas API does not return anything with successful POST
-      onError: () => Toast.show(ERROR_MESSAGES.CREATE_MESSAGE)
+      onError: () => Toast.show({
+        type: 'error',
+        text1: ERROR_MESSAGES.CREATE_MESSAGE,
+      })
     })
   }
 
@@ -74,7 +79,7 @@ const Messaging = () => {
   return isLoading ? <SpinnerWrapper /> : (
     <View style={styles.container}>
       <ScrollView
-        style={styles.history}
+        style={{...styles.history, marginBottom: Platform.OS === 'ios' ? (keyboardHeight + 60): 0}}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
@@ -98,7 +103,7 @@ const Messaging = () => {
         }
       </ScrollView>
       {/*TODO fix for iOS (keyboard blocks view)*/}
-      <KeyboardAvoidingView style={styles.input}>
+      <KeyboardAvoidingView style={{...styles.input, marginBottom: Platform.OS === 'ios' ? keyboardHeight: 0}}>
         <InputButton
          value={messageDraft}
          onChange={setMessageDraft}

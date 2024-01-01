@@ -10,6 +10,7 @@ import {ApplicationProvider, Icon, IconRegistry} from '@ui-kitten/components';
 import {Image, StyleSheet} from "react-native";
 import {useTranslation} from "react-i18next";
 import { ErrorBoundary } from 'react-error-boundary';
+import Toast from 'react-native-toast-message';
 
 import "./i18n";
 import {PRIMARY_COLORS} from "./utils/constants";
@@ -94,6 +95,7 @@ const App = () => {
           </ErrorBoundary>
         </QueryClientProvider>
       </ApplicationProvider>
+      <Toast />
     </>
   );
 }

@@ -18,7 +18,7 @@ import {formatReferenceResource} from "../../utils/formatters";
 import {isTextEmpty} from "../../utils/helpers";
 import Modal from "../../componentLibrary/Modal";
 import Button from "../../componentLibrary/Button";
-import Toast from "react-native-simple-toast";
+import Toast from "react-native-toast-message";
 
 const NewAppointmentModal = ({onClose}) => {
   const { t } = useTranslation();
@@ -115,7 +115,10 @@ const NewAppointmentModal = ({onClose}) => {
         queryClient.invalidateQueries({queryKey: [RESOURCES.APPOINTMENT]})
         onClose();
       }, // Canvas API does not return anything with successful POST
-      onError: () => Toast.show(ERROR_MESSAGES.CREATE_APPOINTMENT)
+      onError: () => Toast.show({
+        type: 'error',
+        text1: ERROR_MESSAGES.CREATE_APPOINTMENT,
+      })
     })
   }
 

@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
-import Toast from 'react-native-simple-toast';
+import Toast from 'react-native-toast-message';
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {
   getUrlForResource,
@@ -68,7 +68,10 @@ const ConsentModal = ({ onClose, status }: Props) => {
         queryClient.invalidateQueries({queryKey: [RESOURCES.CONSENT]});
         onClose();
       },
-      onError: () => Toast.show(ERROR_MESSAGES.CREATE_CONSENT)
+      onError: () => Toast.show({
+        type: 'error',
+        text1: ERROR_MESSAGES.CREATE_CONSENT,
+      })
     })
   }
 

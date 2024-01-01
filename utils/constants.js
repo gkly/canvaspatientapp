@@ -118,6 +118,7 @@ export const ERROR_MESSAGES = {
   CREATE_COVERAGE: 'There was an error submitting your insurance information.',
   CREATE_MESSAGE: 'There was an error sending your message.',
   CREATE_QUESTIONNAIRE: 'There was an error submitting your questionnaire response.',
+  FETCH: 'There was an error retrieving data.',
   OPEN_LINK: 'There was an error opening this page.',
 }
 

@@ -13,12 +13,12 @@ const AddressesModal = ({ onClose }) => {
   const renderAddressCards = () => addresses.map(a => {
     const items = [
       {
-        title: a.use,
+        title: a.use.toUpperCase(),
         description: 'Use',
         isDisabled: true,
       },
       {
-        title: a.type,
+        title: a.type.toUpperCase(),
         description: 'Type',
         isDisabled: true,
       },
@@ -33,7 +33,7 @@ const AddressesModal = ({ onClose }) => {
         isDisabled: true,
       },
       {
-        title: a.country,
+        title: a.country.toUpperCase(),
         description: 'Country',
         isDisabled: true,
       },

@@ -12,7 +12,7 @@ import {isTextEmpty} from "../../../utils/helpers";
 import {useGetCoverage} from "../../../hooks/resourceBased/useGetCoverage";
 import Modal from "../../../componentLibrary/Modal";
 import Button from "../../../componentLibrary/Button";
-import Toast from "react-native-simple-toast";
+import Toast from "react-native-toast-message";
 
 
 type Props = {
@@ -146,7 +146,10 @@ const CoverageModal = ({ onClose }: Props) => {
         queryClient.invalidateQueries({queryKey: [RESOURCES.COVERAGE]});
         onClose();
       },
-      onError: () => Toast.show(ERROR_MESSAGES.CREATE_COVERAGE)
+      onError: () => Toast.show({
+        type: 'error',
+        text1: ERROR_MESSAGES.CREATE_COVERAGE,
+      })
     })
   }
 

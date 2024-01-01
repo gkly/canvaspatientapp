@@ -41,7 +41,7 @@ const AppointmentsCarousel = ({ filter }) => {
         style={{...styles.cardContainer, borderColor: color}}
         onPress={() => loadInBrowser(a.url)}
         disabled={!isPressable}
-        key={a.description}
+        key={`${a.description}-${a.dateForDisplay}`}
       >
         <View style={{...styles.card, justifyContent: isPressable ? 'space-between' : 'start'}}>
           <View style={{...styles.leftIconContainer, backgroundColor: color}} >
