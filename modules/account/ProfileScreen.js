@@ -58,7 +58,6 @@ const ProfileScreen = () => {
 
   return (
     <>
-      {/*TODO make list of resources or optional prop*/}
       <TextList items={contentItems} resource={RESOURCES.PATIENT} />
 
       {showPersonalInformation && <PersonalInformationModal onClose={() => setShowPersonalInformation(false)} /> }

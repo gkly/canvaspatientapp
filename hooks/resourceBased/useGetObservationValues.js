@@ -1,7 +1,5 @@
-import {useGetInfiniteQuery} from "../basic/useGetInfiniteQuery";
 import {RESOURCES} from "../../utils/constants";
 import {getRequestBatch, getUrlForResource} from "../../utils/network_request_helpers";
-import {parseIdFromResourcePath} from "../../utils/helpers";
 import {useEffect, useState} from "react";
 
 export const useGetObservationValues = (observationsCoding, observationIds) => {

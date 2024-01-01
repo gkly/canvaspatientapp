@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {KeyboardAvoidingView, ScrollView, StyleSheet, View} from 'react-native';
 import {useMutation} from "@tanstack/react-query";
-import {PATIENT_ID, RESOURCES} from "../../../utils/constants";
+import {ERROR_MESSAGES, PATIENT_ID, RESOURCES, SECONDARY_COLORS} from "../../../utils/constants";
 import {getUrlForResource, postRequest} from "../../../utils/network_request_helpers";
 import {TextList} from "../../../componentLibrary/TextList";
 import {useQueryClient} from "@tanstack/react-query";
 import InputText from "../../../componentLibrary/InputText";
 import {formatDate, formatReferenceResource} from "../../../utils/formatters";
 import PayerNameSearch from "./PayerNameSearch";
-import LabelWrapper from "../../../componentLibrary/LabelWrapper";
 import {isTextEmpty} from "../../../utils/helpers";
 import {useGetCoverage} from "../../../hooks/resourceBased/useGetCoverage";
 import Modal from "../../../componentLibrary/Modal";
 import Button from "../../../componentLibrary/Button";
+import Toast from "react-native-simple-toast";
 
 
 type Props = {
@@ -21,12 +21,13 @@ type Props = {
 
 const CoverageModal = ({ onClose }: Props) => {
   const queryClient = useQueryClient();
-  const { insurances, isCoverageLoading, coverageError } = useGetCoverage();
+  const { insurances, isCoverageLoading } = useGetCoverage();
   const [payerId, setPayerId] = useState();
   const [payerName, setPayerName] = useState();
   const [subscriberId, setSubscriberId] = useState();
   const [coverageGroup, setCoverageGroup] = useState();
   const [coveragePlan, setCoveragePlan] = useState();
+  const payerSelected = payerId && payerName;
 
   const setPayer = (payer) => {
     setPayerId(payer.id);
@@ -145,12 +146,12 @@ const CoverageModal = ({ onClose }: Props) => {
         queryClient.invalidateQueries({queryKey: [RESOURCES.COVERAGE]});
         onClose();
       },
+      onError: () => Toast.show(ERROR_MESSAGES.CREATE_COVERAGE)
     })
   }
 
   const isFormIncomplete = (payerId === undefined) || isTextEmpty(payerName) || (subscriberId === undefined);
 
-  // TODO support if patient is subscriber
   return (insurances.length > 0) ? (
     <Modal
       onClose={onClose}
@@ -165,37 +166,38 @@ const CoverageModal = ({ onClose }: Props) => {
     <Modal
       onClose={onClose}
       title='Insurance information'
-      scrollView={false}
+      scrollView={payerSelected ? true : false}
     >
-      {(payerId && payerName) ? (
+      {payerSelected ? (
         <>
-          <LabelWrapper label='Health insurance carrier' >
-            <Button
-              text={payerName}
-              type='ghost'
-              iconName='close-outline'
-              onPress={resetPayer}
+          <Button
+            text={payerName}
+            type='ghost'
+            isSecondary={true}
+            iconName='close-outline'
+            onPress={resetPayer}
+          />
+          <KeyboardAvoidingView>
+            <InputText
+              label='ID'
+              placeholder='12345'
+              value={subscriberId}
+              onChange={input => setSubscriberId(input)}
+              inputMode='numeric'
             />
-          </LabelWrapper>
-          <InputText
-            label='ID'
-            placeholder='12345'
-            value={subscriberId}
-            onChange={input => setSubscriberId(input)}
-            inputMode='numeric'
-          />
-          <InputText
-            label='Group (optional)'
-            placeholder='Group'
-            value={coverageGroup}
-            onChange={input => setCoverageGroup(input)}
-          />
-          <InputText
-            label='Plan name (optional)'
-            placeholder='Plan'
-            value={coveragePlan}
-            onChange={input => setCoveragePlan(input)}
-          />
+            <InputText
+              label='Group (optional)'
+              placeholder='Group'
+              value={coverageGroup}
+              onChange={input => setCoverageGroup(input)}
+            />
+            <InputText
+              label='Plan name (optional)'
+              placeholder='Plan'
+              value={coveragePlan}
+              onChange={input => setCoveragePlan(input)}
+            />
+          </KeyboardAvoidingView>
           <Button
             text='Submit'
             type='filled'
@@ -214,7 +216,7 @@ const styles = StyleSheet.create({
   card: {
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: 'rgb(171,168,168)',
+    borderColor: SECONDARY_COLORS.GREY,
     padding: 5,
     marginRight: 5,
   }

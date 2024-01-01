@@ -7,35 +7,32 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import {ApplicationProvider, Icon, IconRegistry} from '@ui-kitten/components';
+import {Image, StyleSheet} from "react-native";
+import {useTranslation} from "react-i18next";
+import { ErrorBoundary } from 'react-error-boundary';
+
+import "./i18n";
+import {PRIMARY_COLORS} from "./utils/constants";
 import MedicalHistory from './modules/medicalHistory/MedicalHistory';
 import Home from "./modules/home/Home";
 import Account from "./modules/account/Account";
 import Messaging from "./modules/messaging/Messaging";
-import {Image, StyleSheet} from "react-native";
-import { StripeProvider } from '@stripe/stripe-react-native';
-import {useEffect} from "react";
-import {useTranslation} from "react-i18next";
-import "./i18n";
-import {useGetPatient} from "./hooks/resourceBased/useGetPatient";
-import {LANGUAGE_CODES_SUPPORTED} from "./utils/constants";
-
-// TODO nice to have theme https://akveo.github.io/react-native-ui-kitten/docs/guides/branding#primary-color
+import ErrorText from "./componentLibrary/ErrorText";
 
 
 const queryClient = new QueryClient()
 const Tab = createBottomTabNavigator();
 
-export default function App() {
-  const { t, i18n } = useTranslation();
+const App = () => {
+  const { t } = useTranslation();
 
   const screenOptions = {
-    // TODO fix onpress
     headerRight: () => <Image source={require('./assets/canvaslogo3.png')} style={styles.image} onPress={() => console.log('make go to home')} />,
     headerTitleStyle: {
-      color: 'rgb(255, 255, 255)',
+      color: PRIMARY_COLORS.WHITE,
     },
     headerStyle: {
-      backgroundColor: 'rgb(106,150,192)',
+      backgroundColor: PRIMARY_COLORS.BLUE,
     },
   };
 
@@ -44,16 +41,12 @@ export default function App() {
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={eva.light}>
         <QueryClientProvider client={queryClient}>
-          <StripeProvider
-            publishableKey="pk_test_TYooMQauvdEDq54NiTphI7jx"
-            urlScheme="your-url-scheme" // required for 3D Secure and bank redirects
-            merchantIdentifier="merchant.com.{{YOUR_APP_NAME}}" // required for Apple Pay
-          >
+          <ErrorBoundary FallbackComponent={ErrorText}>
             <NavigationContainer>
               <Tab.Navigator screenOptions={({ route }) => ({
-                tabBarActiveTintColor: 'rgb(255, 255, 255)',
+                tabBarActiveTintColor: PRIMARY_COLORS.WHITE,
                 tabBarInactiveTintColor: 'black',
-                tabBarActiveBackgroundColor: 'rgb(106,150,192)',
+                tabBarActiveBackgroundColor: PRIMARY_COLORS.BLUE,
               })}>
                 <Tab.Group>
                   <Tab.Screen
@@ -62,12 +55,11 @@ export default function App() {
                     options={{
                       headerShown: false,
                       tabBarIcon: ({color}) => <Icon style={styles.icon} name='home-outline' fill={color} />,
-                      // tabBarBadge: 1,
                       headerTitleStyle: {
-                        color: 'rgb(255, 255, 255)',
+                        color: PRIMARY_COLORS.WHITE,
                       },
                       headerStyle: {
-                        backgroundColor: 'rgb(106,150,192)',
+                        backgroundColor: PRIMARY_COLORS.BLUE,
                       },
                     }}
 
@@ -99,18 +91,17 @@ export default function App() {
                 </Tab.Group>
               </Tab.Navigator>
             </NavigationContainer>
-          </StripeProvider>
+          </ErrorBoundary>
         </QueryClientProvider>
       </ApplicationProvider>
     </>
   );
 }
 
+export default App;
+
 const styles = StyleSheet.create({
   icon: {
-    // fill: 'rgba(0, 0, 255, 1)',
-    // color: 'rgba(0, 0, 255, 1)',
-    // outlineColor: 'rgba(0, 0, 255, 1)',
     width: 25,
     height: 25,
   },

@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import {PRIMARY_COLORS} from "../../utils/constants";
 
 type Props = {
   text: string,
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     maxWidth: '75%',
     textAlign: 'right',
     borderRadius: 20,
-    backgroundColor: 'rgb(106,150,192)',
+    backgroundColor: PRIMARY_COLORS.BLUE,
     color: 'white',
     padding: 10,
   },

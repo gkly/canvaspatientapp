@@ -1,22 +1,20 @@
-import {Icon, IndexPath} from "@ui-kitten/components";
 import {useState} from "react";
+import {View} from "react-native";
 import {useGetQuery} from "../../../hooks/basic/useGetQuery";
 import {RESOURCES} from "../../../utils/constants";
 import InputText from "../../../componentLibrary/InputText";
 import {TextList} from "../../../componentLibrary/TextList";
-import {StyleSheet, Text} from "react-native";
-import LabelWrapper from "../../../componentLibrary/LabelWrapper";
+import SpinnerWrapper from "../../../componentLibrary/SpinnerWrapper";
+
 
 type Props = {
-  payerName: string,
   setPayer: () => void,
-  resetPayer: () => void,
 }
 
-const PayerNameSearch = ({setPayer, resetPayer, payerName}: Props) => {
+const PayerNameSearch = ({setPayer}: Props) => {
   const [searchString, setSearchString] = useState();
   const searchQuery = `name=${searchString}&active=true`
-  const { data, error, isLoading }  = useGetQuery(RESOURCES.ORGANIZATION, false, undefined, searchQuery);
+  const { data, isLoading }  = useGetQuery(RESOURCES.ORGANIZATION, false, undefined, searchQuery);
 
   const organizations = (data?.entry || []).map(({ resource: entry }) => ({ name: entry.name, id: entry.id }));
 
@@ -25,40 +23,16 @@ const PayerNameSearch = ({setPayer, resetPayer, payerName}: Props) => {
   })
 
   return (
-    // <>
-    //   {payerName && (
-    //     <LabelWrapper label='Health insurance carrier' >
-    //       <Text>{payerName}</Text>
-    //       <Icon name='close-outline' style={styles.icon} onPress={resetPayer()} />
-    //     </LabelWrapper>
-    //   )}
-    //   {!payerName && (
-    //     <>
-    //       <InputText
-    //         label='Health plan carrier'
-    //         value={searchString}
-    //         onChange={input => setSearchString(input)}
-    //       />
-    //       <TextList items={organizationItems} />
-    //     </>
-    //   )}
-    // </>
-    <>
+    <View>
       <InputText
         label='Health plan carrier'
         value={searchString}
         onChange={input => setSearchString(input)}
       />
       <TextList items={organizationItems} />
-    </>
+      {isLoading && <SpinnerWrapper/>}
+    </View>
   )
 }
 
 export default PayerNameSearch;
-
-const styles = StyleSheet.create({
-  icon: {
-    height: 15,
-    width: 15,
-  },
-});

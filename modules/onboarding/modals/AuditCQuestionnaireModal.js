@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { IndexPath } from '@ui-kitten/components';
 import InputDropdown from '../../../componentLibrary/InputDropdown';
-import ErrorText from "../../../componentLibrary/ErrorText";
 import {useMutation} from "@tanstack/react-query";
-import {PATIENT_ID, QUESTIONNAIRE_ID, RESOURCES} from "../../../utils/constants";
+import {ERROR_MESSAGES, PATIENT_ID, QUESTIONNAIRE_ID, RESOURCES} from "../../../utils/constants";
 import {getUrlForResource, postRequest} from "../../../utils/network_request_helpers";
 import {TextList} from "../../../componentLibrary/TextList";
 import {useQueryClient} from "@tanstack/react-query";
 import {formatReferenceResource} from "../../../utils/formatters";
 import Modal from "../../../componentLibrary/Modal";
 import Button from "../../../componentLibrary/Button";
+import Toast from "react-native-simple-toast";
 
 
+// TODO move to separate file
 const TITLE = 'AUDIT-C';
 const DESCRIPTION = 'The Alcohol Use Disorders Identification Test-Consumption (AUDIT-C) is a brief validated screen for risky drinking and alcohol abuse and dependence (alcohol misuse).';
 const QUESTIONS = {
@@ -193,6 +194,7 @@ const AuditCQuestionnaireModal = ({ onClose, questionResponses }: Props) => {
         queryClient.invalidateQueries({queryKey: [RESOURCES.QUESTIONNAIRE_RESPONSE]});
         onClose();
       },
+      onError: () => Toast.show(ERROR_MESSAGES.CREATE_QUESTIONNAIRE)
     })
   }
 
@@ -247,7 +249,6 @@ const AuditCQuestionnaireModal = ({ onClose, questionResponses }: Props) => {
         onPress={onSubmit}
         disabled={submitIsLoading}
       />
-      {submitErrorMsg && <ErrorText message={submitErrorMsg}/>}
     </Modal>
   );
 };

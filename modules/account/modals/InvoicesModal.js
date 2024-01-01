@@ -3,17 +3,19 @@ import {useTranslation} from "react-i18next";
 import {View} from 'react-native';
 import {TextList} from "../../../componentLibrary/TextList";
 import EmptyText from "../../../componentLibrary/EmptyText";
-import {loadInBrowser} from "../../../utils/network_request_helpers";
+import {loadInBrowser} from "../../../utils/helpers";
 import {PATIENT_ID, RESOURCES} from "../../../utils/constants";
 import {useGetInfiniteQuery} from "../../../hooks/basic/useGetInfiniteQuery";
 import Modal from "../../../componentLibrary/Modal";
 import LoadMoreButton from "../../../componentLibrary/LoadMoreButton";
+import {formatReferenceResource} from "../../../utils/formatters";
 
 
 const InvoicesModal = ({ onClose }) => {
   const { t } = useTranslation();
-  const queryParams = `subject=Patient/${PATIENT_ID}&category=invoicefull`;
-  const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.DOCUMENT_REFERENCE, false, queryParams);
+  // const queryParams = `subject=Patient/${PATIENT_ID}&category=invoicefull`;
+  const queryParams = `subject=${formatReferenceResource(RESOURCES.PATIENT, PATIENT_ID)}&category=invoicefull`;
+  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.DOCUMENT_REFERENCE, false, queryParams);
 
   const invoices = (data?.pages || [])
     .map((page) => {
@@ -34,7 +36,6 @@ const InvoicesModal = ({ onClose }) => {
   return (
     <Modal
       isLoading={isLoading}
-      errorMessage={error?.message}
       onClose={onClose}
       title={t('account-billing-invoices')}
       scrollView={false} // since textlist is already supporting vertical scroll

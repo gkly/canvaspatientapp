@@ -27,7 +27,6 @@ const Onboarding = ({onClose}) => {
   return (
     <Modal
       isLoading={isOnboardingCompleteLoading}
-      errorMessage={onboardingCompleteError}
       onClose={onClose}
       title='Onboarding'
       description='...a few more steps to get started!'

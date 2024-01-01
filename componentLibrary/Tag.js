@@ -1,4 +1,5 @@
 import {StyleSheet, Text, View} from 'react-native';
+import {PRIMARY_COLORS} from "../utils/constants";
 
 
 const Tag = ({text, color, circular=false}) => {
@@ -28,7 +29,7 @@ export default Tag;
 const styles = StyleSheet.create({
   text: {
     fontStyle: 'italic',
-    color: 'rgb(255,255,255)',
+    color: PRIMARY_COLORS.WHITE,
     fontSize: 11,
     textAlign: 'center',
     padding: 5,

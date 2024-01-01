@@ -9,7 +9,7 @@ import {useTranslation} from "react-i18next";
 
 const MedicationsModal = ({ onClose }) => {
   const { t } = useTranslation();
-  const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.MEDICATION);
+  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.MEDICATION);
 
   const medications = (data?.pages || [])
     .map((page, index) => {
@@ -26,7 +26,6 @@ const MedicationsModal = ({ onClose }) => {
   return (
     <Modal
       isLoading={isLoading}
-      errorMessage={error?.message}
       onClose={onClose}
       title={t('medhistory-overview-medications')}
       scrollView={false} // since textlist is already supporting vertical scroll

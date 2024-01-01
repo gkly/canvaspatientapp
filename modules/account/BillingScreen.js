@@ -2,12 +2,11 @@ import {useState} from "react";
 import { Icon } from '@ui-kitten/components';
 import {useTranslation} from "react-i18next";
 
-import CheckoutScreen from "./CheckoutScreen";
 import {TextList} from "../../componentLibrary/TextList";
 import InvoicesModal from "./modals/InvoicesModal";
 import CoverageModal from "../onboarding/modals/CoverageModal";
 import {STRIPE_PAYMENT_URL} from "../../utils/constants";
-import {loadInBrowser} from "../../utils/network_request_helpers";
+import {loadInBrowser} from "../../utils/helpers";
 
 
 const BillingScreen = () => {
@@ -38,8 +37,6 @@ const BillingScreen = () => {
 
   return (
     <>
-      {/*<CheckoutScreen />*/}
-
       <TextList items={contentItems} />
 
       {showInvoicesModal && <InvoicesModal onClose={() => setShowInvoicesModal(false)} /> }

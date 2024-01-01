@@ -31,10 +31,6 @@ const InputText = ({label, placeholder, value, onChange, disabled, isSecureText 
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginBottom: 10,
-  },
   label: {
     fontSize: 15,
     fontWeight: 'bold',

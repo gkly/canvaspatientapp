@@ -10,7 +10,7 @@ import LoadMoreButton from "../../../componentLibrary/LoadMoreButton";
 
 const AllergiesModal = ({ onClose }) => {
   const { t } = useTranslation();
-  const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.ALLERGY);
+  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.ALLERGY);
 
   const allergies = formatAllergiesData(data?.pages);
 
@@ -21,7 +21,6 @@ const AllergiesModal = ({ onClose }) => {
   return (
     <Modal
       isLoading={isLoading}
-      errorMessage={error?.message}
       onClose={onClose}
       title={t('medhistory-overview-allergies')}
       scrollView={false} // since textlist is already supporting vertical scroll

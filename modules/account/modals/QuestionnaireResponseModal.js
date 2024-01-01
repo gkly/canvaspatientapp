@@ -7,7 +7,7 @@ import Modal from "../../../componentLibrary/Modal";
 
 const QuestionnaireResponseModal = ({ onClose }) => {
   const { t } = useTranslation();
-  const { questions, isLoading, error } = useGetQuestionnaireResponse();
+  const { questions, isLoading } = useGetQuestionnaireResponse();
 
   const questionItems = questions.map(q => ({
     title: q.question,
@@ -18,7 +18,6 @@ const QuestionnaireResponseModal = ({ onClose }) => {
   return (
     <Modal
       isLoading={isLoading}
-      errorMessage={error?.message}
       onClose={onClose}
       title={t('account-profile-questionnaire')}
       scrollView={false} // since textlist is already supporting vertical scroll

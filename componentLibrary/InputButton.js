@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import ErrorText from "./ErrorText";
 import Button from "./Button";
+import {PRIMARY_COLORS} from "../utils/constants";
 
 type Props = {
   placeholder?: string,
@@ -9,10 +10,9 @@ type Props = {
   onChange: () => void,
   onPress: () => void,
   disabled: boolean,
-  errorMessage?: string,
 }
 
-const InputButton = ({placeholder, value, onChange, onPress, disabled, errorMessage}: Props) => {
+const InputButton = ({placeholder, value, onChange, onPress, disabled}: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
@@ -32,7 +32,6 @@ const InputButton = ({placeholder, value, onChange, onPress, disabled, errorMess
           disabled={disabled}
         />
       </View>
-      {errorMessage && <ErrorText message={errorMessage}/>}
     </View>
   )
 }
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderWidth: 1,
     borderRadius: 20,
-    borderColor: 'rgb(106,150,192)',
+    borderColor: PRIMARY_COLORS.BLUE,
     marginRight: 5,
   },
   button: {

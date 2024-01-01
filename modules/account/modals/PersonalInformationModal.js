@@ -7,7 +7,7 @@ import Modal from "../../../componentLibrary/Modal";
 
 const PersonalInformationModal = ({ onClose }) => {
   const { t } = useTranslation();
-  const { name, demographics, language, isPatientLoading, patientError } = useGetPatient();
+  const { name, demographics, language, isPatientLoading } = useGetPatient();
 
   const personalInformationItems = [
     {
@@ -45,7 +45,6 @@ const PersonalInformationModal = ({ onClose }) => {
   return (
     <Modal
       isLoading={isPatientLoading}
-      errorMessage={patientError?.message}
       onClose={onClose}
       title={t('account-profile-personalinfo')}
       scrollView={false} // since textlist is already supporting vertical scroll

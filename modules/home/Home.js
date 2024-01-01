@@ -1,7 +1,7 @@
 import {Pressable, ScrollView, StyleSheet, Text, View} from "react-native";
 import Appointments from "../appointments/Appointments";
 import Onboarding from "../onboarding/Onboarding";
-import {useCallback, useEffect, useState} from "react";
+import {Suspense, useCallback, useEffect, useState} from "react";
 import { RefreshControl } from 'react-native';
 import {useQueryClient} from "@tanstack/react-query";
 import {useIsOnboardingComplete} from "../../hooks/composite/useIsOnboardingComplete";
@@ -11,6 +11,7 @@ import CareTeamCard from "./CareTeamCard";
 import {LANGUAGE_CODES_SUPPORTED, SECONDARY_COLORS} from "../../utils/constants";
 import {Icon} from "@ui-kitten/components";
 import {useGetPatient} from "../../hooks/resourceBased/useGetPatient";
+import SpinnerWrapper from "../../componentLibrary/SpinnerWrapper";
 
 const Home = () => {
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
@@ -40,11 +41,11 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <Suspense fallback={<SpinnerWrapper />}>
       <WelcomeCard />
       <CareTeamCard />
 
-      {!isOnboardingComplete && (
+      {(!isOnboardingComplete && !onboardingCompleteError && !isOnboardingComplete) && (
         <Pressable style={styles.onboarding} onPress={() => setShowOnboardingModal(true)}>
           <Text style={styles.onboardingText}>{t('home-finishonboarding')}</Text>
           <View style={styles.rightIconContainer}>
@@ -62,7 +63,7 @@ const Home = () => {
       >
         <Appointments />
       </ScrollView>
-    </>
+    </Suspense>
   )
 }
 

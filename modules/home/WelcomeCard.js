@@ -4,6 +4,7 @@ import Button from "../../componentLibrary/Button";
 import {useTranslation} from "react-i18next";
 import LanguagePickerModal from "./LanguagePickerModal";
 import {useState} from "react";
+import {PRIMARY_COLORS} from "../../utils/constants";
 
 
 const WelcomeCard = () => {
@@ -27,12 +28,16 @@ const WelcomeCard = () => {
               iconName='people-outline'
               type='ghost'
               isSecondary={true}
-              onPress={() => setShowLanguagePickerModal(true)}
+              disabled={true}
+              onPress={() => console.log('This could be a new feature for caregivers to be able to view other patient accounts in one app!')}
             />
+            {/*This is not necessary because language is auto-selected-based on Canvas records, but if a clinic wanted
+            this to be a manual setting, this can be supported through the LanguagePickerModal commented out below.*/}
             <Button
               iconName='globe-outline'
               type='ghost'
               isSecondary={true}
+              disabled={true}
               onPress={() => setShowLanguagePickerModal(true)}
             />
           </View>
@@ -52,7 +57,7 @@ export default WelcomeCard;
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    backgroundColor: 'rgb(106,150,192)',
+    backgroundColor: PRIMARY_COLORS.BLUE,
     marginBottom: 50,
   },
   header: {
@@ -65,11 +70,11 @@ const styles = StyleSheet.create({
   },
   personalized: {
     paddingLeft: 10,
-    backgroundColor: 'rgb(106,150,192)',
-    paddingBottom: 100,
+    backgroundColor: PRIMARY_COLORS.BLUE,
+    paddingBottom: 110,
   },
   name: {
-    color: 'rgb(255,255,255)',
+    color: PRIMARY_COLORS.WHITE,
     fontSize: 35,
   },
   row: {

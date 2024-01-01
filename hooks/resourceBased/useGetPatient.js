@@ -1,6 +1,7 @@
 import React from "react";
 import {PATIENT_ID, RESOURCES} from "../../utils/constants";
 import {useGetQuery} from "../basic/useGetQuery";
+import Toast from "react-native-simple-toast";
 
 export const useGetPatient = () => {
   const {data, isLoading, error} = useGetQuery(RESOURCES.PATIENT, true, PATIENT_ID)

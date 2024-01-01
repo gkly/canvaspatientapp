@@ -10,7 +10,7 @@ import {useTranslation} from "react-i18next";
 
 const ImmunizationsModal = ({ onClose }) => {
   const { t } = useTranslation();
-  const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.IMMUNIZATION);
+  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.IMMUNIZATION);
 
   const immunizations = (data?.pages || [])
     .map((page) => {
@@ -31,7 +31,6 @@ const ImmunizationsModal = ({ onClose }) => {
   return (
     <Modal
       isLoading={isLoading}
-      errorMessage={error?.message}
       onClose={onClose}
       title={t('medhistory-overview-immunizations')}
       scrollView={false} // since textlist is already supporting vertical scroll

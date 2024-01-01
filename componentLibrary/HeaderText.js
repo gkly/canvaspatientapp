@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {PRIMARY_COLORS} from "../utils/constants";
 
 type Props = {
   title: string,
@@ -9,7 +10,7 @@ type Props = {
 }
 
 const HeaderText = ({title, description, showLine=true, secondaryColor=false}: Props) => {
-  const color = secondaryColor ? 'rgb(255, 255, 255)' : 'rgb(106,150,192)';
+  const color = secondaryColor ? PRIMARY_COLORS.WHITE : PRIMARY_COLORS.BLUE;
   let titleStyle = {...styles.title, color: color};
   if (!showLine) {
     titleStyle = {...titleStyle, marginBottom: 15}

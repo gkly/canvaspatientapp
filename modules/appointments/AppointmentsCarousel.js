@@ -1,13 +1,12 @@
 import {Pressable, ScrollView, StyleSheet, Text, View} from "react-native";
 import {Icon} from "@ui-kitten/components";
 import SpinnerWrapper from "../../componentLibrary/SpinnerWrapper";
-import ErrorText from "../../componentLibrary/ErrorText";
 import EmptyText from "../../componentLibrary/EmptyText";
 import {useGetAppointments} from "../../hooks/resourceBased/useGetAppointments";
-import {loadInBrowser} from "../../utils/network_request_helpers";
+import {loadInBrowser} from "../../utils/helpers";
 import CaptionText from "../../componentLibrary/CaptionText";
 import React from "react";
-import {APPOINTMENT_TEMPORAL_FILTERS, APPOINTMENT_TYPES} from "../../utils/constants";
+import {APPOINTMENT_TEMPORAL_FILTERS, APPOINTMENT_TYPES, PRIMARY_COLORS, SECONDARY_COLORS} from "../../utils/constants";
 import {useTranslation} from "react-i18next";
 import LoadMoreButton from "../../componentLibrary/LoadMoreButton";
 
@@ -28,14 +27,14 @@ const AppointmentsCarousel = ({ filter }) => {
     return null;
   }
 
-  const { appointments, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetAppointments(date, comparator);
+  const { appointments, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetAppointments(date, comparator);
 
-  const noAppointments = !isLoading && !error && appointments.length === 0;
+  const noAppointments = !isLoading && appointments.length === 0;
   const appointmentCards = appointments.map(a => {
     const isTelemedicine = a.type === APPOINTMENT_TYPES.TELEMEDICINE;
-    const appointmentType = isTelemedicine ? t('appointment-telemedicine') : t('appointment-inperson');
+    const appointmentType = t(a.type);
     const isPressable = isTelemedicine && (filter === APPOINTMENT_TEMPORAL_FILTERS.UPCOMING);
-    const color = isPressable ? 'rgb(106,150,192)' : 'rgb(171,168,168)';
+    const color = isPressable ? PRIMARY_COLORS.BLUE : SECONDARY_COLORS.GREY;
 
     return (
       <Pressable
@@ -60,7 +59,7 @@ const AppointmentsCarousel = ({ filter }) => {
           </View>
           {isPressable && (
             <View style={styles.rightIconContainer}>
-              <Icon name='arrow-ios-forward' style={styles.icon} fill='rgb(106,150,192)'/>
+              <Icon name='arrow-ios-forward' style={styles.icon} fill={PRIMARY_COLORS.BLUE}/>
             </View>
           )}
         </View>
@@ -82,7 +81,6 @@ const AppointmentsCarousel = ({ filter }) => {
               <LoadMoreButton isLoading={isFetchingNextPage} onPress={fetchNextPage} />
             )}
             {isLoading && <SpinnerWrapper />}
-            {error && <ErrorText message={error.message} />}
           </>
         )
       }

@@ -11,15 +11,15 @@ const CareTeamCard = () => {
   const { careTeam } = useGetCareTeam();
   const [isMakeAppointmentModalVisible, setIsMakeAppointmentModalVisible] = useState(false);
   const leadProvider = careTeam[0];
-  const display = `${leadProvider?.name} | ${leadProvider?.role}`;
+  const display = `${leadProvider?.name} | ${t(leadProvider?.role)}`;
 
   // TODO (low) adjust size based on screensize
-  return leadProvider ? (
+  return (
     <>
       <View style={styles.personalized}>
         <View style={styles.row}>
           <Text style={styles.caption}>{t('account-profile-careteam').toUpperCase()}</Text>
-          <Text style={styles.provider}>{display}</Text>
+          {leadProvider && <Text style={styles.provider}>{display}</Text>}
         </View>
         <Button
           text={t('home-scheduleappointment')}
@@ -32,7 +32,7 @@ const CareTeamCard = () => {
         <NewAppointmentModal onClose={() => setIsMakeAppointmentModalVisible(false)} />
       }
     </>
-  ) : null;
+  );
 }
 
 export default CareTeamCard;

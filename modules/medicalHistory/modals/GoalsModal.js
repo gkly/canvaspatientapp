@@ -1,6 +1,6 @@
+import {Fragment} from 'react';
 import {TextList} from "../../../componentLibrary/TextList";
 import {
-  GOAL_PRIORITY_TYPES,
   GOAL_STATUS_NEGATIVE_TREND,
   GOAL_STATUS_POSITIVE_TREND,
   RESOURCES,
@@ -8,7 +8,6 @@ import {
 } from "../../../utils/constants";
 import {useGetInfiniteQuery} from "../../../hooks/basic/useGetInfiniteQuery";
 import EmptyText from "../../../componentLibrary/EmptyText";
-import {StyleSheet, View} from 'react-native';
 import {formatGoalsData} from "../../../utils/formatters";
 import Modal from "../../../componentLibrary/Modal";
 import Tag from "../../../componentLibrary/Tag";
@@ -17,7 +16,7 @@ import {useTranslation} from "react-i18next";
 
 const GoalsModal = ({ onClose }) => {
   const { t } = useTranslation();
-  const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.GOAL);
+  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.GOAL);
 
   const goals = formatGoalsData(data?.pages);
 
@@ -33,18 +32,20 @@ const GoalsModal = ({ onClose }) => {
       } else {
         tagColor = COLORS.YELLOW;
       }
-      Tags.push(<Tag text={goal.status} color={tagColor} circular={true} />);
+      // Without the Fragment wrapping, React will show a key warning.
+      Tags.push(
+        <Fragment key={`${goal.name}-${goal.status}`}>
+          <Tag text={goal.status} color={tagColor} circular={true} />
+        </Fragment>
+      );
     }
     if (goal.priority) {
-      // if (goal.priority === GOAL_PRIORITY_TYPES.HIGH) {
-      //   tagColor = COLORS.ORANGE;
-      // } else if (goal.priority === GOAL_PRIORITY_TYPES.MEDIUM) {
-      //   tagColor = COLORS.YELLOW;
-      // } else {
-      //   tagColor = COLORS.GREY;
-      // }
       tagColor = COLORS.GREY;
-      Tags.push(<Tag text={goal.priority} color={tagColor} circular={true} />);
+      Tags.push(
+        <Fragment key={`${goal.name}-${goal.priority}`}>
+          <Tag text={goal.priority} color={tagColor} circular={true} />
+        </Fragment>
+      );
     }
 
     return { title: goal.name, isDisabled: true, description, tags: Tags }
@@ -54,7 +55,6 @@ const GoalsModal = ({ onClose }) => {
   return (
     <Modal
       isLoading={isLoading}
-      errorMessage={error?.message}
       onClose={onClose}
       title={t('medhistory-overview-goals')}
       scrollView={false} // since textlist is already supporting vertical scroll
@@ -72,22 +72,3 @@ const GoalsModal = ({ onClose }) => {
 
 export default GoalsModal;
 
-const styles = StyleSheet.create({
-  // container: {
-  //   // alignItems: 'center',
-  //   // paddingVertical: '35%',
-  //   // height: '100%',
-  //   backgroundColor: 'rgba(106,150,192, 1)',
-  //   borderRadius: 20,
-  // },
-  container: {
-    // flex: 1,
-    // padding: 10,
-    width: 100,
-  },
-  stacked:{
-    // flex: 1,
-    // flexDirection: 'column',
-    width: 100,
-  }
-});

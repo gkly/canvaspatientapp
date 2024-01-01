@@ -9,7 +9,7 @@ import {useTranslation} from "react-i18next";
 
 const ConditionsModal = ({ onClose }) => {
   const { t } = useTranslation();
-  const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.CONDITION);
+  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.CONDITION);
 
   const conditions = formatConditionsData(data?.pages);
   const conditionItems = conditions.map((condition) => {
@@ -19,7 +19,6 @@ const ConditionsModal = ({ onClose }) => {
   return (
     <Modal
       isLoading={isLoading}
-      errorMessage={error?.message}
       onClose={onClose}
       title={t('medhistory-overview-conditions')}
       scrollView={false} // since textlist is already supporting vertical scroll

@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Icon} from "@ui-kitten/components";
+import {SECONDARY_COLORS} from "../utils/constants";
 
 type Props = {
   name: string,
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   icon: {
     height: 50,
     width: 50,
-    color: 'rgb(171,168,168)',
-    fill: 'rgb(171,168,168)',
+    color: SECONDARY_COLORS.GREY,
+    fill: SECONDARY_COLORS.GREY,
   },
 });

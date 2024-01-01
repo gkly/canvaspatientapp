@@ -1,6 +1,5 @@
 import moment from 'moment';
 import React, { useState } from 'react';
-// TODO: reconcile react-native vs ui kitten components
 import { Datepicker, IndexPath } from '@ui-kitten/components';
 import { MomentDateService } from '@ui-kitten/moment';
 import InputText from '../../componentLibrary/InputText';

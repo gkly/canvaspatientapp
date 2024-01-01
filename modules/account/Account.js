@@ -2,6 +2,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import ProfileScreen from "./ProfileScreen";
 import BillingScreen from "./BillingScreen";
 import {useTranslation} from "react-i18next";
+import {PRIMARY_COLORS} from "../../utils/constants";
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -17,7 +18,7 @@ const Account = () => {
         component={ProfileScreen}
         options={{
           tabBarIndicatorStyle: {
-            backgroundColor: 'rgb(106,150,192)',
+            backgroundColor: PRIMARY_COLORS.BLUE,
           }
         }}
       />
@@ -26,7 +27,7 @@ const Account = () => {
         component={BillingScreen}
         options={{
           tabBarIndicatorStyle: {
-            backgroundColor: 'rgb(106,150,192)',
+            backgroundColor: PRIMARY_COLORS.BLUE,
           }
         }}
       />

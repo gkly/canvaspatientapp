@@ -1,5 +1,5 @@
 import {Pressable, StyleSheet, Text, View} from "react-native";
-import {loadInBrowser} from "../utils/network_request_helpers";
+import {loadInBrowser} from "../utils/helpers";
 import {Icon} from "@ui-kitten/components";
 import CaptionText from "./CaptionText";
 

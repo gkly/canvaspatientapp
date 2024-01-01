@@ -1,13 +1,7 @@
 import axios from "axios";
 import * as SecureStore from "expo-secure-store";
-import {Linking} from "react-native";
-import {BASE_URL, PATIENT_ID, TOKEN} from "./constants";
+import {BASE_URL, PATIENT_ID} from "./constants";
 
-// TODO move
-export const loadInBrowser = (url) => {
-  // TODO better error handling
-  Linking.openURL(url).catch(err => console.error("Couldn't load page", err));
-};
 
 export const getEndpoint = (resource, resourceId) => resourceId ? `/${resource}/${resourceId}` : `/${resource}`;
 

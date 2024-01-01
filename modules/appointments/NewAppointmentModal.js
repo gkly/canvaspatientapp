@@ -4,27 +4,38 @@ import { useGetAvailableSlots } from "../../hooks/resourceBased/useGetAvailableS
 import InputDropdown from "../../componentLibrary/InputDropdown";
 import {IndexPath} from "@ui-kitten/components";
 import {getUrlForResource, postRequest} from "../../utils/network_request_helpers";
-import {APPOINTMENT_TYPES, PATIENT_ID, PROVIDER_ID, RESOURCES, TELEMEDICINE_URL} from "../../utils/constants";
+import {
+  APPOINTMENT_TYPES,
+  ERROR_MESSAGES,
+  PATIENT_ID,
+  PROVIDER_ID,
+  RESOURCES,
+  TELEMEDICINE_URL
+} from "../../utils/constants";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import InputText from "../../componentLibrary/InputText";
 import {formatReferenceResource} from "../../utils/formatters";
 import {isTextEmpty} from "../../utils/helpers";
 import Modal from "../../componentLibrary/Modal";
 import Button from "../../componentLibrary/Button";
+import Toast from "react-native-simple-toast";
 
 const NewAppointmentModal = ({onClose}) => {
   const { t } = useTranslation();
   const [reason, setReason] = useState();
-  const {slots, error, isLoading} = useGetAvailableSlots();
+  const {slots, isLoading} = useGetAvailableSlots();
   const slotDates = Object.keys(slots);
   const [slotDateSelectedIndex, setSlotDateSelectedIndex] = useState(new IndexPath(0));
   const slotDate = slotDates[slotDateSelectedIndex.row];
   const slotTimes = slotDate ? slots[slotDate].map(slot => slot.timeRangeForDisplay) : [];
   const [slotTimeSelectedIndex, setSlotTimeSelectedIndex] = useState(new IndexPath(0));
   const slotTime = slotTimes[slotTimeSelectedIndex.row];
-  const appointmentTypes = Object.values(APPOINTMENT_TYPES);
+  const appointmentTypes = Object.values(APPOINTMENT_TYPES).map(aType => t(aType));
   const [appointmentTypeSelectedIndex, setAppointmentTypeSelectedIndex] = useState(new IndexPath(0));
   const appointmentType = appointmentTypes[appointmentTypeSelectedIndex.row];
+  // const appointmentTypeForDisplay = (appointmentType === APPOINTMENT_TYPES.TELEMEDICINE)
+  //   ? t('appointment-telemedicine')
+  //   : t('appointment-inperson');
 
   const queryClient = useQueryClient();
 
@@ -107,6 +118,7 @@ const NewAppointmentModal = ({onClose}) => {
         queryClient.invalidateQueries({queryKey: [RESOURCES.APPOINTMENT]})
         onClose();
       }, // Canvas API does not return anything with successful POST
+      onError: () => Toast.show(ERROR_MESSAGES.CREATE_APPOINTMENT)
     })
   }
 
@@ -114,7 +126,6 @@ const NewAppointmentModal = ({onClose}) => {
     <Modal
       onClose={onClose}
       isLoading={isLoading}
-      errorMessage={error}
       title={t('home-scheduleappointment')}
       description={t('appointment-instructions')}
       scrollView={true}

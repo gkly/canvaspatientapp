@@ -7,6 +7,7 @@ type Props = {
   capitalize?: boolean
 }
 
+// todo
 const CaptionText = ({text, type, capitalize=true}: Props) => {
   let color;
   if (type === 'tertiary') {

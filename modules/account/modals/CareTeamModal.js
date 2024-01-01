@@ -10,7 +10,7 @@ import {useGetCareTeam} from "../../../hooks/resourceBased/useGetCareTeam";
 
 const CareTeamModal = ({ onClose }) => {
   const { t } = useTranslation();
-  const { careTeam, isCareTeamLoading, careTeamError } = useGetCareTeam();
+  const { careTeam, isCareTeamLoading } = useGetCareTeam();
 
   const careTeamItems = careTeam.map((provider) => {
     return { title: provider.name, description: provider.role, isDisabled: true}
@@ -19,7 +19,6 @@ const CareTeamModal = ({ onClose }) => {
   return (
     <Modal
       isLoading={isCareTeamLoading}
-      errorMessage={careTeamError?.message}
       onClose={onClose}
       title={t('account-profile-careteam')}
       scrollView={false} // since textlist is already supporting vertical scroll

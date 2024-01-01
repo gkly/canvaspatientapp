@@ -3,17 +3,18 @@ import InputButton from "../../componentLibrary/InputButton";
 import {useCallback, useEffect, useState} from "react";
 import Message from "./Message";
 import {useGetMessages} from "../../hooks/resourceBased/useGetMessages";
-import {PATIENT_ID, PROVIDER_ID, RESOURCES} from "../../utils/constants";
+import {ERROR_MESSAGES, PATIENT_ID, PRIMARY_COLORS, PROVIDER_ID, RESOURCES} from "../../utils/constants";
 import {getUrlForResource, postRequest} from "../../utils/network_request_helpers";
-import ErrorText from "../../componentLibrary/ErrorText";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {isTextEmpty} from "../../utils/helpers";
 import {formatReferenceResource} from "../../utils/formatters";
 import LoadMoreButton from "../../componentLibrary/LoadMoreButton";
+import Toast from "react-native-simple-toast";
+import SpinnerWrapper from "../../componentLibrary/SpinnerWrapper";
 
 
 const Messaging = () => {
-  const { data, error, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetMessages();
+  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetMessages();
   const [messageDraft, setMessageDraft] = useState();
   const [allMessages, setAllMessages] = useState([]);
 
@@ -60,6 +61,7 @@ const Messaging = () => {
           ...allMessages,
         ])
       }, // Canvas API does not return anything with successful POST
+      onError: () => Toast.show(ERROR_MESSAGES.CREATE_MESSAGE)
     })
   }
 
@@ -69,7 +71,7 @@ const Messaging = () => {
     }
   }, [data]);
 
-  return (
+  return isLoading ? <SpinnerWrapper /> : (
     <View style={styles.container}>
       <ScrollView
         style={styles.history}
@@ -95,17 +97,14 @@ const Messaging = () => {
           })
         }
       </ScrollView>
-      {/*TODO fix for iOS (keyboard bllocks view)*/}
+      {/*TODO fix for iOS (keyboard blocks view)*/}
       <KeyboardAvoidingView style={styles.input}>
         <InputButton
          value={messageDraft}
          onChange={setMessageDraft}
          onPress={onSubmit}
          disabled={sendMessage.isPending || isTextEmpty(messageDraft)}
-         errorMessage={undefined} // TODO hook up with mutation
         />
-        {/*TODO fix formatting*/}
-        {sendMessage.isError && <ErrorText message={'error!'}/>}
       </KeyboardAvoidingView>
     </View>
   )
@@ -117,7 +116,9 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgba(255, 255, 255, 1)',
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 10,
+    paddingBottom: 20,
   },
   history: {
     transform: [{ scaleY: -1 }],
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     transform: [{ scaleY: -1 }],
     borderRadius: 20,
-    backgroundColor: 'rgb(106,150,192)',
+    backgroundColor: PRIMARY_COLORS.BLUE,
     color: 'white',
     padding: 10,
     maxWidth: 200,

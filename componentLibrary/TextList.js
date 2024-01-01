@@ -1,9 +1,8 @@
 import React, {useCallback, useState} from 'react';
-import { Divider, Icon, List, ListItem, Text } from '@ui-kitten/components';
+import { Divider, Icon, List, ListItem } from '@ui-kitten/components';
 import {RefreshControl, StyleSheet, View} from "react-native";
 import {useQueryClient} from "@tanstack/react-query";
-import Tag from "./Tag";
-import {RESOURCES} from "../utils/constants";
+import {PRIMARY_COLORS, RESOURCES, SECONDARY_COLORS} from "../utils/constants";
 
 export type TextListItem = {
   title: string;
@@ -32,7 +31,9 @@ export const TextList = ({ items=[], resource, showTags=false }: TextListProps) 
 
   const renderItem = ({ item }) => {
     const rightArrowIcon = item.isDisabled ? null : <Icon name='arrow-ios-forward' />;
-    const downloadIcon = item.isDisabled ? null : <Icon name='cloud-download-outline' />;
+    const downloadIcon = (
+      <Icon name='cloud-download-outline' fill={item.isDisabled ? SECONDARY_COLORS.GREY : PRIMARY_COLORS.BLUE} />
+    );
 
     return (
       <View style={styles.rowContainer}>

@@ -2,6 +2,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import MyRecordsScreen from "./MyRecordsScreen";
 import MyReportsScreen from "./MyReportsScreen";
 import {useTranslation} from "react-i18next";
+import {PRIMARY_COLORS} from "../../utils/constants";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -16,7 +17,7 @@ const MedicalHistory = () => {
         component={MyRecordsScreen}
         options={{
           tabBarIndicatorStyle: {
-            backgroundColor: 'rgb(106,150,192)',
+            backgroundColor: PRIMARY_COLORS.BLUE,
           }
         }}
       />
@@ -25,7 +26,7 @@ const MedicalHistory = () => {
         component={MyReportsScreen}
         options={{
           tabBarIndicatorStyle: {
-            backgroundColor: 'rgb(106,150,192)',
+            backgroundColor: PRIMARY_COLORS.BLUE,
           }
         }}
       />

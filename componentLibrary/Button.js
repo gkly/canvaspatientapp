@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {Icon} from "@ui-kitten/components";
-import {PRIMARY_COLORS, SECONDARY_COLORS, TERTIARY_COLOR} from "../utils/constants";
+import {PRIMARY_COLORS, SECONDARY_COLORS} from "../utils/constants";
 
 type Props = {
   key?: string,
@@ -59,8 +59,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    // paddingVertical: 5,
-    // paddingHorizontal: 10,
   },
   icon: {
     height: 15,

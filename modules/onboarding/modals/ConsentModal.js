@@ -1,12 +1,12 @@
 import { Text } from 'react-native';
-import ErrorText from "../../../componentLibrary/ErrorText";
+import Toast from 'react-native-simple-toast';
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {
   getUrlForResource,
-  loadInBrowser,
   postRequest,
 } from "../../../utils/network_request_helpers";
-import {CONSENT_CODE, CONSENT_STATUS_TYPES, PATIENT_ID, RESOURCES} from "../../../utils/constants"
+import { loadInBrowser } from "../../../utils/helpers";
+import {CONSENT_CODE, CONSENT_STATUS_TYPES, ERROR_MESSAGES, PATIENT_ID, RESOURCES} from "../../../utils/constants"
 import {formatDate, formatReferenceResource} from "../../../utils/formatters";
 import Modal from "../../../componentLibrary/Modal";
 import React from "react";
@@ -62,14 +62,13 @@ const ConsentModal = ({ onClose, status }: Props) => {
       }),
   })
 
-
   const onSubmit = (accepted) => {
     submitConsent.mutate(accepted, {
       onSuccess: () => {
         queryClient.invalidateQueries({queryKey: [RESOURCES.CONSENT]});
         onClose();
       },
-      onError: (e) => console.log('e=', e)
+      onError: () => Toast.show(ERROR_MESSAGES.CREATE_CONSENT)
     })
   }
 
@@ -83,6 +82,7 @@ const ConsentModal = ({ onClose, status }: Props) => {
       <Button
         text='View Notice of Privacy Practices'
         type='ghost'
+        isSecondary={true}
         onPress={() => loadInBrowser(privacyNoticeUrl)}
       />
       {(status === CONSENT_STATUS_TYPES.REJECTED) && <Text>You declined to give consent. You can still provide consent now.</Text>}
@@ -100,8 +100,6 @@ const ConsentModal = ({ onClose, status }: Props) => {
         onPress={() => onSubmit(false)}
         disabled={submitConsent.isPending || status === CONSENT_STATUS_TYPES.ACTIVE}
       />
-
-      {submitConsent.error && <ErrorText message="error!"/>}
     </Modal>
   );
 };
