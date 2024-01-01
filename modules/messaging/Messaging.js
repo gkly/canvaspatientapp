@@ -79,7 +79,7 @@ const Messaging = () => {
   return isLoading ? <SpinnerWrapper /> : (
     <View style={styles.container}>
       <ScrollView
-        style={{...styles.history, marginBottom: Platform.OS === 'ios' ? (keyboardHeight + 60): 0}}
+        style={{...styles.history, marginBottom: Platform.OS === 'ios' ? (keyboardHeight + 60): 50}}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
@@ -102,7 +102,7 @@ const Messaging = () => {
           })
         }
       </ScrollView>
-      {/*TODO fix for iOS (keyboard blocks view)*/}
+
       <KeyboardAvoidingView style={{...styles.input, marginBottom: Platform.OS === 'ios' ? keyboardHeight: 0}}>
         <InputButton
          value={messageDraft}
@@ -127,7 +127,6 @@ const styles = StyleSheet.create({
   },
   history: {
     transform: [{ scaleY: -1 }],
-    marginBottom: 50,
   },
   messageBubbleReceived: {
     transform: [{ scaleY: -1 }],
@@ -150,6 +149,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   input: {
+    marginTop: 50,
     position: 'absolute',
     left: 0,
     right: 0,

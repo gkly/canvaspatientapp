@@ -3,21 +3,18 @@ import AuditCQuestionnaireModal from "./modals/AuditCQuestionnaireModal";
 import ConsentModal from "./modals/ConsentModal";
 import {useIsOnboardingComplete} from "../../hooks/composite/useIsOnboardingComplete";
 import CoverageModal from "./modals/CoverageModal";
-import CreateProfileModal from "./CreateProfileModal";
 import Modal from "../../componentLibrary/Modal";
 import Button from "../../componentLibrary/Button";
 
 
 const Onboarding = ({onClose}) => {
   const {
-    isProfileComplete,
     isConsentComplete,
     isQuestionnaireComplete,
     isCoverageComplete,
     isOnboardingCompleteLoading,
     onboardingCompleteError
   } = useIsOnboardingComplete();
-  const [isCreateProfileModalVisible, setIsCreateProfileModalVisible] = useState(false);
   const [isCoverageModalVisible, setIsCoverageModalVisible] = useState(false);
   const [isAuditCQuestionnaireModalVisible, setIsAuditCQuestionnaireModalVisible] = useState(false);
   const [isConsentModalVisible, setIsConsentModalVisible] = useState(false);
@@ -38,9 +35,9 @@ const Onboarding = ({onClose}) => {
             <Button
               type='ghost'
               text='Basic Personal Information'
-              iconName={isProfileComplete ? checkmarkIconName : null}
+              iconName={checkmarkIconName}
               onPress={() => setIsCreateProfileModalVisible(true)}
-              disabled={isProfileComplete}
+              disabled={true}
             />
             <Button
               type='ghost'
@@ -67,11 +64,6 @@ const Onboarding = ({onClose}) => {
         )
       }
 
-      {isCreateProfileModalVisible && (
-        <CreateProfileModal
-          onClose={() => setIsCreateProfileModalVisible(false)}
-        />
-      )}
       {isCoverageModalVisible && (
         <CoverageModal
           onClose={() => setIsCoverageModalVisible(false)}

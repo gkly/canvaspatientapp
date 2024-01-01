@@ -14,7 +14,6 @@ const MedicationsModal = ({ onClose }) => {
   const medications = (data?.pages || [])
     .map((page) => {
       const medicationsRawData = page.entry || [];
-      // TODO: low priority check which coding display should be used if this matters
       return medicationsRawData.map(({ resource: entry }) => entry["medicationCodeableConcept"]["coding"][0].display)
     })
     .reduce((acc, pageData) => acc.concat(pageData), []);

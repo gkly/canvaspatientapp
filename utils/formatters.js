@@ -1,5 +1,15 @@
 // months start at 0 so must add 1
-export const formatDate = (date) => (date === undefined) ? '' : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+export const formatDate = (date) => {
+  if (date === undefined) {
+    return '';
+  }
+
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const monthString = (month < 10) ? `0${month}` : month;
+  const dayString = (day < 10) ? `0${day}` : day;
+  return `${date.getFullYear()}-${monthString}-${dayString}`;
+}
 
 export const formatTime = (dateObj, withSuffix=true) => {
   const hour = dateObj.getHours();

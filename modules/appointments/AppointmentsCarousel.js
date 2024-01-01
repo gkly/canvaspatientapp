@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     borderWidth: 2,
     // minWidth: 250,
-    width: 275,
+    minWidth: 275,
     marginHorizontal: 5,
     flex: 1,
     borderRadius: 20,

@@ -5,9 +5,10 @@ export const BASE_URL = 'https://fumage-kim-apiprize.canvasmedical.com';
 // this patient has no reports
 // export const PATIENT_ID = '782b61a50b18419d8033f2e090fb1c0a';
 // this patient has multiple addresses and expired consent
-export const PATIENT_ID = 'eb3ec0ec2a744d31a2c7b0db04461c89';
+// export const PATIENT_ID = 'eb3ec0ec2a744d31a2c7b0db04461c89';
 // this patient has a profile pic
 // export const PATIENT_ID = 'baac151eb3e643499086366f5c886209';
+export const PATIENT_ID = 'e38aa90133cd4ac3a9b367eedb80aed3';
 
 export const PROVIDER_ID = 'abb6bc714d35412dbbc4f5e80dcb30e6';
 

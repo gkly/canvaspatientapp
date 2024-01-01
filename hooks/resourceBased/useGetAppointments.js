@@ -16,22 +16,25 @@ export const useGetAppointments = (date=new Date(), comparator='ge') => {
   const appointments = (data?.pages || [])
     .map((page) => {
       const appointmentsRawData = page.entry || [];
-      return appointmentsRawData.map(({ resource: entry }) => {
-        const startServerFormat = entry.start;
-        const startDateObj = new Date(startServerFormat);
-        const endServerFormat = entry.end;
-        const endDateObj = new Date(endServerFormat);
+      return appointmentsRawData
+        .filter(({ resource: entry }) => entry.status !== 'cancelled')
+        .map(({ resource: entry }) => {
+          const startServerFormat = entry.start;
+          const startDateObj = new Date(startServerFormat);
+          const endServerFormat = entry.end;
+          const endDateObj = new Date(endServerFormat);
 
-        return {
-          description: entry.description,
-          type: entry.appointmentType.coding[0].display,
-          url: entry.contained?.[0]?.address, // video call link (exists for telemedicine only)
-          dateForDisplay: startDateObj.toDateString(),
-          timeRangeForDisplay: formatTimeRange(startDateObj, endDateObj),
-        }
-      })
+          return {
+            description: entry.description,
+            type: entry.appointmentType.coding[0].display,
+            url: entry.contained?.[0]?.address, // video call link (exists for telemedicine only)
+            dateForDisplay: formatDate(startDateObj),
+            timeRangeForDisplay: formatTimeRange(startDateObj, endDateObj),
+          }
+        })
     })
-    .reduce((acc, pageData) => acc.concat(pageData), []);
+    .reduce((acc, pageData) => acc.concat(pageData), [])
+    .sort((a,b) => a?.dateForDisplay < b?.dateForDisplay ? -1 : 1);;
 
   return {
     appointments,

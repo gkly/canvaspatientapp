@@ -36,7 +36,7 @@ export const useGetReports = () => {
           const parentObservationReference = entry["result"]?.[0]?.["reference"];
           const type = entry["category"]?.[0]?.["coding"]?.[0]?.["display"];
           const url = (type === REPORT_TYPES.RADIOLOGY) ? image?.resource?.content[0].attachment.url : lab?.resource?.content[0].attachment.url;
-          console.log('url=', url)
+
           return {
             id: entry.id,
             name: entry?.code?.text,

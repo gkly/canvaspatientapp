@@ -8,8 +8,6 @@ import {PRIMARY_COLORS} from "../../utils/constants";
 
 
 const WelcomeCard = () => {
-  // TODO support caregiver accounts
-  const [showPatientPickerModal, setShowPatientPickerModal] = useState(false);
   const [showLanguagePickerModal, setShowLanguagePickerModal] = useState(false);
   const { name } = useGetPatient();
   const { t } = useTranslation();

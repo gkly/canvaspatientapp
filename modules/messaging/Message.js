@@ -8,7 +8,6 @@ type Props = {
 }
 
 const Message = ({ text, datetime, wasReceived }: Props) => {
-  // TODO fix iOS not rounding message bubbles
   return (
     <View style={wasReceived ? styles.receivedContainer : styles.sentContainer}>
       <Text style={wasReceived ? styles.receivedBubble : styles.sentBubble}>

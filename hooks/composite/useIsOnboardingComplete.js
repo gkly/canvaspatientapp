@@ -1,13 +1,9 @@
 import {useGetQuestionnaireResponse} from "../resourceBased/useGetQuestionnaireResponse";
 import {useGetConsentStatus} from "../resourceBased/useGetConsentStatus";
 import {CONSENT_STATUS_TYPES, RESOURCES} from "../../utils/constants";
-import {useGetQuery} from "../basic/useGetQuery";
-import {useGetPatient} from "../resourceBased/useGetPatient";
 import {useGetCoverage} from "../resourceBased/useGetCoverage";
 
 export const useIsOnboardingComplete = () => {
-  const { name, demographics, isPatientLoading, patientError } = useGetPatient();
-  const isProfileComplete = (name !== undefined && demographics !== undefined);
   const { status, isConsentCompleteLoading, consentCompleteError } = useGetConsentStatus();
   const { questions, isQuestionnaireCompleteLoading, questionnaireCompleteError } = useGetQuestionnaireResponse();
   const { insurances, isCoverageLoading, coverageError } = useGetCoverage();
@@ -17,11 +13,10 @@ export const useIsOnboardingComplete = () => {
   const isQuestionnaireComplete = questions.length > 0;
 
   return {
-    isOnboardingComplete: isProfileComplete && isQuestionnaireComplete && isConsentComplete && isCoverageComplete,
-    isProfileComplete,
+    isOnboardingComplete: isQuestionnaireComplete && isConsentComplete && isCoverageComplete,
     isConsentComplete,
     isQuestionnaireComplete,
     isCoverageComplete,
-    isOnboardingCompleteLoading: isPatientLoading || isQuestionnaireCompleteLoading || isConsentCompleteLoading || isCoverageLoading,
-    onboardingCompleteError: patientError || questionnaireCompleteError || consentCompleteError || coverageError }
+    isOnboardingCompleteLoading: isQuestionnaireCompleteLoading || isConsentCompleteLoading || isCoverageLoading,
+    onboardingCompleteError: questionnaireCompleteError || consentCompleteError || coverageError }
 }

@@ -12,7 +12,6 @@ import Button from "../../../componentLibrary/Button";
 import Toast from "react-native-toast-message";
 
 
-// TODO move to separate file
 const TITLE = 'AUDIT-C';
 const DESCRIPTION = 'The Alcohol Use Disorders Identification Test-Consumption (AUDIT-C) is a brief validated screen for risky drinking and alcohol abuse and dependence (alcohol misuse).';
 const QUESTIONS = {

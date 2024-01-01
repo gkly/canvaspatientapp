@@ -28,7 +28,7 @@ const App = () => {
   const { t } = useTranslation();
 
   const screenOptions = {
-    headerRight: () => <Image source={require('./assets/canvaslogo3.png')} style={styles.image} onPress={() => console.log('make go to home')} />,
+    headerRight: () => <Image source={require('./assets/canvaslogo3.png')} style={styles.image} />,
     headerTitleStyle: {
       color: PRIMARY_COLORS.WHITE,
     },

@@ -3,11 +3,11 @@ import {StyleSheet, Text} from 'react-native';
 
 type Props = {
   text: string,
-  type?: string, // TODO limit to 3 options
+  type?: string,
   capitalize?: boolean
 }
 
-// todo
+
 const CaptionText = ({text, type, capitalize=true}: Props) => {
   let color;
   if (type === 'tertiary') {
