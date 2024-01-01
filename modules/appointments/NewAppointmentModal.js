@@ -33,9 +33,6 @@ const NewAppointmentModal = ({onClose}) => {
   const appointmentTypes = Object.values(APPOINTMENT_TYPES).map(aType => t(aType));
   const [appointmentTypeSelectedIndex, setAppointmentTypeSelectedIndex] = useState(new IndexPath(0));
   const appointmentType = appointmentTypes[appointmentTypeSelectedIndex.row];
-  // const appointmentTypeForDisplay = (appointmentType === APPOINTMENT_TYPES.TELEMEDICINE)
-  //   ? t('appointment-telemedicine')
-  //   : t('appointment-inperson');
 
   const queryClient = useQueryClient();
 

@@ -14,7 +14,7 @@ import SpinnerWrapper from "../../componentLibrary/SpinnerWrapper";
 
 
 const Messaging = () => {
-  const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetMessages();
+  const { messages, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetMessages();
   const [messageDraft, setMessageDraft] = useState();
   const [allMessages, setAllMessages] = useState([]);
 
@@ -66,10 +66,10 @@ const Messaging = () => {
   }
 
   useEffect(() => {
-    if (data && data.length > allMessages.length) {
-      setAllMessages(data);
+    if (messages && messages.length > allMessages.length) {
+      setAllMessages(messages);
     }
-  }, [data]);
+  }, [messages]);
 
   return isLoading ? <SpinnerWrapper /> : (
     <View style={styles.container}>

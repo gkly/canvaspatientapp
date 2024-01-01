@@ -12,7 +12,7 @@ const MedicationsModal = ({ onClose }) => {
   const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage }  = useGetInfiniteQuery(RESOURCES.MEDICATION);
 
   const medications = (data?.pages || [])
-    .map((page, index) => {
+    .map((page) => {
       const medicationsRawData = page.entry || [];
       // TODO: low priority check which coding display should be used if this matters
       return medicationsRawData.map(({ resource: entry }) => entry["medicationCodeableConcept"]["coding"][0].display)

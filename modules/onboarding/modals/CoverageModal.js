@@ -156,6 +156,7 @@ const CoverageModal = ({ onClose }: Props) => {
     <Modal
       onClose={onClose}
       title='Insurance information'
+      isLoading={isCoverageLoading}
       scrollView={false}
     >
        <ScrollView horizontal>

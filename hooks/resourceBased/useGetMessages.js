@@ -63,7 +63,7 @@ export const useGetMessages = () => {
   // TODO format and return; make sure sorted by time
 
   return {
-    data: allMessages,
+    messages: allMessages,
     error: errorAsRecipient || errorAsSender,
     isLoading: isLoadingAsRecipient || isLoadingAsSender,
     hasNextPage: hasNextPageAsRecipient || hasNextPageAsSender,

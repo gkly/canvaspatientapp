@@ -24,8 +24,8 @@ export const formatGoalsData = (rawGoalsDataAsPages= []) => {
       return goalsRawData.map(({ resource: entry }) => (
         {
           name: entry.description?.text,
-          status: entry.achievementStatus?.coding[0]?.display,
-          priority: entry.priority?.coding[0]?.display,
+          status: entry.achievementStatus?.coding?.[0]?.display,
+          priority: entry.priority?.coding?.[0]?.display,
           dueDate: entry.target?.[0]?.dueDate,
         }
       ))
@@ -35,19 +35,18 @@ export const formatGoalsData = (rawGoalsDataAsPages= []) => {
 
 export const formatAllergiesData = (rawAllergiesAsPages= []) => {
   return rawAllergiesAsPages
-    .map((page, index) => {
+    .map((page) => {
       const allergiesRawData = page.entry || [];
-      // TODO: low priority check which coding display should be used if this matters
-      return allergiesRawData.map(({ resource: entry }) => entry["code"].text)
+      return allergiesRawData.map(({ resource: entry }) => entry?.code?.text)
     })
     .reduce((acc, pageData) => acc.concat(pageData), []);
 }
 
 export const formatConditionsData = (rawConditionsAsPages= []) => {
   return rawConditionsAsPages
-    .map((page, index) => {
+    .map((page) => {
       const allergiesRawData = page.entry || [];
-      return allergiesRawData.map(({ resource: entry }) => entry.code?.text)
+      return allergiesRawData.map(({ resource: entry }) => entry?.code?.text)
     })
     .reduce((acc, pageData) => acc.concat(pageData), []);
 }
